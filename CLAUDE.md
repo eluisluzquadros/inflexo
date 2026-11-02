@@ -37,6 +37,13 @@ EXP-316 no ledger compartilhado (`C:\Users\eluzq\workspace\skyvidya-home\.claude
 
 Três coleções (PRODUCT.md, decisão de 01/11/2026): A Geografia da Virada (Brasil, Nordeste e as nove capitais do Nordeste, cada total conferido com o TSE), Momentos (versão simples, curva decorativa declarada, texto do cliente moderado) e Frases épicas (só texto e crédito da obra; risco de direito autoral assumido pelo dono). Sem NFC até decisão do dono.
 
+## Publicação
+
+- Produção: https://inflexo.com.br (Render, blueprint `render.yaml`, deploy a partir de `main`; plano free, que dorme sem visita).
+- Código: https://github.com/eluisluzquadros/inflexo (privado). Segredos só no painel do Render (`SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`) e no `.env` local.
+- DNS: zona na Cloudflare (conta inflexobr@gmail.com), CNAME `@` e `www` → `inflexo.onrender.com`, DNS only. Domínio registrado na Hostinger; os registros antigos da Hostinger (A `@` 216.24.57.1, CNAME `www`) ficam como reserva para caches antigos e podem ser apagados depois de alguns dias.
+- Banco: Supabase, tabela `public.inflexo_fila` (RLS ligada, sem política: só o servidor acessa).
+
 ## Comandos
 
 - `npm run dados:nacional`: lê os boletins do TSE em `pipeline/data/raw/` (fora do Git), confere com o oficial e escreve `pipeline/output/`.
