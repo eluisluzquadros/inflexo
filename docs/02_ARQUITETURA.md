@@ -90,8 +90,10 @@ rascunho → aguardando_pagamento → pago → gerando_arquivos
     físico:  → em_revisao (janela para o cliente corrigir) → enviado_para_producao
              → em_producao → despachado → entregue
 cancelado ← (qualquer estado até enviado_para_producao) → reembolsado
-pago | entregue → em_disputa (contestação no cartão)
+pago | entregue → em_disputa (contestação no cartão) → pago (ganha) | disputa_perdida
 ```
+
+Implementado hoje (Stripe, `apps/web/lib/pedidos.ts`, migração 0003): `aguardando_pagamento → pago | falhou | expirado | cancelado`; `pago | em_disputa → reembolsado` só com reembolso total (parcial só registra `reembolsado_centavos`); `pago → em_disputa → pago | disputa_perdida`. Cada transição é um PATCH filtrado pelos estados de origem, então evento repetido ou fora de ordem não desfaz estado.
 
 - Transições só pelo núcleo (`packages/core`), cada uma grava um evento.
 - Item físico só vai para produção depois de pago, com arte aprovada e texto moderado.

@@ -17,14 +17,18 @@ const TEXTO: Record<string, { titulo: string; corpo: string }> = {
   falhou: { titulo: 'O pagamento não foi concluído.', corpo: 'Nada foi cobrado. Você pode tentar de novo pela página da peça.' },
   expirado: { titulo: 'O pagamento expirou.', corpo: 'O tempo para pagar acabou e nada foi cobrado. Você pode começar de novo pela página da peça.' },
   cancelado: { titulo: 'Pedido cancelado.', corpo: 'Se tiver alguma dúvida, responda o e-mail do pedido.' },
+  reembolsado: { titulo: 'Pedido reembolsado.', corpo: 'O valor foi devolvido ao meio de pagamento usado. No cartão, o estorno aparece em até duas faturas; no Pix, em minutos.' },
+  em_disputa: { titulo: 'Pagamento em contestação.', corpo: 'O banco abriu uma contestação deste pagamento. O pedido fica parado até a resposta. Se não reconhece a contestação, responda o e-mail do pedido.' },
+  disputa_perdida: { titulo: 'Pagamento estornado pelo banco.', corpo: 'A contestação foi encerrada e o valor voltou para quem pagou. Se tiver alguma dúvida, responda o e-mail do pedido.' },
 };
+const DESCONHECIDO = { titulo: 'Pedido registrado.', corpo: 'Se tiver alguma dúvida, responda o e-mail do pedido.' };
 
 export default async function PaginaPedido({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const pedido = await buscarPedido(id).catch(() => null);
   if (!pedido) notFound();
   const p = produto(pedido.produto);
-  const t = TEXTO[pedido.status];
+  const t = TEXTO[pedido.status] ?? DESCONHECIDO;
 
   return (
     <div className="pdp">

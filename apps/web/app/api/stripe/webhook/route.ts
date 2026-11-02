@@ -1,18 +1,20 @@
 import { NextResponse } from 'next/server';
 import type Stripe from 'stripe';
 import { stripe } from '../../../../lib/stripe';
-import { aplicarSessao, eventoNovo, type Status } from '../../../../lib/pedidos';
+import { aplicarSessao, aplicarReembolso, aplicarDisputa, eventoNovo, type Status } from '../../../../lib/pedidos';
 
 // Webhook da Stripe. Regra do projeto: o pedido muda de estado só por evento com assinatura verificada
 // + consulta à Stripe, de forma idempotente. O que libera o pedido é este handler, nunca a página de sucesso.
 // Com Pix, o checkout termina (completed) ainda sem pagamento; a confirmação vem em async_payment_succeeded.
+// Reembolso e contestação tiram o pedido de "pago" (o arquivo digital deixa de valer; a peça não vai para a produção).
 
-const TRATADOS = new Set([
+const SESSAO = new Set([
   'checkout.session.completed',
   'checkout.session.async_payment_succeeded',
   'checkout.session.async_payment_failed',
   'checkout.session.expired',
 ]);
+const DISPUTA = new Set(['charge.dispute.created', 'charge.dispute.closed']);
 
 export async function POST(req: Request) {
   const assinatura = req.headers.get('stripe-signature');
@@ -25,22 +27,34 @@ export async function POST(req: Request) {
   } catch {
     return NextResponse.json({ erro: 'assinatura inválida' }, { status: 400 });
   }
-  if (!TRATADOS.has(evento.type)) return NextResponse.json({ recebido: true });
 
   try {
-    // não confia só no corpo do evento: consulta a sessão na Stripe
-    const id = (evento.data.object as Stripe.Checkout.Session).id;
-    const sessao = await stripe().checkout.sessions.retrieve(id);
-    let status: Status | null = null;
-    if (evento.type === 'checkout.session.completed' || evento.type === 'checkout.session.async_payment_succeeded') {
-      status = sessao.payment_status === 'paid' || sessao.payment_status === 'no_payment_required' ? 'pago' : null; // Pix pendente: segue aguardando
-    } else if (evento.type === 'checkout.session.async_payment_failed') {
-      status = 'falhou';
-    } else if (evento.type === 'checkout.session.expired') {
-      status = 'expirado';
+    // não confia só no corpo do evento: consulta o objeto na Stripe
+    const objetoId = (evento.data.object as { id: string }).id;
+    let pedidoId: string | null;
+
+    if (SESSAO.has(evento.type)) {
+      const sessao = await stripe().checkout.sessions.retrieve(objetoId);
+      let status: Status | null = null;
+      if (evento.type === 'checkout.session.completed' || evento.type === 'checkout.session.async_payment_succeeded') {
+        status = sessao.payment_status === 'paid' || sessao.payment_status === 'no_payment_required' ? 'pago' : null; // Pix pendente: segue aguardando
+      } else if (evento.type === 'checkout.session.async_payment_failed') {
+        status = 'falhou';
+      } else {
+        status = 'expirado';
+      }
+      await aplicarSessao(sessao, status); // só mexe em pedido ainda aguardando pagamento
+      pedidoId = sessao.client_reference_id;
+    } else if (evento.type === 'charge.refunded') {
+      pedidoId = await aplicarReembolso(await stripe().charges.retrieve(objetoId));
+    } else if (DISPUTA.has(evento.type)) {
+      pedidoId = await aplicarDisputa(await stripe().disputes.retrieve(objetoId));
+    } else {
+      return NextResponse.json({ recebido: true });
     }
-    await aplicarSessao(sessao, status);          // idempotente: não rebaixa pedido pago
-    await eventoNovo(evento.id, evento.type, sessao.client_reference_id); // registro (a Stripe reenvia eventos)
+
+    if (!pedidoId) console.warn('webhook: evento sem pedido da loja', evento.type, evento.id);
+    await eventoNovo(evento.id, evento.type, pedidoId); // registro (a Stripe reenvia eventos)
     return NextResponse.json({ recebido: true });
   } catch (erro) {
     console.error('webhook: falha', evento.type, erro instanceof Error ? erro.message : erro);
