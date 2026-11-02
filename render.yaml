@@ -7,15 +7,14 @@ services:
     region: oregon
     plan: free            # dorme após ~15 min sem visita; trocar para starter quando a venda abrir
     branch: main
-    buildCommand: npm ci && npm run build -w @inflexo/web
+    # --include=dev: o Next precisa do TypeScript e dos tipos para compilar, mesmo com NODE_ENV=production
+    buildCommand: npm ci --include=dev && npm run build -w @inflexo/web
     startCommand: npm run start -w @inflexo/web
     healthCheckPath: /metodo
     autoDeploy: true
     envVars:
       - key: NODE_VERSION
         value: 22
-      - key: NODE_ENV
-        value: production
       - key: SUPABASE_URL
         sync: false
       - key: SUPABASE_SERVICE_ROLE_KEY
