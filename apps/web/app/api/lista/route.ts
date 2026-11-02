@@ -15,7 +15,13 @@ export async function POST(req: Request) {
   if (!p || !consentimento || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 200) {
     return NextResponse.json({ erro: 'Informe um e-mail válido e marque o consentimento.' }, { status: 400 });
   }
-  const posicao = entrar({ email, produto: slug, escolha, consentimento: 'aviso de abertura da venda e acesso antecipado' });
+  let posicao: number;
+  try {
+    posicao = await entrar({ email, produto: slug, escolha, consentimento: 'aviso de abertura da venda e acesso antecipado' });
+  } catch (erro) {
+    console.error('fila: falha ao gravar', erro instanceof Error ? erro.message : erro);
+    return NextResponse.json({ erro: 'Não conseguimos registrar agora. Tente de novo em instantes.' }, { status: 503 });
+  }
   const destino = slug === 'colecao' ? `/?fila=${posicao}#fecho` : geo ? `/geografia/${geo.slug}?fila=${posicao}` : `/produto/${slug}?fila=${posicao}`;
   return NextResponse.redirect(new URL(destino, req.url), 303);
 }

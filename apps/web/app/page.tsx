@@ -37,7 +37,7 @@ function Seta() {
 export default async function Inicio({ searchParams }: { searchParams: Promise<Record<string, string | undefined>> }) {
   const q = await searchParams;
   const posicao = Number(q.fila) > 0 ? Number(q.fila) : 0;
-  const total = tamanhoDaFila();
+  const total = await tamanhoDaFila();
   const n = noite();
 
   return (

@@ -21,7 +21,7 @@ export default async function PaginaGeografia({ params, searchParams }: Props) {
   const q = await searchParams;
   const p = pecaGeografia(slug);
   if (!p) notFound();
-  const total = tamanhoDaFila();
+  const total = await tamanhoDaFila();
   const regiao = p.tipo === 'regiao' ? carregarRegiao(slug) : null;
   const outras = pecasGeografia().filter((o) => o.slug !== slug && (p.tipo === 'continente' ? o.tipo === 'regiao' : o.tipo === p.tipo)).slice(0, 4);
 

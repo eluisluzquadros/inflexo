@@ -31,7 +31,7 @@ export default async function PaginaProduto({ params, searchParams }: Props) {
   const p = produto(slug);
   if (!p) notFound();
   const e = escolher(p, { estilo: q.estilo, tema: q.tema, formato: q.formato });
-  const total = tamanhoDaFila();
+  const total = await tamanhoDaFila();
   const fotos = fotosDe(slug, e.estilo);
   const numerado = e.estilo === 'fios' && p.tipo === 'fisico';
   const outros = PRODUTOS.filter((o) => o.slug !== slug);

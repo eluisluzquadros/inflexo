@@ -47,7 +47,7 @@ Três coleções (PRODUCT.md, decisão de 01/11/2026): A Geografia da Virada (Br
 - `node packages/render/scripts/previas-geografia.mjs <caminho do playwright> apps/web/public/loja`: prévias JPG (900 px, com marca d'água) da região e das capitais para a vitrine `/loja`.
 - Mockups: `py -I pipeline/scripts/compor_mockup.py <cena> <arte> <saida> x0 y0 x1 y1` aplica a arte real sobre a área do papel da cena gerada por IA.
 - `npm test`: testes do motor de render e do catálogo (`packages/core`).
-- `npm run web:dev` / `npm run web:build`: loja em Next.js (`apps/web`). Lista de espera grava em `.runtime/lista.jsonl` até o Supabase entrar.
+- `npm run web:dev` / `npm run web:build`: loja em Next.js (`apps/web`). A fila de espera grava no Supabase (`public.inflexo_fila`, RLS ligada, só o servidor acessa) quando `SUPABASE_URL` e `SUPABASE_SERVICE_ROLE_KEY` existem; sem elas, em `.runtime/lista.jsonl`. O `.env` fica na raiz (fora do Git; modelo em `.env.example`). Migrações em `supabase/migrations/`.
 - Nada de bebida alcoólica em produto, cena ou mockup.
 
 Python sempre com `py -I` (dados baixados são tratados como não confiáveis).
