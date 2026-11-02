@@ -8,6 +8,7 @@ export const ESTILOS = {
   // relógio com degrau e estrela: fica no motor (testes e método), fora da vitrine
   forma: { nome: 'Relógio', descricao: 'A curva no relógio, das 17h07 às 21h07, em linhas firmes.' },
   fios: { nome: 'Fios', descricao: 'A mesma curva em feixes de fios finos sobre papel marfim.' },
+  // urnas apuradas: descontinuado na vitrine em 02/11/2026; fica no motor e no catálogo para pedidos antigos
   urnas: { nome: 'Urnas apuradas', descricao: 'A curva de 1% a 100% das urnas, com o meio da apuração aberto.' },
   estampa: { nome: 'Estampa', descricao: 'Número, curva, estrela e data, com traço de giz.' },
 };
@@ -30,19 +31,19 @@ export const FORMATOS = {
 export const PRODUTOS = [
   {
     slug: 'arquivo-digital', nome: 'Arquivo digital', tipo: 'digital',
-    estilos: ['gravura', 'fios', 'urnas'], formatos: ['stories', 'tela', 'a2'],
+    estilos: ['gravura', 'fios'], formatos: ['stories', 'tela', 'a2'],
     resumo: 'PNG em alta para stories, fundo de tela ou impressão própria.',
     entrega: 'Na hora, por link, depois do pagamento confirmado.', preco: null,
   },
   {
     slug: 'poster', nome: 'Pôster', tipo: 'fisico',
-    estilos: ['gravura', 'fios', 'urnas'], formatos: ['a3', 'a2'],
+    estilos: ['gravura', 'fios'], formatos: ['a3', 'a2'],
     resumo: 'Impressão em papel fosco, enviada em tubo.',
     entrega: 'Prazo do fornecedor, informado antes do pagamento.', preco: null,
   },
   {
     slug: 'quadro', nome: 'Quadro', tipo: 'fisico',
-    estilos: ['gravura', 'fios', 'urnas'], formatos: ['a3', 'a2'],
+    estilos: ['gravura', 'fios'], formatos: ['a3', 'a2'],
     resumo: 'Moldura de madeira com passe-partout, pronta para pendurar.',
     fotos: [{ src: '/casa/gravura.jpg', estilo: 'gravura' }, { src: '/mockups/quadro-fios.jpg', estilo: 'fios' }],
     entrega: 'Prazo do fornecedor, informado antes do pagamento.', preco: null,

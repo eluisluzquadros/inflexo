@@ -28,3 +28,12 @@ services:
         value: "false"
       - key: SITE_URL
         value: https://inflexo.com.br
+      # pós-pagamento (EXP-317): fila de tarefas, e-mail e fornecedores
+      - key: TAREFAS_SEGREDO
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: EMAIL_REMETENTE
+        value: INFLEXO <pedidos@inflexo.com.br>
+      - key: GELATO_API_KEY
+        sync: false

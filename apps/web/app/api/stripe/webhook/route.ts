@@ -1,7 +1,8 @@
-import { NextResponse } from 'next/server';
+import { NextResponse, after } from 'next/server';
 import type Stripe from 'stripe';
 import { stripe } from '../../../../lib/stripe';
 import { aplicarSessao, aplicarReembolso, aplicarDisputa, eventoNovo, type Status } from '../../../../lib/pedidos';
+import { processarTarefas } from '../../../../lib/tarefas';
 
 // Webhook da Stripe. Regra do projeto: o pedido muda de estado só por evento com assinatura verificada
 // + consulta à Stripe, de forma idempotente. O que libera o pedido é este handler, nunca a página de sucesso.
@@ -45,6 +46,9 @@ export async function POST(req: Request) {
       }
       await aplicarSessao(sessao, status); // só mexe em pedido ainda aguardando pagamento
       pedidoId = sessao.client_reference_id;
+      // pago: o gatilho do banco já criou a tarefa; processa logo depois de responder à Stripe.
+      // Se falhar aqui, a varredura (pg_cron) tenta de novo.
+      if (status === 'pago') after(() => processarTarefas().catch((e) => console.error('tarefas: após webhook', e instanceof Error ? e.message : e)));
     } else if (evento.type === 'charge.refunded') {
       pedidoId = await aplicarReembolso(await stripe().charges.retrieve(objetoId));
     } else if (DISPUTA.has(evento.type)) {

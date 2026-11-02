@@ -22,7 +22,6 @@ export default function HistoriaDaColecao() {
       <LeiturasScroll leituras={[
         { id: 'gravura', nome: 'Gravura', descricao: 'A curva da noite em três filamentos de tinta sobre papel, das 17h07 às 21h07. O ponto dourado marca o último cruzamento das linhas.', href: '/produto/quadro?estilo=gravura', svg: previa({ estilo: 'gravura', tema: 'papel', formato: 'a3' }) },
         { id: 'fios', nome: 'Fios', descricao: 'A mesma curva em feixes de fios finos sobre papel marfim. O ponto dourado marca a virada das 20h23.', href: '/produto/quadro?estilo=fios', svg: previa({ estilo: 'fios', tema: 'marfim', formato: 'a3' }) },
-        { id: 'urnas', nome: 'Urnas apuradas', descricao: 'A noite medida em urnas, de 1% a 100%. As duas trocas de liderança ficam lado a lado.', href: '/produto/quadro?estilo=urnas', svg: previa({ estilo: 'urnas', tema: 'papel', formato: 'a3' }) },
       ]} />
       <section className="historia-prova">
         <h2>O desenho vem do dado.</h2>

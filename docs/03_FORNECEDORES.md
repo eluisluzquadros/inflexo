@@ -8,7 +8,23 @@ Pesquisa de 31/10/2026. "A confirmar" significa que a informação não foi veri
 |---|---|---|---|---|
 | Pagamento | **Mercado Pago**, Checkout Transparente/API: Pix, cartão parcelado, boleto | **Pagar.me** (Stone) | Pix e parcelamento nativos; marca que o comprador brasileiro já conhece; sandbox e webhooks | Taxas de 2026 nas tabelas oficiais (um guia sem data cita Pix a 1,19 % no Pagar.me); prazo de recebimento e custo de antecipação |
 | Pagamento internacional (fase 3+) | Stripe | — | Só se vender fora do Brasil. O Pix no Stripe é via EBANX, pensado para venda transfronteiriça | — |
-| Parede: pôster, quadro, canvas | **Gelato**: API de catálogo, cotação e pedidos; anuncia produção local no Brasil | Gráfica fine art local em contrato de envio direto com a marca INFLEXO | Produzir no país evita imposto de importação e prazo internacional | Quais SKUs (moldura, principalmente) são feitos no Brasil; prazo; papel; embalagem sem a marca deles; quem emite a nota da remessa |
+| Parede: pôster, quadro, canvas | **Em aberto.** A Gelato saiu (ver abaixo); procurar fornecedor brasileiro de decoração com API de cotação, pedido e webhooks | Gráfica fine art local em contrato de envio direto com a marca INFLEXO (sem API, só reserva manual) | Produzir no país evita imposto de importação e prazo internacional | Quem produz quadro e pôster no Brasil com API para loja própria |
+
+**Gelato, cotação real (02/11/2026, API `orders:quote`, destinos Porto Alegre 90450-090, Recife e São Paulo; EXP-316 H2).** A API funciona (catálogo, preço, cotação e webhooks de status e rastreio), mas a decoração **não é produzida no Brasil**:
+
+| Produto (código Gelato) | Produz em | Produto | Frete econômico | Prazo |
+|---|---|---|---|---|
+| Pôster A3 200 g fosco | EUA | R$ 78,12 | R$ 27,73 DDU | 14 a 23 dias |
+| Pôster A2 200 g fosco | EUA | R$ 89,81 | R$ 27,73 DDU | 14 a 23 dias |
+| Pôster A2 250 g fine art | EUA | R$ 123,16 | R$ 22,28 DDU | 14 a 23 dias |
+| Quadro A3, madeira natural, acrílico | Alemanha | R$ 175,26 | R$ 27,86 | 23 a 44 dias |
+| Quadro A2, madeira natural, acrílico | EUA | R$ 251,93 | R$ 55,76 DDU | 14 a 23 dias |
+| Tela 30 × 40 | Alemanha | R$ 108,35 | R$ 27,86 | 23 a 44 dias |
+| Caneca 11 oz | Alemanha | R$ 44,65 | R$ 30,97 | 23 a 44 dias |
+| Camiseta branca M | EUA | R$ 68,86 | R$ 21,39 DDU | 14 a 23 dias |
+| Ecobag | **Brasil** | R$ 83,82 | sem valor na cotação | 5 a 10 dias |
+
+DDU: o imposto de importação fica com o comprador, na entrega. O quadro da Gelato também não tem passe-partout, que a página do quadro promete. Conclusão: Gelato fora para decoração até ela indicar um produto feito no Brasil; a pergunta fica registrada para o suporte deles. Os mesmos preços valem para as três capitais (o destino não muda a origem).
 | Têxtil: ecobag, camiseta | **Dimona**: Brasil e EUA, API com token para pedidos, status e rastreio | Reserva INK | Impressão sob demanda têxtil brasileira com integração | Se há ecobag no catálogo; estampa (bordado não é padrão); custo |
 | Ateliê: acrílico com LED, shadow box, tábua a laser, azulejo, shape | Parceiros locais com contrato, por lote ou pré-venda | — | Não existe impressão sob demanda para isso | Amostra, custo por lote, prazo, política de defeito e reposição |
 | Nota fiscal | **Focus NFe** ou **NFE.io** (API REST de NF-e) | Bling, se quiser ERP com estoque e financeiro | Emissão automática pelo worker | Preço (a NFE.io mostra plano base de R$ 190/mês com 250 notas, em página sem data); suporte às notas técnicas da reforma tributária (a NFE.io informa mudanças em produção na SEFAZ em 03/11/2026) |

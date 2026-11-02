@@ -13,6 +13,7 @@ export type Pedido = {
   id: string; status: Status; produto: string; estilo: string; tema: string; formato: string;
   valor_centavos: number; frete_centavos: number; total_pago_centavos: number | null;
   email: string | null; criado_em: string; pago_em: string | null;
+  arquivo_path: string | null; arquivo_pronto_em: string | null;
 };
 
 export async function criarPedido(p: { produto: string; estilo: string; tema: string; formato: string; valor_centavos: number; frete_centavos: number }): Promise<string> {
@@ -27,7 +28,7 @@ export async function ligarSessao(id: string, sessao: string): Promise<void> {
 
 export async function buscarPedido(id: string): Promise<Pedido | null> {
   if (!/^[0-9a-f-]{36}$/i.test(id)) return null;
-  const r = await rest(`inflexo_pedidos?id=eq.${id}&select=id,status,produto,estilo,tema,formato,valor_centavos,frete_centavos,total_pago_centavos,email,criado_em,pago_em&limit=1`);
+  const r = await rest(`inflexo_pedidos?id=eq.${id}&select=id,status,produto,estilo,tema,formato,valor_centavos,frete_centavos,total_pago_centavos,email,criado_em,pago_em,arquivo_path,arquivo_pronto_em&limit=1`);
   const [p] = (await r.json()) as Pedido[];
   return p ?? null;
 }

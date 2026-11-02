@@ -35,3 +35,7 @@ test('edição numerada: a prévia mostra o lugar do número, o arquivo final tr
   const final = renderPeca(curva, { estilo: 'fios', tema: 'marfim', formato: 'a2' }, { previa: false, tiragem: 500, numero: 37 });
   assert.ok(final.includes('Nº 037/500') && !final.includes('PRÉVIA'));
 });
+
+test('urnas apuradas saiu da vitrine: nenhum produto oferece o estilo', () => {
+  for (const p of PRODUTOS) assert.ok(!p.estilos.includes('urnas'), p.slug);
+});

@@ -94,8 +94,6 @@ export function vitrine(): ItemVitrine[] {
       arte: { svg: previa({ estilo: 'fios', tema: 'marfim', formato: 'a3' }) }, foto: '/mockups/quadro-fios.jpg', selo: `Tiragem de ${TIRAGEM_FIOS}`, preco: null, href: '/produto/quadro?estilo=fios' },
     { slug: 'quadro-gravura', nome: 'Gravura', linha: 'Quadro · Brasil', colecao: 'brasil', suportes: ['quadro'], formatos: 'A3 · A2', temas: ['papel', 'tinta'],
       arte: { svg: previa({ estilo: 'gravura', tema: 'papel', formato: 'a3' }) }, foto: '/casa/gravura.jpg', preco: null, href: '/produto/quadro?estilo=gravura' },
-    { slug: 'poster-urnas', nome: 'Urnas apuradas', linha: 'Pôster · Brasil', colecao: 'brasil', suportes: ['poster'], formatos: 'A3 · A2', temas: ['papel', 'tinta'],
-      arte: { svg: previa({ estilo: 'urnas', tema: 'papel', formato: 'a3' }) }, preco: null, href: '/produto/poster?estilo=urnas' },
     { slug: 'poster-gravura-tinta', nome: 'Gravura, Tinta', linha: 'Pôster · Brasil', colecao: 'brasil', suportes: ['poster'], formatos: 'A3 · A2', temas: ['tinta', 'papel'],
       arte: { svg: previa({ estilo: 'gravura', tema: 'tinta', formato: 'a3' }) }, preco: null, href: '/produto/poster?estilo=gravura&tema=tinta' },
     { slug: 'arquivo-digital', nome: 'Arquivo digital', linha: 'Stories, fundo de tela e A2', colecao: 'brasil', suportes: ['digital'], formatos: '9:16 · 16:9 · A2', temas: ['papel', 'tinta'],

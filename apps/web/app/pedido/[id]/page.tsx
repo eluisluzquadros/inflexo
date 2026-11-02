@@ -21,6 +21,11 @@ const TEXTO: Record<string, { titulo: string; corpo: string }> = {
   em_disputa: { titulo: 'Pagamento em contestação.', corpo: 'O banco abriu uma contestação deste pagamento. O pedido fica parado até a resposta. Se não reconhece a contestação, responda o e-mail do pedido.' },
   disputa_perdida: { titulo: 'Pagamento estornado pelo banco.', corpo: 'A contestação foi encerrada e o valor voltou para quem pagou. Se tiver alguma dúvida, responda o e-mail do pedido.' },
 };
+// arquivo digital pago: o texto acompanha a entrega (fila de tarefas, EXP-317)
+const TEXTO_DIGITAL = {
+  preparando: { titulo: 'Pagamento confirmado.', corpo: "Estamos gerando o arquivo final, sem marca d'água. Leva alguns segundos; esta página se atualiza sozinha." },
+  pronto: { titulo: 'Seu arquivo está pronto.', corpo: 'Baixe abaixo. O mesmo link foi para o e-mail usado no pagamento e funciona enquanto o pedido estiver ativo.' },
+};
 const DESCONHECIDO = { titulo: 'Pedido registrado.', corpo: 'Se tiver alguma dúvida, responda o e-mail do pedido.' };
 
 export default async function PaginaPedido({ params }: { params: Promise<{ id: string }> }) {
@@ -28,7 +33,13 @@ export default async function PaginaPedido({ params }: { params: Promise<{ id: s
   const pedido = await buscarPedido(id).catch(() => null);
   if (!pedido) notFound();
   const p = produto(pedido.produto);
-  const t = TEXTO[pedido.status] ?? DESCONHECIDO;
+  const digital = p?.tipo === 'digital';
+  const pago = pedido.status === 'pago';
+  const pronto = digital && pago && Boolean(pedido.arquivo_path);
+  const preparando = digital && pago && !pedido.arquivo_path;
+  const t = digital && pago
+    ? (pronto ? TEXTO_DIGITAL.pronto : TEXTO_DIGITAL.preparando)
+    : TEXTO[pedido.status] ?? DESCONHECIDO;
 
   return (
     <div className="pdp">
@@ -41,9 +52,11 @@ export default async function PaginaPedido({ params }: { params: Promise<{ id: s
           <div><dt>Tema e tamanho</dt><dd>{TEMAS[pedido.tema] ?? pedido.tema} · {FORMATOS[pedido.formato] ?? pedido.formato}</dd></div>
           <div><dt>Total</dt><dd>{reais(pedido.total_pago_centavos ?? pedido.valor_centavos + pedido.frete_centavos)}</dd></div>
         </dl>
-        <p><Link className="botao" href="/loja">Voltar para a loja</Link></p>
+        {pronto
+          ? <p><a className="botao" href={`/api/pedido/${pedido.id}/arquivo`}>Baixar o arquivo (PNG)</a> <Link className="link-noite" href="/loja">Voltar para a loja</Link></p>
+          : <p><Link className="botao" href="/loja">Voltar para a loja</Link></p>}
       </section>
-      {pedido.status === 'aguardando_pagamento' && <Atualizar />}
+      {(pedido.status === 'aguardando_pagamento' || preparando) && <Atualizar />}
     </div>
   );
 }
