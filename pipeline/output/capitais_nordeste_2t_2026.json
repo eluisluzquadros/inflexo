@@ -1,0 +1,83 @@
+{
+ "BA": {
+  "nome": "Salvador",
+  "cd_tse": "38490",
+  "votos_eleito": 1154072,
+  "votos_outro": 421752,
+  "boletins": 5124,
+  "pct_eleito": 73.24,
+  "conferido_oficial": true
+ },
+ "PE": {
+  "nome": "Recife",
+  "cd_tse": "25313",
+  "votos_eleito": 633369,
+  "votos_outro": 400342,
+  "boletins": 3481,
+  "pct_eleito": 61.27,
+  "conferido_oficial": true
+ },
+ "CE": {
+  "nome": "Fortaleza",
+  "cd_tse": "13897",
+  "votos_eleito": 932282,
+  "votos_outro": 619634,
+  "boletins": 5335,
+  "pct_eleito": 60.07,
+  "conferido_oficial": true
+ },
+ "MA": {
+  "nome": "São Luís",
+  "cd_tse": "9210",
+  "votos_eleito": 385821,
+  "votos_outro": 235947,
+  "boletins": 2273,
+  "pct_eleito": 62.05,
+  "conferido_oficial": true
+ },
+ "PI": {
+  "nome": "Teresina",
+  "cd_tse": "12190",
+  "votos_eleito": 337154,
+  "votos_outro": 158802,
+  "boletins": 1843,
+  "pct_eleito": 67.98,
+  "conferido_oficial": true
+ },
+ "RN": {
+  "nome": "Natal",
+  "cd_tse": "17612",
+  "votos_eleito": 258155,
+  "votos_outro": 202844,
+  "boletins": 1477,
+  "pct_eleito": 56.0,
+  "conferido_oficial": true
+ },
+ "PB": {
+  "nome": "João Pessoa",
+  "cd_tse": "20516",
+  "votos_eleito": 266096,
+  "votos_outro": 228231,
+  "boletins": 1714,
+  "pct_eleito": 53.83,
+  "conferido_oficial": true
+ },
+ "AL": {
+  "nome": "Maceió",
+  "cd_tse": "27855",
+  "votos_eleito": 250761,
+  "votos_outro": 271791,
+  "boletins": 1661,
+  "pct_eleito": 47.99,
+  "conferido_oficial": true
+ },
+ "SE": {
+  "nome": "Aracaju",
+  "cd_tse": "31054",
+  "votos_eleito": 216858,
+  "votos_outro": 132528,
+  "boletins": 1354,
+  "pct_eleito": 62.07,
+  "conferido_oficial": true
+ }
+}

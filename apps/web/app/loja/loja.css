@@ -1,0 +1,32 @@
+/* /loja no padrão da home: paleta quente, cantos arredondados, foto de estúdio como capa. */
+body:has(.loja) {
+  --bg: #F4F0E8; --folha: #FBF9F4; --fg: #1E1F1B; --muted: #66625A; --linha: #DED7CB; --tile: #E6E0D6;
+  background: var(--bg); color: var(--fg);
+}
+.loja { max-width: 1440px; width: calc(100% - 2 * clamp(16px, 3vw, 40px)); padding: 0 0 96px; }
+.loja-topo { padding: clamp(28px, 6vh, 64px) 0 clamp(20px, 3vh, 32px); }
+.loja-topo h1 { font-size: clamp(3.4rem, 8vw, 7rem); line-height: .9; letter-spacing: -.025em; font-weight: 400; }
+.loja-topo p { color: var(--muted); max-width: 52ch; margin: 14px 0 0; }
+.loja-topo .botao { border-radius: 999px; padding: 14px 24px; background: var(--fg); color: var(--bg); }
+
+.filtros { top: 0; background: color-mix(in srgb, var(--bg) 92%, transparent); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-block: 1px solid var(--linha); }
+.filtro { border-radius: 999px; }
+.filtro[aria-current='true'] { background: var(--fg); border-color: var(--fg); color: var(--bg); }
+
+.grade { --prod-palco: var(--tile); --prod-muted: var(--muted); gap: clamp(36px, 5vh, 56px) clamp(14px, 1.4vw, 22px); }
+.prod-palco { border-radius: 18px; padding: 0; background: var(--tile); }
+.prod-palco-capa { padding: 0; }
+.prod-capa { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
+.prod-revela { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 12% 14%; background: var(--tile); opacity: 0; transition: opacity .5s var(--ease); }
+.prod-revela .prod-arte, .prod-revela img, .prod-revela svg { height: 100%; width: auto; max-width: 100%; object-fit: contain; }
+.prod-link:hover .prod-revela, .prod-link:focus-visible .prod-revela { opacity: 1; }
+.prod-link:hover .prod-capa, .prod-link:focus-visible .prod-capa { transform: scale(1.03); }
+.prod-palco-capa .prod-arte { transform: none; }
+.prod-acao { border-radius: 999px; left: 14px; right: 14px; bottom: 14px; background: rgba(251, 249, 244, .9); color: var(--fg); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.selo { border-radius: 999px; }
+.prod-palco:not(.prod-palco-capa) { padding: 11% 13%; }
+.prod-nome { font-size: 1.3rem; }
+
+.destaque-link { border-radius: 22px; }
+.garantias { border-top-color: var(--linha); }
+@media (prefers-reduced-motion: reduce) { .prod-capa, .prod-revela { transition: none; } }

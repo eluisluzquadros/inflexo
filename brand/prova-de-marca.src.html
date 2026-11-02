@@ -1,0 +1,335 @@
+<title>Prova de marca INFLEXO</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=IBM+Plex+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400;500;600&display=swap">
+<style>
+/* Layout: folha de prova de impressão. Pranchas empilhadas com marcas de corte, régua de cor e legendas técnicas em mono. */
+:root{
+  --bg:#E9E9E5; --sheet:#F7F7F4; --fg:#111215; --muted:#585A60; --rule:#D3D3CE; --accent:#755900; --dot:#C99A06; --ring:var(--sheet);
+  /* cores físicas: tinta, papel e moldura não mudam com o tema */
+  --p-paper:#F1F1EE; --p-ink:#111215; --p-graphite:#585A60; --p-line:#D3D3CE; --p-gold:#C99A06;
+  --p-data-a:#C42B2B; --p-data-b:#1F4FD1; --p-wood:#B08355; --p-wood-dark:#8C6440; --p-mat:#FBFBF9;
+  --display:"Bodoni Moda","Bodoni 72",Didot,Georgia,serif;
+  --body:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0C0D10;--sheet:#15161A;--fg:#ECEBE6;--muted:#A3A49F;--rule:#2C2E33;--accent:#E2B323;--dot:#E2B323;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0C0D10;--sheet:#15161A;--fg:#ECEBE6;--muted:#A3A49F;--rule:#2C2E33;--accent:#E2B323;--dot:#E2B323;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:1rem;line-height:1.55;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 72px}
+main{max-width:1080px;margin:0 auto;display:grid;gap:44px}
+.slug{font-family:var(--mono);font-size:.75rem;letter-spacing:0;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center}
+.slug svg{width:18px;height:18px;flex:none;color:var(--muted)}
+.plate{position:relative;background:var(--sheet);padding:52px 60px;display:grid;gap:22px}
+.plate::before,.plate::after{content:"";position:absolute;width:18px;height:18px;border-color:var(--muted);border-style:solid;opacity:.7}
+.plate::before{top:-11px;left:-11px;border-width:1px 0 0 1px}
+.plate::after{bottom:-11px;right:-11px;border-width:0 1px 1px 0}
+.kicker{font-family:var(--mono);font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin:0}
+h2{font-family:var(--display);font-optical-sizing:auto;font-weight:500;font-size:clamp(1.6rem,3.2vw,2.3rem);line-height:1.1;margin:0;text-wrap:balance}
+p{margin:0;max-width:62ch}
+.lede{color:var(--muted)}
+.head{display:grid;gap:10px;align-content:start;min-width:0}
+
+/* marca */
+.wordmark{font-family:var(--display);font-optical-sizing:auto;font-weight:560;font-size:clamp(3.2rem,13.5vw,9.5rem);line-height:1;letter-spacing:.03em;margin:6px 0 0;white-space:nowrap}
+.wordmark .x{display:inline-block;height:.71em;width:.7em;margin:0 .02em;vertical-align:baseline}
+.tagline{font-family:var(--display);font-style:italic;font-size:clamp(1.25rem,2.6vw,1.9rem);line-height:1.2}
+.etym{font-family:var(--mono);font-size:.78rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 26px;max-width:none;border-top:1px solid var(--rule);padding-top:16px}
+.etym b{font-weight:500;color:var(--fg)}
+
+/* peça real */
+.piece{display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr);gap:clamp(24px,5vw,56px);align-items:start}
+.art svg{display:block;width:100%;height:auto}
+.frame{margin:0;padding:12px;background:linear-gradient(135deg,var(--p-wood),var(--p-wood-dark));box-shadow:0 22px 44px -22px rgba(0,0,0,.5);max-width:100%}
+.frame .mat{background:var(--p-mat);padding:7%}
+.facts{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 18px;margin:0;font-size:.92rem}
+.facts dt{font-family:var(--mono);font-size:.76rem;color:var(--muted);padding-top:2px}
+.facts dd{margin:0}
+.facts dd b{font-family:var(--mono);font-weight:500}
+.reading{margin:0;padding-left:1.4em;display:grid;gap:8px}
+.reading li{padding-left:4px}
+.reading li::marker{font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+.reading b{font-weight:600}
+.note{border-left:2px solid var(--dot);padding:4px 0 4px 14px;font-size:.92rem;color:var(--muted)}
+.cap{font-family:var(--mono);font-size:.75rem;color:var(--muted);line-height:1.5}
+@media (max-width:760px){.piece{grid-template-columns:1fr}.facts{grid-template-columns:1fr;gap:2px 0}.facts dd{margin-bottom:8px}}
+
+/* produtos */
+.products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,4vw,40px);align-items:end}
+.products.two-up{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+.products.two-up .poster{max-width:none}
+.products.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.tee{background:#FFFFFF;border:1px solid var(--rule);box-shadow:0 18px 36px -24px rgba(0,0,0,.45);width:100%}
+.piece .tee{max-width:440px}
+.products figure{margin:0;display:grid;gap:14px;min-width:0}
+.products figcaption{display:grid;gap:4px}
+.products figcaption strong{font-family:var(--display);font-weight:500;font-size:1.25rem;line-height:1.15}
+.products figcaption span{font-size:.86rem;color:var(--muted)}
+.phone{border-radius:22px;overflow:hidden;border:6px solid var(--p-ink);max-width:220px;justify-self:center;width:100%}
+.poster{box-shadow:0 18px 36px -20px rgba(0,0,0,.55);max-width:300px;justify-self:center;width:100%}
+.products .frame{max-width:300px;justify-self:center;width:100%;padding:9px}
+@media (max-width:980px){.products.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.products,.products.four{grid-template-columns:1fr}}
+
+/* símbolo */
+.sizes{display:flex;flex-wrap:wrap;gap:28px 44px;align-items:flex-end}
+.sizes figure{margin:0;display:grid;gap:10px;justify-items:start}
+.sizes svg{color:var(--fg);display:block}
+figcaption{font-family:var(--mono);font-size:.75rem;color:var(--muted);line-height:1.5}
+
+/* cor */
+.chips{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.chips.two{grid-template-columns:repeat(2,minmax(0,1fr));max-width:440px}
+.chip{display:grid;gap:8px;min-width:0}
+.sw{height:84px;border:1px solid var(--rule)}
+.chip strong{font-weight:600;font-size:.95rem}
+.chip code{font-family:var(--mono);font-size:.76rem;color:var(--muted)}
+.chip span{font-size:.82rem;color:var(--muted);line-height:1.4}
+.ratio{display:flex;height:18px;border:1px solid var(--rule)}
+.ratio i{display:block;height:100%}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:start}
+@media (max-width:640px){.chips{grid-template-columns:1fr}.chip{grid-template-columns:72px minmax(0,1fr);column-gap:14px;align-items:center}.chip .sw{height:56px;grid-row:span 3}.chips.two{grid-template-columns:1fr}.split{grid-template-columns:1fr}}
+
+/* tipografia */
+.specimens{display:grid;border-top:1px solid var(--rule)}
+.spec{display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px;padding:20px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.spec .s-display{font-family:var(--display);font-optical-sizing:auto;font-size:clamp(1.8rem,4.2vw,3rem);line-height:1.05;font-weight:500}
+.spec .s-display em{display:block;font-size:1.15rem;color:var(--muted);margin-top:6px}
+.spec .s-body{font-family:var(--body);font-size:1.05rem;max-width:56ch}
+.spec .s-mono{font-family:var(--mono);font-size:clamp(.95rem,2vw,1.15rem);font-variant-numeric:tabular-nums;display:flex;flex-wrap:wrap;gap:6px 28px}
+@media (max-width:640px){.spec{grid-template-columns:1fr;gap:8px}}
+
+/* família */
+.family{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.branch{border-top:2px solid var(--fg);padding-top:14px;display:grid;gap:12px;align-content:start}
+.branch h3{font-family:var(--mono);font-size:.76rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;margin:0;color:var(--muted)}
+.coll{display:grid;gap:4px}
+.coll strong{font-family:var(--display);font-weight:500;font-size:1.3rem;line-height:1.15}
+.coll span{font-size:.86rem;color:var(--muted)}
+.pill{justify-self:start;font-family:var(--mono);font-size:.75rem;letter-spacing:.02em;padding:4px 10px;border:1px solid var(--rule);color:var(--muted)}
+.pill.on{border-color:var(--dot);color:var(--accent)}
+@media (max-width:760px){.family{grid-template-columns:1fr}}
+
+/* voz */
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:520px}
+th,td{text-align:left;padding:13px 16px 13px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+td:first-child{font-family:var(--display);font-size:1.12rem;width:56%}
+td:last-child{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--rule)}
+.rules{margin:0;padding-left:1.1em;display:grid;gap:6px;max-width:70ch}
+@media (max-width:640px){.plate{padding:28px 20px}}
+footer.slug{border-top:1px solid var(--rule);padding-top:18px}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="x-regular" viewBox="0 0 100 100">
+    <path d="M10 2 C 38 22, 62 78, 90 98" style="fill:none;stroke:currentColor;stroke-width:15"/>
+    <path d="M10 98 C 38 78, 62 22, 90 2" style="fill:none;stroke:currentColor;stroke-width:3.2"/>
+    <circle cx="50" cy="50" r="7.5" style="fill:var(--dot);stroke:var(--ring);stroke-width:3"/>
+  </symbol>
+  <symbol id="x-small" viewBox="0 0 100 100">
+    <path d="M12 4 C 38 24, 62 76, 88 96" style="fill:none;stroke:currentColor;stroke-width:19"/>
+    <path d="M12 96 C 38 76, 62 24, 88 4" style="fill:none;stroke:currentColor;stroke-width:9"/>
+    <circle cx="50" cy="50" r="11" style="fill:var(--dot);stroke:var(--ring);stroke-width:4"/>
+  </symbol>
+</svg>
+
+<main>
+  <header class="slug">
+    <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="5.5" fill="none" stroke="currentColor" stroke-width="1"/><path d="M10 0V20M0 10H20" stroke="currentColor" stroke-width="1"/></svg>
+    <span>INFLEXO · Prova de marca 02</span>
+    <span>31.10.2026</span>
+    <span>Com dados reais do TSE</span>
+  </header>
+
+  <section class="plate" aria-labelledby="marca">
+    <h1 id="marca" class="wordmark" aria-label="INFLEXO"><span aria-hidden="true">INFLE</span><svg class="x" aria-hidden="true"><use href="#x-regular"/></svg><span aria-hidden="true">O</span></h1>
+    <p class="tagline">A estética do movimento.</p>
+    <p class="lede">Arte de dados a partir de dado público. A primeira peça é a curva real da apuração de 25.10.2026, reconstruída a partir dos 499.205 boletins de urna do TSE.</p>
+    <p class="etym"><span><b>in·fle·xo</b> adj. do latim <i>inflexus</i>, curvado.</span><span><b>ponto de inflexão</b> momento em que algo muda de rumo.</span></p>
+  </section>
+
+  <section class="plate" aria-labelledby="peca">
+    <div class="head">
+      <p class="kicker">Peça 1 · dados reais</p>
+      <h2 id="peca">A forma que circula, desenhada pelo dado</h2>
+      <p class="lede">O eixo é a hora em que cada boletim chegou ao TSE, do primeiro lote completo até a curva estabilizar. Assim, a forma que circulou sai inteira dos boletins: o degrau cai a 48% da largura, as linhas se entrelaçam e a estrela fecha o desenho.</p>
+    </div>
+    <div class="piece">
+      <figure class="tee art"><!--ESTAMPA:quadrado_branco--></figure>
+      <div class="head">
+        <dl class="facts">
+          <dt>Boletins lidos</dt><dd><b>499.205</b>, de 28 arquivos do TSE com hash conferido</dd>
+          <dt>Total oficial</dt><dd>diferença de <b>0</b> voto em cada candidato, nos brancos e nos nulos</dd>
+          <dt>Janela</dt><dd>de <b>17h07</b>, último boletim antes da pausa, a <b>21h07</b>, quando a curva fica a menos de 0,05 ponto do resultado final</dd>
+          <dt>A pausa</dt><dd>nenhum boletim entre <b>17h07</b> e <b>19h03</b>: 1h56 de linhas paradas</dd>
+          <dt>Trocas de liderança</dt><dd><b>19h44</b> e <b>20h23</b>, a definitiva</dd>
+          <dt>Final</dt><dd><b>51,79%</b> × <b>48,21%</b> dos votos válidos</dd>
+        </dl>
+        <p class="cap">Da esquerda para a direita</p>
+        <ol class="reading">
+          <li><b>A pausa</b>: duas linhas paradas e afastadas, das 17h07 às 19h03.</li>
+          <li><b>O degrau</b>: às 19h03 as urnas chegam em massa e as linhas despencam uma na direção da outra.</li>
+          <li><b>O entrelaçado</b>: as linhas se cruzam às 19h44 e de novo às 20h23.</li>
+          <li><b>A estrela</b>: o desfecho, quando a curva estabiliza.</li>
+        </ol>
+        <p class="note">Traço de giz é só textura: os pontos são os do dado. Na pausa, a linha fica parada até o próximo boletim, sem diagonal inventada. A soma final bate voto a voto com o resultado oficial. A peça não traz nome, número nem partido.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="plate" aria-labelledby="galeria">
+    <div class="head">
+      <p class="kicker">Edição galeria</p>
+      <h2 id="galeria">Fios na folha branca, dentro da caixa</h2>
+      <p class="lede">A mesma curva, suavizada e desenhada como feixes de fios finos que se fecham no ponto dourado da virada (20h23) e se abrem longe dela. O traçado central é o dado; a abertura do feixe e os pontos são estilo, e a peça diz isso no rodapé.</p>
+    </div>
+    <div class="products two-up">
+      <figure><div class="poster art"><!--FIOS:a2--></div><figcaption><strong>Fios</strong><span>A2 em papel algodão marfim. Edição numerada.</span></figcaption></figure>
+      <figure>
+        <div class="art box-art"><svg viewBox="0 0 420 594" role="img" aria-label="Caixa preta da INFLEXO com o X em relevo seco e o ponto dourado no cruzamento">
+          <defs>
+            <linearGradient id="caixa-luz" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#232323"/><stop offset="0.55" stop-color="#141414"/><stop offset="1" stop-color="#0B0B0B"/></linearGradient>
+          </defs>
+          <rect x="18" y="18" width="384" height="558" rx="4" fill="url(#caixa-luz)"/>
+          <rect x="18" y="18" width="384" height="558" rx="4" fill="none" stroke="#2C2C2C" stroke-width="1.5"/>
+          <g fill="none" stroke-linecap="round">
+            <path d="M60 70 C 170 170, 250 424, 360 524" stroke="#070707" stroke-width="3"/>
+            <path d="M60 524 C 170 424, 250 170, 360 70" stroke="#070707" stroke-width="3"/>
+            <path d="M60 69 C 170 169, 250 423, 360 523" stroke="#2E2E2E" stroke-width="1.2"/>
+            <path d="M60 523 C 170 423, 250 169, 360 69" stroke="#2E2E2E" stroke-width="1.2"/>
+          </g>
+          <circle cx="210" cy="297" r="9" fill="#B68A17"/>
+          <text x="48" y="520" fill="#F6F4EF" font-family="'Bodoni Moda',Didot,Georgia,serif" font-size="26" letter-spacing="2">INFLEXO</text>
+          <text x="48" y="544" fill="#B7B3AB" font-family="'Bodoni Moda',Didot,Georgia,serif" font-style="italic" font-size="12">A estética do movimento.</text>
+        </svg></div>
+        <figcaption><strong>Caixa</strong><span>Rígida, preta, X em relevo seco e ponto em dourado. Acompanha a edição numerada.</span></figcaption>
+      </figure>
+    </div>
+    <p class="note">A caixa e a edição numerada exigem gráfica de embalagem e montagem própria. Ficam para quando o pôster e o quadro estiverem vendendo. Até lá, uma caixa de envio preta com selo dourado do X dá a mesma primeira impressão.</p>
+  </section>
+
+  <section class="plate" aria-labelledby="leituras">
+    <div class="head">
+      <p class="kicker">Duas leituras do mesmo dado</p>
+      <h2 id="leituras">Relógio ou urnas apuradas</h2>
+      <p class="lede">No relógio, a noite aparece com a pausa, o degrau e o entrelaçado. Por urnas apuradas, a pausa some em 1% da largura e o meio da apuração ganha detalhe. As duas somam os mesmos boletins; a do relógio é a principal, a das urnas pode virar opção na página do produto.</p>
+    </div>
+    <div class="products two-up">
+      <figure><div class="poster art"><!--SVG:relogio_tela_papel--></div><figcaption><strong>Relógio</strong><span>17h07 a 21h07. A forma que circula.</span></figcaption></figure>
+      <figure><div class="poster art"><!--SVG:urnas_tela_papel--></div><figcaption><strong>Urnas apuradas</strong><span>1% a 100%. O meio da apuração aberto.</span></figcaption></figure>
+    </div>
+  </section>
+
+  <section class="plate" aria-labelledby="produtos">
+    <div class="head">
+      <p class="kicker">Primeiros produtos</p>
+      <h2 id="produtos">Quatro produtos, uma forma</h2>
+      <p class="lede">A forma é a mesma para todos: muda o suporte, o tema e o tamanho. Sem personalização, sem tag e sem moderação nesta primeira versão.</p>
+    </div>
+    <div class="products four">
+      <figure><div class="phone art"><!--SVG:relogio_stories_tinta--></div><figcaption><strong>Arquivo digital</strong><span>PNG 4K, 9:16 para stories e 16:9 para fundo de tela. Entrega na hora.</span></figcaption></figure>
+      <figure><div class="poster art"><!--SVG:relogio_a2_tinta--></div><figcaption><strong>Pôster</strong><span>A3 ou A2, papel fosco. Tema Tinta.</span></figcaption></figure>
+      <figure><div class="frame"><div class="mat art"><!--SVG:relogio_a2_papel--></div></div><figcaption><strong>Quadro</strong><span>A3 ou A2, moldura de madeira e passe-partout. Tema Papel.</span></figcaption></figure>
+      <figure><div class="tee art"><!--ESTAMPA:quadrado_branco--></div><figcaption><strong>Camiseta</strong><span>Estampa com traço de giz em algodão branco.</span></figcaption></figure>
+    </div>
+    <p class="note">Próximo recorte, quando você quiser: por estado e por cidade. Os 499.205 boletins já estão processados seção a seção.</p>
+  </section>
+
+  <section class="plate" aria-labelledby="simbolo">
+    <div class="head">
+      <p class="kicker">O símbolo</p>
+      <h2 id="simbolo">O símbolo já está dentro do nome</h2>
+      <p class="lede">O X de INFLEXO são duas trajetórias que se cruzam, uma grossa e uma fina, como o X de uma didone. O ponto dourado marca o instante que decide, como a gota na ponta da peça. Abaixo de 32 px, o traço fino engrossa para não sumir.</p>
+    </div>
+    <div class="sizes">
+      <figure><svg width="128" height="128" aria-hidden="true"><use href="#x-regular"/></svg><figcaption>128 px · gravação e selo</figcaption></figure>
+      <figure><svg width="64" height="64" aria-hidden="true"><use href="#x-regular"/></svg><figcaption>64 px · assinatura</figcaption></figure>
+      <figure><svg width="32" height="32" aria-hidden="true"><use href="#x-small"/></svg><figcaption>32 px · corpo pequeno</figcaption></figure>
+      <figure><svg width="16" height="16" aria-hidden="true"><use href="#x-small"/></svg><figcaption>16 px · favicon</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="plate" aria-labelledby="cor">
+    <div class="head">
+      <p class="kicker">Cor</p>
+      <h2 id="cor">Papel, tinta e um ponto de ouro</h2>
+      <p class="lede">A marca não tem cor de lado nenhum. O ouro aparece num único ponto por peça: o que decide.</p>
+    </div>
+    <div class="chips">
+      <div class="chip"><div class="sw" style="background:var(--p-paper)"></div><strong>Papel</strong><code>#F1F1EE</code><span>fundo, papel algodão</span></div>
+      <div class="chip"><div class="sw" style="background:var(--p-ink)"></div><strong>Tinta</strong><code>#111215</code><span>texto e traço</span></div>
+      <div class="chip"><div class="sw" style="background:var(--p-graphite)"></div><strong>Grafite</strong><code>#585A60</code><span>legendas e réguas</span></div>
+      <div class="chip"><div class="sw" style="background:var(--p-line)"></div><strong>Linha</strong><code>#D3D3CE</code><span>fios e a linha de 50%</span></div>
+      <div class="chip"><div class="sw" style="background:var(--p-gold)"></div><strong>Ouro</strong><code>#C99A06</code><span>só o ponto da virada</span></div>
+    </div>
+    <div class="head">
+      <div class="ratio" role="img" aria-label="Proporção de uso: papel 70 por cento, tinta 20, grafite 6, linha 3, ouro 1"><i style="flex:70;background:var(--p-paper)"></i><i style="flex:20;background:var(--p-ink)"></i><i style="flex:6;background:var(--p-graphite)"></i><i style="flex:3;background:var(--p-line)"></i><i style="flex:1;background:var(--p-gold)"></i></div>
+      <p class="cap">Proporção de uso numa peça: papel 70 · tinta 20 · grafite 6 · linha 3 · ouro 1</p>
+    </div>
+    <div class="split">
+      <div class="chips two">
+        <div class="chip"><div class="sw" style="background:var(--p-data-a)"></div><strong>Carmim</strong><code>#C42B2B</code><span>curva do eleito</span></div>
+        <div class="chip"><div class="sw" style="background:var(--p-data-b)"></div><strong>Cobalto</strong><code>#1F4FD1</code><span>a outra curva</span></div>
+      </div>
+      <p class="note">Cores de dado pertencem à coleção, não à marca. Vermelho e azul vêm do gráfico da apuração e só aparecem nesta coleção. No tema Tinta, as mesmas cores ficam mais claras para manter o contraste.</p>
+    </div>
+  </section>
+
+  <section class="plate" aria-labelledby="tipo">
+    <div class="head">
+      <p class="kicker">Tipografia</p>
+      <h2 id="tipo">Uma didone, uma grotesca e uma mono para os números</h2>
+      <p class="lede">As três têm licença OFL: uso comercial e impresso liberados.</p>
+    </div>
+    <div class="specimens">
+      <div class="spec"><p class="cap">Bodoni Moda<br>marca e títulos</p><p class="s-display">25.10.2026<em>As linhas se cruzaram às 20h23.</em></p></div>
+      <div class="spec"><p class="cap">Schibsted Grotesk<br>texto e interface</p><p class="s-body">Cada ponto da curva soma os boletins de urna na ordem em que chegaram ao TSE. A soma final bate voto a voto com o resultado oficial.</p></div>
+      <div class="spec"><p class="cap">IBM Plex Mono<br>números e dados</p><p class="s-mono"><span>64.256.232 • 51,79%</span><span>20h23</span><span>47,2% das urnas</span><span>499.205 boletins</span></p></div>
+    </div>
+  </section>
+
+  <section class="plate" aria-labelledby="familia">
+    <div class="head">
+      <p class="kicker">Arquitetura de marca</p>
+      <h2 id="familia">Uma marca, muitos momentos</h2>
+      <p class="lede">A eleição é a primeira coleção, não a empresa. Uma assinatura só: "A estética do movimento."</p>
+    </div>
+    <div class="family">
+      <div class="branch"><h3>Momentos coletivos</h3><div class="coll"><strong>A Geografia da Virada</strong><span>Eleição de 25.10.2026. Começa pelo gráfico nacional; depois, estado e cidade.</span></div><span class="pill on">lançamento</span></div>
+      <div class="branch"><h3>Momentos pessoais</h3><div class="coll"><strong>Cruzamento de Vidas</strong><span>Dois trajetos que se encontram num lugar e numa data</span></div><div class="coll"><strong>Linha de Chegada</strong><span>O percurso e o ritmo de uma prova</span></div><span class="pill">depois · nomes de trabalho</span></div>
+      <div class="branch"><h3>Empresas</h3><div class="coll"><strong>Virada de Jogo</strong><span>A curva de um marco de negócio, em lote para equipes</span></div><span class="pill">depois · nome de trabalho</span></div>
+    </div>
+  </section>
+
+  <section class="plate" aria-labelledby="voz">
+    <div class="head">
+      <p class="kicker">Voz</p>
+      <h2 id="voz">Registro, não panfleto</h2>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col">Escrevemos</th><th scope="col">Não escrevemos</th></tr></thead>
+        <tbody>
+          <tr><td>25.10.2026. O dia em que as linhas se cruzaram.</td><td>Comemore a vitória do seu candidato!</td></tr>
+          <tr><td>As linhas se cruzaram às 20h23, com 47,2% das urnas apuradas.</td><td>Reviva a emoção daquela noite histórica!!!</td></tr>
+          <tr><td>Fonte: TSE, boletins de urna do 2º turno.</td><td>Dados exclusivos e precisos.</td></tr>
+          <tr><td>Arquivo na hora. Quadro no prazo que o ateliê confirmar.</td><td>Entrega rápida</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="rules">
+      <li>Sem ponto de exclamação.</li>
+      <li>Nunca nome, rosto, número ou sigla de candidato ou partido.</li>
+      <li>Número exato, sempre com a fonte por perto.</li>
+      <li>pt-BR: celular, arquivo, compartilhar, seção.</li>
+    </ul>
+  </section>
+
+  <footer class="slug">
+    <span>Próximo passo: aprovar esta prova</span>
+    <span>Depois: DESIGN.md e a loja da fase 1</span>
+  </footer>
+</main>

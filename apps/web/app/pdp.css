@@ -1,0 +1,48 @@
+/* Páginas de produto e de peça da Geografia: galeria rolável à esquerda, painel fixo à direita. */
+body:has(.pdp), body:has(.pagina .produto) {
+  --bg: #F4F0E8; --folha: #FBF9F4; --fg: #1E1F1B; --muted: #66625A; --linha: #DED7CB;
+  background: var(--bg); color: var(--fg);
+}
+.pdp, body:has(.pdp) .pagina { max-width: 1440px; width: calc(100% - 2 * clamp(16px, 3vw, 40px)); margin: 0 auto; padding: 0 0 96px; }
+.pdp .trilha, .pagina .trilha { padding: 20px 0 8px; }
+.produto { grid-template-columns: minmax(0, 1.15fr) minmax(0, 480px); gap: clamp(28px, 5vw, 80px); align-items: start; padding: 12px 0; }
+.galeria { gap: 18px; }
+.produto .arte { border-radius: 18px; overflow: hidden; background: #EAE4D9; }
+.produto .arte.sombra { box-shadow: none; padding: clamp(18px, 4vw, 56px); }
+.produto .arte svg { box-shadow: 0 24px 40px -22px rgba(40, 30, 10, .35); }
+img.arte { border-radius: 18px; }
+.galeria-nota { margin: -4px 0 0; font-size: .8rem; color: var(--muted); }
+.galeria-fotos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.galeria-fotos .foto:first-child:nth-last-child(odd) { grid-column: 1 / -1; }
+.produto .foto img { border-radius: 18px; }
+.painel, .produto > div:last-child { position: sticky; top: 24px; }
+.painel-linha { margin: 0 0 10px; font-size: .86rem; color: var(--muted); }
+.produto h1 { font-size: clamp(2.4rem, 4.4vw, 3.8rem); line-height: 1; letter-spacing: -.02em; font-weight: 400; margin: 0 0 8px; }
+.preco { font-size: 1.05rem; font-weight: 600; color: var(--fg); margin: 0 0 12px; }
+.opcoes { gap: 22px; margin: 22px 0; }
+.opcoes legend { font-size: .86rem; color: var(--muted); }
+.opcoes legend b { color: var(--fg); font-weight: 600; margin-left: 6px; }
+.chip { border-radius: 999px; padding: 10px 18px; background: transparent; }
+.chip[aria-current='true'] { background: var(--fg); border-color: var(--fg); color: var(--bg); }
+.chip-tema { display: inline-flex; align-items: center; gap: 8px; }
+.chip-tema i { width: 14px; height: 14px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .3); }
+.chip-tema[aria-current='true'] i { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .55); }
+.tiragem { margin: 0 0 14px; padding: 12px 16px; border-radius: 14px; background: #E9E3D8; font-size: .9rem; }
+.lista { border-radius: 18px; background: var(--folha); border: 1px solid var(--linha); padding: 20px; }
+.lista input[type='email'] { border-radius: 999px; padding: 13px 18px; background: #fff; }
+.lista .botao, .botao { border-radius: 999px; padding: 15px 24px; background: var(--fg); color: var(--bg); text-align: center; }
+.ficha div { border-bottom-color: var(--linha); }
+.detalhes { margin-top: 24px; border-top: 1px solid var(--linha); }
+.detalhes details { border-bottom: 1px solid var(--linha); padding: 14px 0; }
+.detalhes summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; }
+.detalhes summary::-webkit-details-marker { display: none; }
+.detalhes summary::after { content: '+'; font-weight: 400; font-size: 1.2rem; line-height: 1; }
+.detalhes details[open] summary::after { content: '–'; }
+.detalhes p { margin: 10px 0 0; color: var(--muted); font-size: .94rem; }
+.relacionados ul { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+.pdp .relacionados a { padding: 18px; border-radius: 18px; background: #E9E3D8; display: grid; gap: 6px; text-decoration: none; }
+.pdp .relacionados small { color: var(--muted); font-size: .85rem; font-family: var(--corpo); }
+@media (max-width: 960px) {
+  .produto { grid-template-columns: minmax(0, 1fr); }
+  .painel, .produto > div:last-child { position: static; order: -1; }
+}

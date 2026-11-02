@@ -1,0 +1,17 @@
+node_modules/
+out/
+.env
+.env.*
+!.env.example
+pipeline/data/raw/
+pipeline/data/interim/
+pipeline/.venv/
+__pycache__/
+*.log
+.runtime/
+.next/
+
+# referências visuais pesadas e material de terceiros (frases de obras): fora do primeiro envio
+docs/mockups/
+.next/
+tsconfig.tsbuildinfo

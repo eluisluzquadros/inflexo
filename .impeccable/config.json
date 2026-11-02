@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "brand/prova-de-marca.src.html"
+        ],
+        "createdAt": "2026-11-01T01:07:28.468Z",
+        "reason": "claude: falso positivo verificado com capturas do Chrome nos temas claro e escuro em 31/10/2026; o detector combina cores de temas diferentes (ex.: #000000 sobre #15161a, #a3a49f sobre #ffffff), pares que o navegador nunca renderiza"
+      }
+    ]
+  }
+}

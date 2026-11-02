@@ -1,0 +1,21 @@
+{
+  "name": "inflexo",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dados:nacional": "py -I pipeline/scripts/curva_nacional.py pipeline/data/raw/tse_bweb_2026_2t pipeline/data/raw/tse_oficial/br-c0001-e006258-u.json pipeline/output pipeline/data/interim",
+    "render:nacional": "node packages/render/scripts/render-nacional.mjs pipeline/output/curva_presidente_2t_2026_br.json out/nacional",
+    "build:prova": "node packages/render/scripts/build-prova.mjs",
+    "web:dev": "npm run dev -w @inflexo/web",
+    "web:build": "npm run build -w @inflexo/web",
+    "test": "node --test \"packages/*/test/*.test.mjs\"",
+    "dados:regiao": "py -I pipeline/scripts/curva_regiao.py pipeline/data/interim/boletins_presidente_2t_2026.csv.gz pipeline/data/raw/ibge/nordeste_ufs.geojson pipeline/data/raw/tse_oficial pipeline/output/regiao_nordeste_2t_2026.json Nordeste",
+    "render:regiao": "node packages/render/scripts/render-regiao.mjs pipeline/output/regiao_nordeste_2t_2026.json out/regiao"
+  }
+}

@@ -1,0 +1,537 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-01T07:56:05+00:00",
+  "title": "Design System: INFLEXO",
+  "extensions": {
+    "colorMeta": {
+      "noite": {
+        "role": "neutral",
+        "displayName": "Noite",
+        "canonical": "#0A0B0E",
+        "oklch": "oklch(15.0% 0.007 271.0)",
+        "purpose": "Fundo de toda a página inicial.",
+        "tonalRamp": [
+          "#0A0B0E",
+          "#232427",
+          "#3E4043",
+          "#5C5D61",
+          "#7C7D81",
+          "#9D9EA3",
+          "#C2C4C8",
+          "#EDEEF3"
+        ]
+      },
+      "noite-2": {
+        "role": "neutral",
+        "displayName": "Noite Elevada",
+        "canonical": "#121318",
+        "oklch": "oklch(18.8% 0.010 276.4)",
+        "purpose": "Fundo do campo de e-mail no fecho.",
+        "tonalRamp": [
+          "#0A0B10",
+          "#232429",
+          "#3E3F45",
+          "#5C5D64",
+          "#7B7D83",
+          "#9C9EA5",
+          "#C2C4CB",
+          "#ECEEF6"
+        ]
+      },
+      "fio": {
+        "role": "neutral",
+        "displayName": "Fio",
+        "canonical": "#24262C",
+        "oklch": "oklch(26.9% 0.012 271.0)",
+        "purpose": "Linhas de 1px no escuro, linha dos 50%, sublinhado do trilho.",
+        "tonalRamp": [
+          "#090B10",
+          "#22242A",
+          "#3D4046",
+          "#5B5D64",
+          "#7B7D84",
+          "#9C9EA6",
+          "#C1C4CC",
+          "#EBEEF6"
+        ]
+      },
+      "papel": {
+        "role": "neutral",
+        "displayName": "Papel Aceso",
+        "canonical": "#ECEBE6",
+        "oklch": "oklch(93.9% 0.007 97.4)",
+        "purpose": "Texto principal no escuro; placa do botão claro.",
+        "tonalRamp": [
+          "#0C0B08",
+          "#252420",
+          "#41403C",
+          "#5E5E59",
+          "#7E7D79",
+          "#9F9E9A",
+          "#C5C4BF",
+          "#F0EEE9"
+        ]
+      },
+      "papel-2": {
+        "role": "neutral",
+        "displayName": "Papel Baixo",
+        "canonical": "#A9AAA4",
+        "oklch": "oklch(73.5% 0.009 114.3)",
+        "purpose": "Texto secundário no escuro.",
+        "tonalRamp": [
+          "#0B0C08",
+          "#242520",
+          "#3F403B",
+          "#5D5E59",
+          "#7D7E78",
+          "#9E9F99",
+          "#C4C5BF",
+          "#EEEFE9"
+        ]
+      },
+      "carmim": {
+        "role": "secondary",
+        "displayName": "Carmim Aceso",
+        "canonical": "#EF4448",
+        "oklch": "oklch(63.7% 0.207 24.2)",
+        "purpose": "Curva vermelha, sua cabeça e amostra. Só dado.",
+        "tonalRamp": [
+          "#1E0001",
+          "#490509",
+          "#7C0112",
+          "#B00720",
+          "#DE313A",
+          "#FF6361",
+          "#FDABA5",
+          "#FEE9E7"
+        ]
+      },
+      "cobalto": {
+        "role": "secondary",
+        "displayName": "Cobalto Aceso",
+        "canonical": "#6B96F2",
+        "oklch": "oklch(68.3% 0.144 264.0)",
+        "purpose": "Curva azul, sua cabeça e amostra. Só dado.",
+        "tonalRamp": [
+          "#000036",
+          "#011568",
+          "#16378A",
+          "#3258AE",
+          "#5079D2",
+          "#709BF8",
+          "#A7C4FE",
+          "#E7EFFF"
+        ]
+      },
+      "ouro-aceso": {
+        "role": "primary",
+        "displayName": "Ouro Aceso",
+        "canonical": "#E8B524",
+        "oklch": "oklch(79.8% 0.155 86.9)",
+        "purpose": "O ponto da virada no palco e o ponto que voa até o X.",
+        "tonalRamp": [
+          "#110A00",
+          "#2F2201",
+          "#503D04",
+          "#75590B",
+          "#9A781C",
+          "#C59702",
+          "#EFBC30",
+          "#FEEDC7"
+        ]
+      },
+      "bg": {
+        "role": "neutral",
+        "displayName": "Papel",
+        "canonical": "#F1F1EE",
+        "oklch": "oklch(95.7% 0.004 106.5)",
+        "purpose": "Fundo das páginas internas e da folha de cada peça. Modo escuro do sistema: #0C0D10.",
+        "tonalRamp": [
+          "#0B0B09",
+          "#242422",
+          "#40403D",
+          "#5E5E5B",
+          "#7D7D7B",
+          "#9E9E9C",
+          "#C4C4C1",
+          "#EFEFEC"
+        ]
+      },
+      "folha": {
+        "role": "neutral",
+        "displayName": "Folha",
+        "canonical": "#F7F7F4",
+        "oklch": "oklch(97.5% 0.004 106.5)",
+        "purpose": "Bloco da lista de espera no produto. Modo escuro do sistema: #15161A.",
+        "tonalRamp": [
+          "#0B0B09",
+          "#242422",
+          "#40403D",
+          "#5E5E5B",
+          "#7D7D7B",
+          "#9E9E9C",
+          "#C4C4C1",
+          "#EFEFEC"
+        ]
+      },
+      "fg": {
+        "role": "neutral",
+        "displayName": "Tinta",
+        "canonical": "#111215",
+        "oklch": "oklch(18.2% 0.006 271.1)",
+        "purpose": "Texto, botão e chip ativo no papel. Modo escuro do sistema: #ECEBE6.",
+        "tonalRamp": [
+          "#0A0B0E",
+          "#232427",
+          "#3E4043",
+          "#5C5D61",
+          "#7C7D81",
+          "#9D9EA2",
+          "#C2C4C8",
+          "#EDEEF3"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Grafite",
+        "canonical": "#55575D",
+        "oklch": "oklch(45.7% 0.010 271.2)",
+        "purpose": "Texto secundário no papel. Modo escuro do sistema: #A3A49F.",
+        "tonalRamp": [
+          "#0A0B0F",
+          "#222429",
+          "#3E4045",
+          "#5B5D63",
+          "#7B7D83",
+          "#9C9EA5",
+          "#C1C4CB",
+          "#ECEEF5"
+        ]
+      },
+      "linha": {
+        "role": "neutral",
+        "displayName": "Linha",
+        "canonical": "#D3D3CE",
+        "oklch": "oklch(86.5% 0.007 106.5)",
+        "purpose": "Bordas de 1px no papel. Modo escuro do sistema: #2C2E33.",
+        "tonalRamp": [
+          "#0B0B08",
+          "#242421",
+          "#40403C",
+          "#5E5E5A",
+          "#7E7D79",
+          "#9F9F9A",
+          "#C4C4BF",
+          "#EFEFEA"
+        ]
+      },
+      "ouro": {
+        "role": "primary",
+        "displayName": "Ouro",
+        "canonical": "#C99A06",
+        "oklch": "oklch(71.1% 0.144 86.5)",
+        "purpose": "Ponto do X no topo, anel de foco, seleção, filete de aviso. Modo escuro do sistema: #E2B323.",
+        "tonalRamp": [
+          "#110A00",
+          "#2F2200",
+          "#513C03",
+          "#755908",
+          "#9A781A",
+          "#C29824",
+          "#EDBD44",
+          "#FEEDC7"
+        ]
+      },
+      "acento": {
+        "role": "tertiary",
+        "displayName": "Ouro Escuro",
+        "canonical": "#755900",
+        "oklch": "oklch(48.0% 0.098 87.3)",
+        "purpose": "Hover do botão no papel. Modo escuro do sistema: #E2B323.",
+        "tonalRamp": [
+          "#110A00",
+          "#2E2202",
+          "#503D09",
+          "#755900",
+          "#967930",
+          "#B89B53",
+          "#DFC178",
+          "#FEEDC5"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "wordmark": {
+        "displayName": "Wordmark",
+        "purpose": "Só o logotipo INFLEXO, com o X desenhado em SVG."
+      },
+      "display": {
+        "displayName": "Display",
+        "purpose": "Frase do fecho e frase de abertura no estático; máx. 18ch."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Títulos de seção no escuro."
+      },
+      "headline-pagina": {
+        "displayName": "Headline de página",
+        "purpose": "h1 de produto e método."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Nomes de produto no índice; legenda dos atos em escala próxima."
+      },
+      "relogio": {
+        "displayName": "Relógio",
+        "purpose": "Horas e minutos do palco."
+      },
+      "leitura": {
+        "displayName": "Leitura",
+        "purpose": "Percentuais e urnas no palco; números de tabela."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Texto corrido, 46 a 60ch."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Parágrafo de abertura das seções no escuro."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Rótulos, cabeçalhos de tabela, legendas; caixa normal."
+      }
+    },
+    "scopes": [
+      {
+        "name": "noite",
+        "selector": "body:has(.home)",
+        "surfaces": [
+          "palco da noite",
+          "leituras",
+          "índice da coleção",
+          "peça",
+          "prova",
+          "fecho"
+        ],
+        "note": "A página inicial toma o mundo escuro; corpo, topo e rodapé trocam para noite/papel só com .home presente."
+      },
+      {
+        "name": "papel",
+        "selector": ":root (padrão) + @media (prefers-color-scheme: dark)",
+        "surfaces": [
+          "produto",
+          "método"
+        ],
+        "note": "Papel claro; no modo escuro do sistema troca bg/folha/fg/muted/linha/acento/ouro para #0C0D10/#15161A/#ECEBE6/#A3A49F/#2C2E33/#E2B323/#E2B323."
+      }
+    ],
+    "shadows": [
+      {
+        "name": "peca-sob-foco",
+        "value": "0 50px 80px -30px rgba(0,0,0,.85), 0 0 0 1px rgba(255,255,255,.04)",
+        "purpose": "Folhas na pilha das leituras."
+      },
+      {
+        "name": "foto-no-escuro",
+        "value": "0 40px 80px -40px rgba(0,0,0,.9)",
+        "purpose": "Foto grande da peça."
+      },
+      {
+        "name": "miniatura-no-escuro",
+        "value": "0 18px 30px -16px rgba(0,0,0,.9)",
+        "purpose": "Miniaturas do índice."
+      },
+      {
+        "name": "previa-no-papel",
+        "value": "0 22px 44px -24px rgba(0,0,0,.5)",
+        "purpose": "Prévia da arte na página de produto."
+      },
+      {
+        "name": "cabeca-da-curva",
+        "value": "0 0 0 4px rgba(10,11,14,.9), 0 0 24px 2px currentColor",
+        "purpose": "Ponta viva de cada curva; currentColor = cor do dado a 55%."
+      },
+      {
+        "name": "ponto-da-virada",
+        "value": "0 0 0 5px var(--noite), 0 0 40px 6px rgba(232,181,36,.45)",
+        "purpose": "O ponto de ouro no palco e no estático."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Toda transição de estado."
+      },
+      {
+        "name": "ato-entra",
+        "value": "opacity/transform/filter .6s var(--ease); de translateY(10px) blur(4px)",
+        "purpose": "Legenda de cada ato no palco."
+      },
+      {
+        "name": "leitura-entra",
+        "value": "opacity/transform .5s var(--ease); de translateY(8px)",
+        "purpose": "Descrição de cada leitura."
+      },
+      {
+        "name": "indice-hover",
+        "value": "padding/transform .5s var(--ease)",
+        "purpose": "Linha do índice avança 14px, miniatura scale(1.06)."
+      },
+      {
+        "name": "botao-hover",
+        "value": "background .3s var(--ease)",
+        "purpose": "Botões e passos do trilho."
+      },
+      {
+        "name": "folha-scrub",
+        "value": "transform/opacity .18s linear",
+        "purpose": "Folhas da pilha seguem a rolagem."
+      },
+      {
+        "name": "rolar",
+        "value": "scaleY 0 -> 1, 1.8s var(--ease) infinite",
+        "purpose": "Indicação de rolagem no primeiro quadro."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "Noite vira página estática; leituras perdem o palco fixo; transições desligadas."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "prova-empilha",
+        "value": "1000px"
+      },
+      {
+        "name": "uma-coluna",
+        "value": "760px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botão da Noite",
+      "kind": "button",
+      "refersTo": "button-noite",
+      "description": "Ação principal no palco escuro (peça, fecho).",
+      "html": "<div class=\"ds-noite\"><a class=\"ds-botao-noite\" href=\"#\">Ver o quadro em fios</a></div>",
+      "css": ":host{--noite:#0A0B0E;--noite-2:#121318;--fio:#24262C;--papel:#ECEBE6;--papel-2:#A9AAA4;--carmim:#EF4448;--cobalto:#6B96F2;--ouro-aceso:#E8B524;--bg:#F1F1EE;--folha:#F7F7F4;--fg:#111215;--muted:#55575D;--linha:#D3D3CE;--acento:#755900;--ouro:#C99A06;--display:'Bodoni Moda','Bodoni 72',Didot,Georgia,serif;--corpo:'Schibsted Grotesk','Helvetica Neue',Arial,sans-serif;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;--ease:cubic-bezier(.16,1,.3,1)} .ds-noite{background:var(--noite);padding:32px} .ds-botao-noite{display:inline-block;padding:14px 22px;background:var(--papel);color:var(--noite);text-decoration:none;font-family:var(--corpo);font-weight:600;transition:background .3s var(--ease)} .ds-botao-noite:hover{background:#fff} .ds-botao-noite:focus-visible{outline:2px solid var(--ouro);outline-offset:3px}"
+    },
+    {
+      "name": "Botão do Papel",
+      "kind": "button",
+      "refersTo": "button-pagina",
+      "description": "Ação nas páginas internas (lista de espera no produto).",
+      "html": "<div class=\"ds-papel\"><button class=\"ds-botao\" type=\"button\">Entrar na fila</button></div>",
+      "css": ":host{--noite:#0A0B0E;--noite-2:#121318;--fio:#24262C;--papel:#ECEBE6;--papel-2:#A9AAA4;--carmim:#EF4448;--cobalto:#6B96F2;--ouro-aceso:#E8B524;--bg:#F1F1EE;--folha:#F7F7F4;--fg:#111215;--muted:#55575D;--linha:#D3D3CE;--acento:#755900;--ouro:#C99A06;--display:'Bodoni Moda','Bodoni 72',Didot,Georgia,serif;--corpo:'Schibsted Grotesk','Helvetica Neue',Arial,sans-serif;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;--ease:cubic-bezier(.16,1,.3,1)} .ds-papel{background:var(--bg);padding:32px} .ds-botao{display:inline-block;background:var(--fg);color:var(--bg);padding:12px 20px;border:0;font-family:var(--corpo);font-size:1rem;cursor:pointer} .ds-botao:hover,.ds-botao:focus-visible{background:var(--acento);color:#fff} .ds-botao:focus-visible{outline:2px solid var(--ouro);outline-offset:3px}"
+    },
+    {
+      "name": "Fila (formulário da noite)",
+      "kind": "input",
+      "refersTo": "input-noite",
+      "description": "Campo de e-mail, botão e consentimento do fecho.",
+      "html": "<form class=\"ds-fecho\" onsubmit=\"return false\"><input class=\"ds-email\" type=\"email\" placeholder=\"seu@email.com\" aria-label=\"Seu e-mail\"><button class=\"ds-entrar\" type=\"submit\">Entrar na fila</button><label class=\"ds-consent\"><input type=\"checkbox\"> Aceito receber da INFLEXO o aviso de abertura e o acesso antecipado.</label></form>",
+      "css": ":host{--noite:#0A0B0E;--noite-2:#121318;--fio:#24262C;--papel:#ECEBE6;--papel-2:#A9AAA4;--carmim:#EF4448;--cobalto:#6B96F2;--ouro-aceso:#E8B524;--bg:#F1F1EE;--folha:#F7F7F4;--fg:#111215;--muted:#55575D;--linha:#D3D3CE;--acento:#755900;--ouro:#C99A06;--display:'Bodoni Moda','Bodoni 72',Didot,Georgia,serif;--corpo:'Schibsted Grotesk','Helvetica Neue',Arial,sans-serif;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;--ease:cubic-bezier(.16,1,.3,1)} .ds-fecho{background:var(--noite);padding:32px;display:flex;flex-wrap:wrap;gap:12px;font-family:var(--corpo)} .ds-email{flex:0 1 420px;min-width:0;padding:16px 18px;background:var(--noite-2);border:1px solid var(--fio);color:var(--papel);font:inherit} .ds-email::placeholder{color:#8C8D88} .ds-email:focus-visible{outline:2px solid var(--ouro);outline-offset:3px} .ds-entrar{padding:0 26px;background:var(--papel);color:var(--noite);border:0;font:inherit;font-weight:600;cursor:pointer;transition:background .3s var(--ease)} .ds-entrar:hover{background:#fff} .ds-entrar:focus-visible{outline:2px solid var(--ouro);outline-offset:3px} .ds-consent{flex-basis:100%;display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--papel-2)} .ds-consent input{appearance:none;flex:none;width:18px;height:18px;margin-top:2px;border:1px solid var(--papel-2);background:transparent;display:grid;place-items:center;cursor:pointer} .ds-consent input:checked{background:var(--papel);border-color:var(--papel)} .ds-consent input:checked::after{content:'';width:9px;height:5px;border:solid var(--noite);border-width:0 0 2px 2px;transform:rotate(-45deg) translate(1px,-1px)}"
+    },
+    {
+      "name": "Chips de opção",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Estilo, tema e tamanho na página de produto.",
+      "html": "<div class=\"ds-chips\"><a class=\"ds-chip\" href=\"#\" aria-current=\"true\">Fios</a><a class=\"ds-chip\" href=\"#\">A forma que circula</a><a class=\"ds-chip\" href=\"#\">Urnas apuradas</a></div>",
+      "css": ":host{--noite:#0A0B0E;--noite-2:#121318;--fio:#24262C;--papel:#ECEBE6;--papel-2:#A9AAA4;--carmim:#EF4448;--cobalto:#6B96F2;--ouro-aceso:#E8B524;--bg:#F1F1EE;--folha:#F7F7F4;--fg:#111215;--muted:#55575D;--linha:#D3D3CE;--acento:#755900;--ouro:#C99A06;--display:'Bodoni Moda','Bodoni 72',Didot,Georgia,serif;--corpo:'Schibsted Grotesk','Helvetica Neue',Arial,sans-serif;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;--ease:cubic-bezier(.16,1,.3,1)} .ds-chips{background:var(--bg);padding:32px;display:flex;flex-wrap:wrap;gap:8px;font-family:var(--corpo)} .ds-chip{padding:8px 14px;border:1px solid var(--linha);color:var(--fg);text-decoration:none;font-size:.92rem} .ds-chip[aria-current='true']{border-color:var(--fg);background:var(--fg);color:var(--bg)} .ds-chip:hover,.ds-chip:focus-visible{border-color:var(--fg)} .ds-chip:focus-visible{outline:2px solid var(--ouro);outline-offset:3px}"
+    },
+    {
+      "name": "Navegação do topo",
+      "kind": "nav",
+      "description": "Wordmark com o X de duas trajetórias e dois links.",
+      "html": "<header class=\"ds-topo\"><a class=\"ds-marca\" href=\"#\" aria-label=\"INFLEXO\">INFLE<svg class=\"ds-x\" viewBox=\"0 0 100 100\" aria-hidden=\"true\"><path d=\"M10 2 C 38 22, 62 78, 90 98\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"17\"/><path d=\"M10 98 C 38 78, 62 22, 90 2\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3.2\"/><circle cx=\"50\" cy=\"50\" r=\"7.5\" class=\"ds-ponto\"/></svg>O</a><nav><a href=\"#\">Coleção</a><a href=\"#\">Método</a></nav></header>",
+      "css": ":host{--noite:#0A0B0E;--noite-2:#121318;--fio:#24262C;--papel:#ECEBE6;--papel-2:#A9AAA4;--carmim:#EF4448;--cobalto:#6B96F2;--ouro-aceso:#E8B524;--bg:#F1F1EE;--folha:#F7F7F4;--fg:#111215;--muted:#55575D;--linha:#D3D3CE;--acento:#755900;--ouro:#C99A06;--display:'Bodoni Moda','Bodoni 72',Didot,Georgia,serif;--corpo:'Schibsted Grotesk','Helvetica Neue',Arial,sans-serif;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;--ease:cubic-bezier(.16,1,.3,1)} .ds-topo{background:var(--noite);color:var(--papel);padding:22px 32px;display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:var(--corpo)} .ds-marca{font-family:var(--display);font-weight:560;font-size:1.7rem;letter-spacing:.03em;white-space:nowrap;color:inherit;text-decoration:none} .ds-x{display:inline-block;height:.8em;width:.78em;margin:0 .01em;vertical-align:baseline} .ds-ponto{fill:var(--ouro);stroke:var(--noite);stroke-width:3} .ds-topo nav{display:flex;gap:22px;font-size:.95rem} .ds-topo nav a{color:inherit;text-decoration:none;text-underline-offset:.2em;text-decoration-thickness:1px} .ds-topo nav a:hover,.ds-topo nav a:focus-visible{text-decoration:underline} .ds-topo a:focus-visible{outline:2px solid var(--ouro);outline-offset:3px}"
+    },
+    {
+      "name": "Trilho",
+      "kind": "nav",
+      "description": "Passos dos atos da noite e abas das três leituras.",
+      "html": "<div class=\"ds-trilho\" role=\"tablist\"><button role=\"tab\" aria-selected=\"true\" class=\"ds-passo\">A forma que circula</button><button role=\"tab\" aria-selected=\"false\" class=\"ds-passo\">Fios</button><button role=\"tab\" aria-selected=\"false\" class=\"ds-passo\">Urnas apuradas</button></div>",
+      "css": ":host{--noite:#0A0B0E;--noite-2:#121318;--fio:#24262C;--papel:#ECEBE6;--papel-2:#A9AAA4;--carmim:#EF4448;--cobalto:#6B96F2;--ouro-aceso:#E8B524;--bg:#F1F1EE;--folha:#F7F7F4;--fg:#111215;--muted:#55575D;--linha:#D3D3CE;--acento:#755900;--ouro:#C99A06;--display:'Bodoni Moda','Bodoni 72',Didot,Georgia,serif;--corpo:'Schibsted Grotesk','Helvetica Neue',Arial,sans-serif;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;--ease:cubic-bezier(.16,1,.3,1)} .ds-trilho{background:var(--noite);padding:32px;display:flex;flex-wrap:wrap;gap:4px 18px;font-family:var(--corpo)} .ds-passo{background:none;border:0;border-bottom:1px solid var(--fio);padding:6px 0;font:inherit;font-size:.82rem;color:var(--papel-2);cursor:pointer;transition:color .3s var(--ease),border-color .3s var(--ease)} .ds-passo:hover{color:var(--papel)} .ds-passo[aria-selected='true']{color:var(--papel);border-color:var(--papel)} .ds-passo:focus-visible{outline:2px solid var(--ouro);outline-offset:3px}"
+    },
+    {
+      "name": "Leitura do palco",
+      "kind": "custom",
+      "description": "Relógio gigante e leitura de percentuais com amostras de dado.",
+      "html": "<div class=\"ds-palco\"><div class=\"ds-relogio\"><span class=\"ds-hm\">20:36</span><span class=\"ds-ss\">:38</span><span class=\"ds-data\">25.10.2026 · hora de Brasília</span></div><dl class=\"ds-leitura\"><div><dt>Urnas apuradas</dt><dd>62,2%</dd></div><div><dt><i class=\"ds-am ds-c\"></i>Curva vermelha</dt><dd>50,57%</dd></div><div><dt><i class=\"ds-am ds-b\"></i>Curva azul</dt><dd>49,43%</dd></div></dl></div>",
+      "css": ":host{--noite:#0A0B0E;--noite-2:#121318;--fio:#24262C;--papel:#ECEBE6;--papel-2:#A9AAA4;--carmim:#EF4448;--cobalto:#6B96F2;--ouro-aceso:#E8B524;--bg:#F1F1EE;--folha:#F7F7F4;--fg:#111215;--muted:#55575D;--linha:#D3D3CE;--acento:#755900;--ouro:#C99A06;--display:'Bodoni Moda','Bodoni 72',Didot,Georgia,serif;--corpo:'Schibsted Grotesk','Helvetica Neue',Arial,sans-serif;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;--ease:cubic-bezier(.16,1,.3,1)} .ds-palco{background:radial-gradient(120% 70% at 50% 58%,#15171D 0%,var(--noite) 62%);color:var(--papel);padding:32px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;font-family:var(--corpo)} .ds-relogio{display:flex;align-items:baseline;flex-wrap:wrap;column-gap:.1em;font-family:var(--mono);font-variant-numeric:tabular-nums;line-height:.9} .ds-hm{font-size:clamp(3rem,9vw,6rem);letter-spacing:-.04em} .ds-ss{font-size:clamp(1.2rem,3vw,2rem);color:var(--papel-2)} .ds-data{flex-basis:100%;margin-top:14px;font-size:.82rem;color:var(--papel-2);line-height:1.4} .ds-leitura{margin:0;display:grid;gap:14px;justify-items:end;text-align:right;font-variant-numeric:tabular-nums} .ds-leitura dt{font-size:.8rem;color:var(--papel-2);display:flex;align-items:center;gap:8px;justify-content:flex-end} .ds-leitura dd{margin:2px 0 0;font-family:var(--mono);font-size:clamp(1.25rem,2.2vw,1.9rem)} .ds-am{display:inline-block;width:18px;height:3px;border-radius:2px} .ds-c{background:var(--carmim)} .ds-b{background:var(--cobalto)}"
+    },
+    {
+      "name": "Linha do índice",
+      "kind": "card",
+      "description": "Produto da coleção como linha cheia entre fios.",
+      "html": "<ul class=\"ds-indice\"><li><a class=\"ds-linha\" href=\"#\"><span class=\"ds-nome\">Quadro</span><span class=\"ds-resumo\">Moldura de madeira com passe-partout, pronta para pendurar.</span><span class=\"ds-preco\">Preço em definição</span><span class=\"ds-img\"></span></a></li></ul>",
+      "css": ":host{--noite:#0A0B0E;--noite-2:#121318;--fio:#24262C;--papel:#ECEBE6;--papel-2:#A9AAA4;--carmim:#EF4448;--cobalto:#6B96F2;--ouro-aceso:#E8B524;--bg:#F1F1EE;--folha:#F7F7F4;--fg:#111215;--muted:#55575D;--linha:#D3D3CE;--acento:#755900;--ouro:#C99A06;--display:'Bodoni Moda','Bodoni 72',Didot,Georgia,serif;--corpo:'Schibsted Grotesk','Helvetica Neue',Arial,sans-serif;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;--ease:cubic-bezier(.16,1,.3,1)} .ds-indice{list-style:none;margin:0;padding:24px 32px;background:var(--noite);color:var(--papel);font-family:var(--corpo)} .ds-indice li{border-top:1px solid var(--fio);border-bottom:1px solid var(--fio)} .ds-linha{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.3fr) minmax(0,.8fr) 84px;gap:24px;align-items:center;padding:22px 0;color:inherit;text-decoration:none;transition:padding .5s var(--ease)} .ds-nome{font-family:var(--display);font-size:clamp(1.6rem,3vw,2.4rem);line-height:1} .ds-resumo{color:var(--papel-2)} .ds-preco{font-size:.9rem;color:var(--papel-2)} .ds-img{width:84px;aspect-ratio:4/5;background:var(--bg);justify-self:end;box-shadow:0 18px 30px -16px rgba(0,0,0,.9);transition:transform .5s var(--ease)} .ds-linha:hover,.ds-linha:focus-visible{padding-left:14px} .ds-linha:hover .ds-img,.ds-linha:focus-visible .ds-img{transform:scale(1.06)} .ds-linha:hover .ds-nome{color:#fff} .ds-linha:focus-visible{outline:2px solid var(--ouro);outline-offset:3px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "O Palco da Apuração",
+    "overview": "A INFLEXO tem dois lugares. A página inicial é a própria noite de 25.10.2026: um palco em tinta quase preta onde só o dado acende, em carmim e cobalto claros, e onde um único ponto de ouro marca a virada e depois viaja até o X do logotipo. Tudo o que não é dado recua para o papel baixo e para fios finos. As peças impressas entram nesse escuro como objetos iluminados, folhas claras com sombra funda, nunca como cartões de interface.\n\nAs páginas internas (produto, método) são o outro lugar: papel claro, tinta, grafite e linhas de 1px, com a sobriedade de uma ficha de catálogo. É o mesmo sistema tipográfico e a mesma geometria reta; muda a luz. A página inicial toma o mundo escuro para si com `body:has(.home)`: o corpo, o topo e o rodapé trocam para noite e papel só quando `.home` está presente. As páginas internas seguem `prefers-color-scheme` e, no modo escuro do sistema, viram um papel escuro (`#0C0D10`) com ouro mais claro (`#E2B323`); não herdam o palco.\n\nA densidade é de editorial, não de loja: poucas frases grandes em Bodoni, números exatos em IBM Plex Mono, texto corrido curto em Schibsted Grotesk. O movimento é rolagem cinematográfica com palco fixo, com versão estática completa para quem pede menos movimento.",
+    "keyCharacteristics": [
+      "Dois escopos: noite (página inicial, `body:has(.home)`) e papel (produto, método).",
+      "Cor viva só no dado: carmim e cobalto nas curvas, ouro só no ponto da virada.",
+      "Bodoni Moda para frases e nomes, IBM Plex Mono só para relógio, percentuais e números, Schibsted Grotesk para texto e interface.",
+      "Cantos retos em tudo; círculo apenas nos pontos do dado.",
+      "Profundidade por luz: sombras longas sob as peças, brilho só nas cabeças das curvas e no ponto.",
+      "Palcos fixos com rolagem que avança o tempo; tudo tem versão estática."
+    ],
+    "rules": [
+      {
+        "name": "The Dado Aceso Rule",
+        "body": "Carmim e cobalto só desenham dado: curva, cabeça da curva, amostra de legenda. Nenhum botão, link, fundo ou título usa essas cores.",
+        "section": "colors"
+      },
+      {
+        "name": "The Um Ouro Rule",
+        "body": "O ouro é o ponto. Fora dele só aparece em marcas funcionais finas (anel de foco, seleção, filete de 1px de aviso), nunca como preenchimento de superfície ou cor de texto.",
+        "section": "colors"
+      },
+      {
+        "name": "The Mono Mede Rule",
+        "body": "IBM Plex Mono só para o que é medida: relógio, data do relógio, percentuais, contagens, rótulos de hora da régua, colunas numéricas. Rótulos e frases nunca vão em mono na tela.",
+        "section": "typography"
+      },
+      {
+        "name": "The Rótulo Calmo Rule",
+        "body": "Na tela, rótulos são em caixa normal, 0.8rem, em papel baixo ou grafite, sem espaçamento de letras. A hierarquia vem do tamanho da didone, não de rótulos gritados acima dos títulos.",
+        "section": "typography"
+      },
+      {
+        "name": "The Luz no Dado Rule",
+        "body": "Brilho existe só no que é dado vivo: as duas cabeças e o ponto de ouro. Botões, cartões e títulos não brilham.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Objeto Iluminado Rule",
+        "body": "Sombra longa e negativa (y grande, spread negativo) é para peça física ou sua foto, nunca para componente de interface.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** manter carmim e cobalto exclusivamente no dado e o ouro no ponto da virada (The Dado Aceso Rule, The Um Ouro Rule).",
+      "**Do** escopar qualquer estilo do mundo escuro sob `body:has(.home)` ou sob as classes da página inicial; as páginas internas continuam no papel.",
+      "**Do** usar IBM Plex Mono com algarismos tabulares para todo número que mede (relógio, percentuais, contagens, colunas de tabela).",
+      "**Do** mostrar as peças como objetos iluminados: a prévia real do motor de render, em papel claro, com a sombra longa de Peça sob foco.",
+      "**Do** usar canto reto e bordas de 1px em `fio` (escuro) ou `linha` (papel).",
+      "**Do** usar a curva `--ease` (cubic-bezier(.16, 1, .3, 1)) para transições de 0.3 a 0.6s, e entregar versão estática completa sob `prefers-reduced-motion`.",
+      "**Do** separar as seções do escuro com vazio vertical (`secao`), deixando a noite respirar."
+    ],
+    "donts": [
+      "**Don't** pintar botões, links, títulos ou fundos com carmim, cobalto ou ouro.",
+      "**Don't** arredondar botões, campos, chips ou folhas; o círculo é só do dado.",
+      "**Don't** pôr brilho, glow ou halo em qualquer coisa que não seja as cabeças das curvas e o ponto da virada.",
+      "**Don't** colocar rótulos em caixa alta com letras espaçadas acima dos títulos na tela.",
+      "**Don't** usar mono para frases, rótulos ou navegação.",
+      "**Don't** levar o fundo noite para as páginas de produto ou método."
+    ]
+  }
+}
