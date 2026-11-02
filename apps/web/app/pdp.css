@@ -46,3 +46,11 @@ img.arte { border-radius: 18px; }
   .produto { grid-template-columns: minmax(0, 1fr); }
   .painel, .produto > div:last-child { position: static; order: -1; }
 }
+
+/* compra */
+.comprar { display: grid; gap: 10px; margin: 6px 0 4px; }
+.comprar .botao { width: 100%; font-size: 1.02rem; }
+.comprar-nota { margin: 0; font-size: .84rem; color: var(--muted); text-align: center; }
+.preco small { font-weight: 400; color: var(--muted); margin-left: 6px; }
+.pedido { max-width: 640px; margin: clamp(32px, 8vh, 80px) auto; }
+.pedido h1 { font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1.05; font-weight: 400; margin: 0 0 12px; }

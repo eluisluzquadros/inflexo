@@ -5,6 +5,8 @@ import '../../pdp.css';
 import { TIRAGEM_FIOS, HORAS_ANTES, LIMIAR_CONTADOR, tamanhoDaFila } from '../../../lib/fila';
 import { PRODUTOS, ESTILOS, TEMAS, FORMATOS, produto, escolher, temasDo, previa, type Escolha } from '../../../lib/loja';
 import { fotosDe } from '../../../lib/galeria';
+import { checkoutAtivo } from '../../../lib/stripe';
+import { precoDe, reais, FRETE_PROVISORIO } from '../../../lib/precos';
 
 type Props = { params: Promise<{ slug: string }>; searchParams: Promise<Record<string, string | undefined>> };
 
@@ -35,6 +37,8 @@ export default async function PaginaProduto({ params, searchParams }: Props) {
   const fotos = fotosDe(slug, e.estilo);
   const numerado = e.estilo === 'fios' && p.tipo === 'fisico';
   const outros = PRODUTOS.filter((o) => o.slug !== slug);
+  const vendendo = checkoutAtivo();
+  const preco = vendendo ? precoDe(p.slug, e.estilo, e.formato) : null;
 
   return (
     <div className="pdp">
@@ -58,7 +62,7 @@ export default async function PaginaProduto({ params, searchParams }: Props) {
         <div className="painel">
           <p className="painel-linha">{p.tipo === 'digital' ? 'Arquivo digital' : 'Peça física'} · Geografia da Virada</p>
           <h1>{p.nome}</h1>
-          <p className="preco">Preço na abertura da venda</p>
+          <p className="preco">{preco ? reais(preco) : 'Preço na abertura da venda'}{preco && p.tipo === 'fisico' ? <small> + envio {reais(FRETE_PROVISORIO)}</small> : null}</p>
           <p className="descricao">{p.resumo}</p>
 
           <div className="opcoes">
@@ -97,7 +101,18 @@ export default async function PaginaProduto({ params, searchParams }: Props) {
 
           {numerado && <p className="tiragem">Primeira tiragem numerada: {TIRAGEM_FIOS} peças. Cada uma sai com o seu número impresso no rodapé.</p>}
 
-          {q.fila && Number(q.fila) > 0 ? (
+          {preco ? (
+            <form className="comprar" method="post" action="/api/checkout">
+              <input type="hidden" name="produto" value={slug} />
+              <input type="hidden" name="estilo" value={e.estilo} />
+              <input type="hidden" name="tema" value={e.tema} />
+              <input type="hidden" name="formato" value={e.formato} />
+              <button className="botao" type="submit">Comprar · {reais(preco)}</button>
+              <p className="comprar-nota">Pagamento seguro pela Stripe: cartão (com parcelamento), Pix ou Google Pay.</p>
+            </form>
+          ) : null}
+
+          {preco ? null : q.fila && Number(q.fila) > 0 ? (
             <p className="ok">Você é o nº {Number(q.fila).toLocaleString('pt-BR')} da fila. A fila compra {HORAS_ANTES} horas antes da abertura; avisamos por e-mail.</p>
           ) : (
             <form className="lista" method="post" action="/api/lista">
