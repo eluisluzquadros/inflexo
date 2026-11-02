@@ -16,7 +16,8 @@ type PedidoEntrega = {
 type Resultado = { estado: 'feita' | 'bloqueada'; nota?: string };
 
 const MAX_TENTATIVAS = 8;
-const site = () => (process.env.SITE_URL ?? 'http://localhost:3000').replace(/\/$/, '');
+// sem SITE_URL, produção cai no domínio oficial (o link do e-mail nunca pode apontar para localhost)
+const site = () => (process.env.SITE_URL || (process.env.NODE_ENV === 'production' ? 'https://inflexo.com.br' : 'http://localhost:3000')).replace(/\/$/, '');
 export const nomeDoArquivo = (p: { estilo: string; tema: string; formato: string }) => `inflexo-${p.estilo}-${p.tema}-${p.formato}.png`;
 
 async function pedido(id: string): Promise<PedidoEntrega | null> {
