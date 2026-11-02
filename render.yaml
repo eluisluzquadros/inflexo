@@ -1,0 +1,22 @@
+# Blueprint do Render para a loja INFLEXO (monorepo npm: apps/web importa packages/ e pipeline/output).
+# Segredos ficam com sync:false: o Render pergunta o valor no painel, nada de chave no Git.
+services:
+  - type: web
+    name: inflexo
+    runtime: node
+    region: oregon
+    plan: free            # dorme após ~15 min sem visita; trocar para starter quando a venda abrir
+    branch: main
+    buildCommand: npm ci && npm run build -w @inflexo/web
+    startCommand: npm run start -w @inflexo/web
+    healthCheckPath: /metodo
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: NODE_ENV
+        value: production
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
