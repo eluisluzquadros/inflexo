@@ -61,6 +61,8 @@ export async function tamanhoDaFila(): Promise<number> {
 
 /** Entra na fila (ou devolve a posição de quem já estava). Posição começa em 1: a ordem de chegada. */
 export async function entrar(r: Omit<Registro, 'em'>): Promise<number> {
+  // em produção o arquivo local não serve (some a cada reinício): sem banco, recusa em vez de perder o e-mail em silêncio
+  if (!banco() && process.env.NODE_ENV === 'production') throw new Error('Banco da fila não configurado (SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY)');
   if (!banco()) {
     const atual = filaLocal();
     const ja = atual.indexOf(r.email);

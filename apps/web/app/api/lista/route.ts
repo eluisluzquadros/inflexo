@@ -23,5 +23,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ erro: 'Não conseguimos registrar agora. Tente de novo em instantes.' }, { status: 503 });
   }
   const destino = slug === 'colecao' ? `/?fila=${posicao}#fecho` : geo ? `/geografia/${geo.slug}?fila=${posicao}` : `/produto/${slug}?fila=${posicao}`;
-  return NextResponse.redirect(new URL(destino, req.url), 303);
+  // Location relativo: atrás do proxy do Render, req.url traz o endereço interno (localhost:10000)
+  return new NextResponse(null, { status: 303, headers: { Location: destino } });
 }
