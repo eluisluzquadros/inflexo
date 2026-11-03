@@ -116,7 +116,7 @@ INFLEXO · pedidos@inflexo.com.br
 
 ---
 
-## 5. Montink
+## 4. Montink
 
 **Para:** contato indicado em montink.com (central de ajuda ou comercial)
 **Assunto:** INFLEXO: quadros com moldura e integração com loja própria
@@ -151,28 +151,37 @@ INFLEXO · pedidos@inflexo.com.br
 
 ---
 
-## 4. Dimona (acessórios e roupas)
+## 5. Dimona (decoração, acessórios e roupas)
 
 **Para:** api@dimona.com.br (endereço da documentação da API) ou o comercial indicado em dimona.com.br
-**Assunto:** INFLEXO: integração por API para canecas, ecobags e camisetas
+**Assunto:** INFLEXO: integração por API para quadros, pôsteres, canecas, ecobags e camisetas
 
 Olá, equipe Dimona.
 
-Sou Everton Quadros, da INFLEXO (inflexo.com.br), uma marca de arte de dados. Vendemos pelo nosso próprio
-site e queremos integrar pela API pública de vocês (api.camisadimona.com.br): criação de pedido, cotação de
-frete, webhook de status e rastreio.
+Sou Everton Quadros, da INFLEXO (inflexo.com.br), uma marca de arte de dados: peças feitas a partir de dados
+públicos, como a curva da apuração eleitoral reconstruída dos boletins de urna do TSE. Vendemos pelo nosso
+próprio site e queremos integrar pela API pública de vocês (api.camisadimona.com.br): criação de pedido,
+cotação de frete, webhook de status e rastreio.
 
-1. Como abrimos conta e recebemos a chave da API? Há ambiente de teste?
-2. Como o pedido é pago: saldo pré-pago, cartão ou fatura?
-3. Custo de caneca branca de 11 oz, ecobag e camiseta branca de algodão (tamanhos P a GG), e frete para
-   Porto Alegre (90450-090), Recife (50060-004) e São Paulo (01310-100).
-4. Etiqueta interna e externa: podem sair sem a marca Dimona (campos `inner_label` e `outer_label`)?
-   Embalagem neutra?
-5. Nota fiscal: vocês emitem para o consumidor final e por qual valor? Quando usamos o envio de NF-e pela
+Nosso produto principal é decoração. Sabemos que a Montink produz na infraestrutura de vocês e divulga
+quadros e pôsteres.
+
+1. Quadros e pôsteres estão disponíveis pela API da Dimona, para loja própria? Quais SKUs?
+2. Quadro: tem moldura (material, cores), proteção (vidro ou acrílico) e passe-partout? Tamanhos A3
+   (29,7 × 42 cm) e A2 (42 × 59,4 cm)? O canvas sai esticado em chassi?
+3. Pôster: papéis (tipo, gramatura, fosco) em A3 e A2.
+4. Custo de quadro e pôster em A3 e A2, caneca branca de 11 oz, ecobag e camiseta branca de algodão
+   (P a GG), e frete para Porto Alegre (90450-090), Recife (50060-004) e São Paulo (01310-100).
+5. Como abrimos conta e recebemos a chave da API? Há ambiente de teste?
+6. Como o pedido é pago: saldo pré-pago, cartão ou fatura?
+7. Etiqueta interna e externa: podem sair sem a marca Dimona (campos `inner_label` e `outer_label`)?
+   Embalagem neutra? Dá para incluir um cartão nosso?
+8. Nota fiscal: vocês emitem para o consumidor final e por qual valor? Quando usamos o envio de NF-e pela
    API (`/nfe`), como funciona?
-6. Onde produzem e qual o prazo por região?
-7. Política para defeito ou avaria.
-8. Podemos comprar amostras antes de abrir a venda?
+9. Especificação de arquivo. Mandamos PNG a 300 dpi em sRGB, com linhas finas.
+10. Onde produzem e qual o prazo por região?
+11. Política para defeito ou avaria no transporte (principalmente quadro).
+12. Podemos comprar amostras antes de abrir a venda?
 
 Obrigado,
 Everton Quadros

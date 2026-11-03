@@ -59,7 +59,12 @@ O que já se sabe: Reclame Aqui "Ótima" (nota 7,9 a 8,6; 94,7 % resolvidas; 71 
 reputação calculada entre os candidatos de decoração; produção pela parceira Dimona; sem API própria; o app
 da Nuvemshop recebe os pedidos e cobra cada um da carteira Montink ou por Pix; a nota sai pelo valor de custo
 (ou pelo valor da venda com Bling). Se fizer quadro com moldura, entra como finalista pela loja-ponte
-(Nuvemshop), com a mesma condição da Printile. Pergunta enviada (mensagem 5 de `10_MENSAGENS_FORNECEDORES.md`).
+(Nuvemshop), com a mesma condição da Printile. Pergunta preparada (mensagem 4 de `10_MENSAGENS_FORNECEDORES.md`).
+
+**Caminho mais direto (hipótese, a confirmar):** a Montink usa a infraestrutura da Dimona (dono, 03/11/2026).
+Se o quadro da Montink é fabricado pela Dimona, ele pode estar disponível pela **API pública da Dimona**
+(criar pedido, cotação de frete, webhook de status e rastreio), sem app nem loja-ponte, e com a reputação
+"Boa" da Dimona no Reclame Aqui. A pergunta está na mensagem 5 (Dimona).
 
 ### Leitura
 
