@@ -26,7 +26,6 @@ contraditórias. Antes de fechar contrato, conferir a página ao vivo de cada fi
 | Printify | Nenhum fornecedor no Brasil encontrado |
 | Colab55 | Marketplace (a Colab55 é a vendedora); produção de pôsteres "em recesso" em 02/11/2026 |
 | Uma Penca | Sem quadro; sem API |
-| Montink | Sem quadro com moldura (só pôster e canvas); sem API |
 | Reserva INK | Só vestuário |
 | Printi | Sem programa de revenda nem envio neutro |
 | Mioquadros | Só canvas; pedido mínimo de R$ 4.000 |
@@ -46,6 +45,21 @@ contraditórias. Antes de fechar contrato, conferir a página ao vivo de cada fi
 | Custo | Pôster a partir de R$ 28,60; quadro a partir de R$ 45,05 (plano Grátis; A3 e A2 não verificados) | 30 × 40 R$ 89; 40 × 50 R$ 129 (pode ser preço de vitrine) | Sob orçamento | Só no painel; mensalidade R$ 49,90 a 99,90 | Sob proposta |
 | Prazo | Produção 2 a 5 dias úteis; 80 % saem em 48 h | Não verificado | Até 5 dias úteis (impressão) e 10 (com moldura) | 2 a 4 dias úteis | Não verificado |
 | Nota fiscal e embalagem | Não verificadas | Embalagem neutra; nota não verificada | Não verificadas | Embalagem neutra; nota não verificada | Logo do lojista; nota não verificada |
+
+### A confirmar: Montink
+
+Corrigido em 03/11/2026. A Montink tinha sido eliminada por "não fazer quadro", mas um vídeo indicado pelo
+dono se chama "Transforme Suas Estampas em QUADROS para Vender na Montink"
+(https://www.youtube.com/watch?v=pv-R6YXdTgY). O catálogo público (https://montink.com/print-on-demand/) segue
+mostrando só o Pôster, de A0 a A5, em papel fotográfico 240 g ou canvas 280 g "sem margem" ou "com margem 4 cm",
+sem moldura, chassi ou bastidor. Não foi possível ver o conteúdo do vídeo. Pode ser o canvas apresentado
+como quadro ou um produto novo fora do catálogo público.
+
+O que já se sabe: Reclame Aqui "Ótima" (nota 7,9 a 8,6; 94,7 % resolvidas; 71 % voltariam), a melhor
+reputação calculada entre os candidatos de decoração; produção pela parceira Dimona; sem API própria; o app
+da Nuvemshop recebe os pedidos e cobra cada um da carteira Montink ou por Pix; a nota sai pelo valor de custo
+(ou pelo valor da venda com Bling). Se fizer quadro com moldura, entra como finalista pela loja-ponte
+(Nuvemshop), com a mesma condição da Printile. Pergunta enviada (mensagem 5 de `10_MENSAGENS_FORNECEDORES.md`).
 
 ### Leitura
 

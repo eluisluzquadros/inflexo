@@ -116,6 +116,41 @@ INFLEXO · pedidos@inflexo.com.br
 
 ---
 
+## 5. Montink
+
+**Para:** contato indicado em montink.com (central de ajuda ou comercial)
+**Assunto:** INFLEXO: quadros com moldura e integração com loja própria
+
+Olá, equipe Montink.
+
+Sou Everton Quadros, da INFLEXO (inflexo.com.br), uma marca de arte de dados: peças feitas a partir de dados
+públicos, como a curva da apuração eleitoral reconstruída dos boletins de urna do TSE. Vendemos pelo nosso
+próprio site e procuramos produção sob demanda de quadros e pôsteres com envio direto ao cliente.
+
+Vimos o vídeo "Transforme Suas Estampas em QUADROS para Vender na Montink", mas no catálogo público só
+encontramos o Pôster (papel fotográfico ou canvas, de A0 a A5).
+
+1. Vocês produzem quadro com moldura? Se sim: material e cores da moldura, proteção (vidro ou acrílico),
+   passe-partout e tamanhos (procuramos A3, 29,7 × 42 cm, e A2, 42 × 59,4 cm).
+2. O "canvas com margem 4 cm" sai esticado em chassi, pronto para pendurar?
+3. Custo de produção do quadro e do pôster em A3 e A2 e frete para Porto Alegre (90450-090),
+   Recife (50060-004) e São Paulo (01310-100).
+4. Integração: há API para criar pedidos a partir de uma loja própria? Se for só pelo app da Nuvemshop,
+   ele processa pedidos criados pela API da Nuvemshop, já pagos? O rastreio volta para o pedido?
+5. Como o pedido é pago (carteira, Pix, cobrança automática)?
+6. Onde fica a produção e qual o prazo por região?
+7. Nota fiscal: vocês emitem para o consumidor final e por qual valor?
+8. Embalagem neutra? Dá para incluir um cartão nosso?
+9. Especificação de arquivo. Mandamos PNG a 300 dpi em sRGB.
+10. Política para defeito ou avaria no transporte.
+11. Podemos comprar uma amostra antes de abrir a venda?
+
+Obrigado,
+Everton Quadros
+INFLEXO · pedidos@inflexo.com.br
+
+---
+
 ## 4. Dimona (acessórios e roupas)
 
 **Para:** api@dimona.com.br (endereço da documentação da API) ou o comercial indicado em dimona.com.br
