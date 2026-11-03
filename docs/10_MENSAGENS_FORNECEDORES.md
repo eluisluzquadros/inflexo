@@ -7,9 +7,63 @@ Antes de enviar, conferir o canal de contato no site de cada um.
 Registrar cada resposta em `09_FORNECEDORES_POD.md` (com data) e no EXP-318. Nenhum fornecedor é escolhido
 sem resposta escrita e amostra física aprovada.
 
+Ordem de envio: 1 (3Print) primeiro; depois 3 (Printile) e 6 (Dimona).
+
 ---
 
-## 1. YouDraw
+## 1. 3Print (prioridade)
+
+**Para:** WhatsApp (11) 97139-9163 (indicado no site para comercial e suporte da integração) ou
+https://www.3print.com.br/contato
+**Assunto:** INFLEXO: chave da API para loja própria, A3 e A2 sob medida
+
+**Versão curta (WhatsApp)**
+
+Olá! Sou Everton Quadros, da INFLEXO (inflexo.com.br), arte de dados vendida em loja própria (Next.js com
+checkout próprio). Lemos a documentação da API de parceiros v2 e queremos integrar com a chave da loja.
+Algumas perguntas antes de assinar:
+1. Qual plano libera a chave da API (`ptk_`) e o cadastro da URL de callback?
+2. Nossas peças são A3 (29,7 × 42) e A2 (42 × 59,4). Como fica o custo sob medida: R$/m² do tamanho menor da
+   tabela ou +20 %? Podem simular A3 e A2 com moldura caixa preta, com e sem vidro?
+3. Vocês são a "Três Print" que aparece entre os fornecedores da Montink?
+4. Podemos comprar uma amostra de cada antes de abrir a venda?
+Obrigado!
+
+**Versão completa (e-mail ou formulário)**
+
+Olá, equipe 3Print.
+
+Sou Everton Quadros, da INFLEXO (inflexo.com.br), uma marca de arte de dados: peças feitas a partir de dados
+públicos, como a curva da apuração eleitoral reconstruída dos boletins de urna do TSE. Vendemos pela nossa
+loja, com checkout próprio, e cada pedido pago deve seguir para a produção sem intervenção manual.
+
+Lemos o artigo "API de integração para parceiros" e o nosso caso é o da chave da loja, com
+`auto_approve: true` e a arte em alta (PNG) em cada item. Antes de assinar:
+
+1. Qual plano libera a chave da API e o cadastro da URL de callback? A tabela de custo da API segue o
+   desconto do plano (−17 % no Escala)?
+2. Medidas sob medida: A3 (29,7 × 42 cm) e A2 (42 × 59,4 cm). O custo é pela área com o R$/m² do tamanho de
+   tabela imediatamente menor (como diz o artigo) ou com +20 % (como diz a página de produtos)?
+3. Especificação de arquivo: formato aceito (PNG?), resolução mínima, perfil de cor e sangria para moldura
+   caixa e filete. Nossas artes têm linhas finas; geramos PNG a 300 dpi em sRGB.
+4. Papel: o fotográfico vinílico 255 g é fosco ou brilhante? Há opção de papel fine art (algodão)?
+   Há passe-partout?
+5. Com vidro: o vidro é comum ou antirreflexo? Como é a proteção no transporte para quadro com vidro?
+6. Frete: valores típicos para Porto Alegre (90450-090), Recife (50060-004) e São Paulo (01310-100), A3 e A2.
+7. Nota fiscal: entendemos que vocês emitem a de remessa e nós a de venda. A nota de remessa sai em nome de
+   quem e com qual valor? Integração com o nosso emissor (fora do Bling) é possível pelos dados de
+   `GET /orders/{id}/invoice`?
+8. Pagamento à 3Print pelos pedidos da API: cartão, boleto, Pix ou fatura? Em que momento é cobrado?
+9. Vocês aparecem como "Três Print" entre os fornecedores da Montink?
+10. Podemos comprar uma amostra de cada tamanho e acabamento antes de abrir a venda?
+
+Obrigado,
+Everton Quadros
+INFLEXO · pedidos@inflexo.com.br
+
+---
+
+## 2. YouDraw
 
 **Para:** contato@youdraw.com.br (endereço do rodapé do site)
 **Assunto:** INFLEXO: acesso à API comercial e cotação de quadros e pôsteres
@@ -51,7 +105,7 @@ INFLEXO · pedidos@inflexo.com.br
 
 ---
 
-## 2. Printile
+## 3. Printile
 
 **Para:** contato indicado em printile.com.br
 **Assunto:** INFLEXO: revenda white-label de quadros e pôsteres fine art
@@ -88,7 +142,7 @@ INFLEXO · pedidos@inflexo.com.br
 
 ---
 
-## 3. WePrint! Fine Art
+## 4. WePrint! Fine Art
 
 **Para:** contato indicado em weprint.com.br
 **Assunto:** INFLEXO: impressão fine art com moldura e envio direto ao cliente
@@ -116,7 +170,7 @@ INFLEXO · pedidos@inflexo.com.br
 
 ---
 
-## 4. Montink
+## 5. Montink
 
 **Para:** contato indicado em montink.com (central de ajuda ou comercial)
 **Assunto:** INFLEXO: quadros com moldura e integração com loja própria
@@ -151,7 +205,7 @@ INFLEXO · pedidos@inflexo.com.br
 
 ---
 
-## 5. Dimona (decoração, acessórios e roupas)
+## 6. Dimona (decoração, acessórios e roupas)
 
 **Para:** api@dimona.com.br (endereço da documentação da API) ou o comercial indicado em dimona.com.br
 **Assunto:** INFLEXO: integração por API para quadros, pôsteres, canecas, ecobags e camisetas

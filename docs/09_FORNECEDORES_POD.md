@@ -1,130 +1,142 @@
 # Impressão sob demanda no Brasil: comparação (EXP-318)
 
-Pesquisa de 02/11/2026, critérios pré-registrados no EXP-318 antes de olhar os resultados. Cada dado tem
-fonte; "não verificado" quer dizer que não foi possível confirmar, nunca estimativa.
+Revisão de 03/11/2026, contra fonte primária (site, catálogo, central de ajuda, termos, página de app ou
+documentação oficial do próprio fornecedor). Substitui a versão de 02/11, que tinha erros (lista no fim).
+"Não verificado" quer dizer que a fonte primária não respondeu ou não trata do ponto; nunca é estimativa.
 
-**Limite do método.** O Reclame Aqui bloqueia acesso automatizado (HTTP 403). Os números de reputação vêm
-de trechos dos resultados de busca restrita ao site, com datas de captura diferentes e às vezes
-contraditórias. Antes de fechar contrato, conferir a página ao vivo de cada finalista.
+**Limite do método.** O Reclame Aqui bloqueia acesso automatizado (HTTP 403); a reputação vem de trechos de
+busca restrita ao site, com datas incertas. Conferir ao vivo antes de contratar. Sites de Dimona e Dropsimples
+respondem 429 (bloqueio antirrobô) e não foram contornados.
 
-## Critérios
+## Critérios (com o desvio de 03/11)
 
-- **Eliminatórios** (por categoria): produz no Brasil; o INFLEXO é o vendedor (marca neutra, não
-  marketplace); automatizável (API própria ou app Nuvemshop/Shopify que processa pedido criado por API);
+- **Eliminatórios** (por categoria): produz no Brasil; o INFLEXO é o vendedor (marca neutra, não marketplace);
   cobre a categoria.
+- **Automação deixou de ser eliminatória** (decisão do dono, 03/11): o INFLEXO pode construir um intermediário
+  com agentes que fazem o pedido no painel ou por e-mail. Vira peso: API oficial > app de loja > agente.
 - **Pesos:** Reclame Aqui 25 %; qualidade e catálogo 20 %; custo A3/A2 com frete 20 %; automação 15 %;
   prazo até Porto Alegre e Nordeste 10 %; nota fiscal e embalagem neutra 10 %.
 
 ## Decoração (quadro e pôster), prioridade 1
 
-### Eliminados
-
-| Fornecedor | Motivo |
-|---|---|
-| Gelato | Pôster, quadro e tela produzidos nos EUA ou na Alemanha (cotação real, EXP-316) |
-| Printful | Parceiro no Rio desde 2022, mas o frete ao Brasil de quadro (R$ 91 a 291) e canvas (R$ 543+) indica produção no exterior; não confirmado que decoração saia daqui |
-| Printify | Nenhum fornecedor no Brasil encontrado |
-| Colab55 | Marketplace (a Colab55 é a vendedora); produção de pôsteres "em recesso" em 02/11/2026 |
-| Uma Penca | Sem quadro; sem API |
-| Reserva INK | Só vestuário |
-| Printi | Sem programa de revenda nem envio neutro |
-| Mioquadros | Só canvas; pedido mínimo de R$ 4.000 |
-| Fotoregistro | Vende só ao consumidor |
-| Urban Arts | Galeria com marca própria, não white-label |
-
 ### Finalistas
 
-| | YouDraw | Printile | WePrint! Fine Art | DropDecor | Quadrorama |
-|---|---|---|---|---|---|
-| Produz no Brasil | Sim, parceiros em SP | Sim (CNPJ em Barueri-SP; fábrica não informada) | Sim, Itu-SP | Não verificado (sem CNPJ nem cidade) | Contato em SP; fábrica não informada |
-| INFLEXO como vendedor | Sim (marca, domínio e rodapé próprios) | Sim, white-label, "embalagem neutra" | Envio neutro a terceiros não verificado | Sim, envio "sem menção à DropDecor" | Sim, com a logo do lojista |
-| Quadro | Caixa, Filete, Tradicional; 5 tamanhos, 4 cores, com ou sem vidro | A4 a 90 × 120 | Moldura de madeira sob medida, vidro antirreflexo ou museológico | Tradicional ou filete | Moldura de madeira |
-| Pôster | 5 tamanhos (papel não verificado) | Fine art, A3 a 70 × 100 | Papel 100 % algodão, fosco e texturizado | Sim | Sim |
-| Automação | **API comercial** (beta privada, convite): pedido idempotente, prévia com preço travado, cotação de frete, webhooks HMAC de status e rastreio; pagamento por Pix | App Nuvemshop (plano Plus, R$ 59,90/mês) ou pedido manual; API não citada | Nenhuma (orçamento por calculadora) | App Shopify com pedido e rastreio automáticos | Nenhuma informada (formulário ou WhatsApp) |
-| Reclame Aqui | Sem reputação; 3 reclamações de lojistas (suporte só por IA, cobrança após cancelar teste, preço alterado sem aviso) | Sem reputação (< 10 avaliações); 1 queixa aberta de defeito | 2 reclamações, 100 % respondidas, nota 8,6 (detector de site) | Não encontrada | Sem reclamações; "pouca informação" |
-| Custo | Pôster a partir de R$ 28,60; quadro a partir de R$ 45,05 (plano Grátis; A3 e A2 não verificados) | 30 × 40 R$ 89; 40 × 50 R$ 129 (pode ser preço de vitrine) | Sob orçamento | Só no painel; mensalidade R$ 49,90 a 99,90 | Sob proposta |
-| Prazo | Produção 2 a 5 dias úteis; 80 % saem em 48 h | Não verificado | Até 5 dias úteis (impressão) e 10 (com moldura) | 2 a 4 dias úteis | Não verificado |
-| Nota fiscal e embalagem | Não verificadas | Embalagem neutra; nota não verificada | Não verificadas | Embalagem neutra; nota não verificada | Logo do lojista; nota não verificada |
-
-### A confirmar: Montink
-
-Corrigido em 03/11/2026. A Montink tinha sido eliminada por "não fazer quadro", mas um vídeo indicado pelo
-dono se chama "Transforme Suas Estampas em QUADROS para Vender na Montink"
-(https://www.youtube.com/watch?v=pv-R6YXdTgY). O catálogo público (https://montink.com/print-on-demand/) segue
-mostrando só o Pôster, de A0 a A5, em papel fotográfico 240 g ou canvas 280 g "sem margem" ou "com margem 4 cm",
-sem moldura, chassi ou bastidor. Não foi possível ver o conteúdo do vídeo. Pode ser o canvas apresentado
-como quadro ou um produto novo fora do catálogo público.
-
-O que já se sabe: Reclame Aqui "Ótima" (nota 7,9 a 8,6; 94,7 % resolvidas; 71 % voltariam), a melhor
-reputação calculada entre os candidatos de decoração; produção pela parceira Dimona; sem API própria; o app
-da Nuvemshop recebe os pedidos e cobra cada um da carteira Montink ou por Pix; a nota sai pelo valor de custo
-(ou pelo valor da venda com Bling). Se fizer quadro com moldura, entra como finalista pela loja-ponte
-(Nuvemshop), com a mesma condição da Printile. Pergunta preparada (mensagem 4 de `10_MENSAGENS_FORNECEDORES.md`).
-
-**Caminho mais direto (hipótese, a confirmar):** a Montink usa a infraestrutura da Dimona (dono, 03/11/2026).
-Se o quadro da Montink é fabricado pela Dimona, ele pode estar disponível pela **API pública da Dimona**
-(criar pedido, cotação de frete, webhook de status e rastreio), sem app nem loja-ponte, e com a reputação
-"Boa" da Dimona no Reclame Aqui. A pergunta está na mensagem 5 (Dimona).
+| | **3Print** | **Printile** | **YouDraw** | WePrint! | DropDecor | Quadrorama |
+|---|---|---|---|---|---|---|
+| Quem produz | Fábrica própria: SP (7.000 m², desde 1987) e S. J. do Rio Preto (1.500 m², desde 2018); fornece Leroy Merlin, Tok&Stok, Mobly, Westwing, Hilton, Accor | Barueri-SP (CNPJ 11.387.071/0001-05) | Parceiros em SP (YD Inc, CNPJ 52.316.786/0001-54) | Laboratório em Itu-SP (Leyda Photo) | Não publicado | SP; fábrica não informada |
+| INFLEXO vendedor, marca neutra | Sim: "a marca 3Print não aparece no quadro nem na embalagem" | Sim: "white label", "embalagem neutra" | Marca do lojista; embalagem neutra não verificada | Não verificado (sem página para lojista) | Sim, "sem menção à DropDecor" | Sim, com a logo do lojista |
+| Quadro | Moldura caixa 2 × 2 cm (preta, branca, natural, tabaco, freijó) ou filete; com ou sem vidro; canvas com ou sem moldura; duo e trio | Moldura caixa ou tradicional (pinus/eucalipto com filme PET), acrílico cristal 2 mm | Caixa, Filete, Tradicional; 5 tamanhos, 4 cores, com ou sem vidro (medidas e materiais não publicados) | Moldura de madeira 2 × 3 cm, vidro comum, antirreflexo ou museológico, passe-partout | Tradicional ou filete | Moldura de madeira |
+| Papel | Fotográfico vinílico 255 g; canvas 340 g algodão; couché (só impressão) | Fosco 230 g, tinta mineral com UV | Não publicado | Canson Infinity (algodão) | Não publicado | Não publicado |
+| A3 e A2 | Sob medida: "qualquer medida é aceita", preço pela área | **Sim, tamanhos-padrão** | Não publicado | Sim | Não publicado | Não publicado |
+| Custo | Tabela pública (plano Básico): 40×60 caixa com vidro R$ 149, sem vidro R$ 126, só impressão R$ 65; 50×70 com vidro R$ 225. Plano Escala: −17 % | **Pôster A3 R$ 16, A2 R$ 50; quadro caixa com acrílico A3 R$ 73, A2 R$ 155** | "A partir de" R$ 28,60 (pôster) e R$ 45,05 (quadro), sem divisão por tamanho | Sob orçamento | Só no painel | Sob proposta |
+| Prazo | Produção 3 a 5 dias úteis; entrega 3 a 12 dias úteis após postagem | Até 4 dias úteis + 1 para postar | Produção 2 a 5 dias úteis | Até 10 dias úteis com moldura | 2 a 4 dias úteis | "Postados em 24 horas" |
+| Automação | **API pública v2 para loja própria**: chave da loja, pedido idempotente (`external_order_id`), simulação `/orders/preview`, cotação de frete, avisos de status com HMAC, rastreio, dados da NF-e. Também Nuvemshop, Shopify, Bling, marketplaces | App Nuvemshop (plano Plus R$ 59,90/mês) ou pedido manual | API comercial em beta, só por convite | Nenhuma | App Shopify; carteira pré-paga | Nenhuma |
+| Nota fiscal | 3Print emite a de remessa; a de venda é do lojista | Não verificado | Não verificado | Não verificado | Não verificado | Não verificado |
+| Avaria | Reenvio sem custo (quadro e frete); garantia de 90 dias | Não verificado | Não verificado | Não verificado | Não verificado | Não verificado |
+| Mensalidade | R$ 99 (Básico), R$ 299 (Escala, −17 % no custo e integrações), R$ 990 (Turbo) | Plano Plus R$ 59,90 para a Nuvemshop | R$ 0 a 399 | — | R$ 49,90 a 99,90 | — |
+| Reclame Aqui | Não encontrada | Sem reputação (< 10 avaliações; 1 queixa de defeito) | Sem reputação (3 queixas de lojistas: suporte, cobrança, preço) | 2 reclamações, nota 8,6 | Não encontrada | Sem reclamações |
 
 ### Leitura
 
-- **H1 (há ao menos um que passa nos eliminatórios): sustentada, com condição.** YouDraw passa se o convite
-  da API sair (ou pela loja-ponte); Printile passa se o app da Nuvemshop processar pedido criado por API.
-  Nenhum dos dois está confirmado ainda.
-- **H2 (o melhor colocado tem Reclame Aqui "Bom" ou melhor): não confirmada.** Nenhum finalista de
-  decoração tem reputação calculada; o histórico é curto em todos. Não é sinal ruim, mas também não é prova.
-- **Custo, prazo e nota fiscal** (40 % do peso) dependem de cotação: nenhum finalista publica A3 e A2 com
-  frete. Por isso a nota final ainda não é calculada; dar número agora seria achismo.
+1. **3Print** é a mais forte em decoração: a própria fábrica, que atende o grande varejo; a única com API
+   pública para loja própria que já faz tudo que o adaptador precisa (cotar, criar pedido idempotente,
+   simular, receber status e rastreio assinados); marca neutra e reenvio garantido por escrito. Pontos em
+   aberto: qual plano libera a chave da API, preço exato de A3 e A2 sob medida (a tabela usa o R$/m² do tamanho
+   menor; a página de produtos fala em +20 %), e reputação (não há registro no Reclame Aqui).
+2. **Printile** tem o menor custo nos tamanhos exatos do INFLEXO (A3 e A2) e acrílico em vez de vidro (mais
+   seguro no transporte), mas só automatiza pela Nuvemshop (loja-ponte) ou por agente no painel. Papel fosco
+   230 g, sem algodão.
+3. **YouDraw**: API em beta por convite; materiais e medidas não publicados.
+4. **WePrint!**: linha premium (papel de algodão, vidro museológico, passe-partout), sem automação nem
+   atendimento a lojista confirmado.
+5. DropDecor e Quadrorama: pouca informação publicada.
 
-**Ranking provisório**, só pelo que está verificado:
-1. YouDraw: única com quadro, pôster e API que cobre o pedido inteiro.
-2. Printile: melhor catálogo fine art entre os automatizáveis; automação via Nuvemshop.
-3. WePrint!: melhor qualidade técnica (opção premium), sem automação.
-4. DropDecor: depende da Shopify; dados da empresa não publicados.
-5. Quadrorama: pouca informação.
+**Montink** (ver abaixo) vende o mesmo quadro da 3Print com uma camada a mais; para o INFLEXO, ir direto à
+3Print é mais barato e tem API.
+
+**Custo estimado de um quadro** (estimativa, não cotação: área × R$/m² da tabela pública; frete a cotar):
+
+| | 3Print Básico | 3Print Escala | Printile |
+|---|---|---|---|
+| A2 (42 × 59,4) com vidro ou acrílico | ~R$ 155 | ~R$ 129 | R$ 155 |
+| A3 (29,7 × 42) com vidro ou acrílico | ~R$ 77 | ~R$ 64 | R$ 73 |
+
+Com os preços provisórios de `apps/web/lib/precos.ts` (quadro A3 R$ 289, A2 R$ 449) a margem passa de 35 %
+mesmo com frete de R$ 30 a 60 e a taxa da Stripe. A hipótese H2 do EXP-316 (quadro a ≤ R$ 249 com frete)
+depende da cotação real de frete.
+
+### A confirmar
+
+- **Montink.** Corrigido: **vende quadro com moldura** (app na Nuvemshop: "pôsteres, quadros"; produto em
+  papel fotográfico vinílico 255 g ou canvas 340 g, moldura caixa ou filete em branca, natural, preta, tabaco
+  ou freijó, com ou sem vidro). Tamanhos 20×30, 40×60, 60×90 e 80×120 (sem A3 e A2). Embalagem neutra, envio de
+  Duque de Caxias-RJ, produção em média 4 dias úteis; integra com Nuvemshop, Shopify, Yampi, iSet e Bling; sem
+  API pública; custo do quadro não publicado. O painel mostra três fornecedores: Dimona, Casa da Gráfica e
+  "Três Print". Os materiais e cores do quadro são os mesmos da 3Print, o que indica que o quadro da Montink é
+  da 3Print (confirmar com ela). Reclame Aqui "Ótima" (nota 7,9 a 8,6).
+- **Dimona.** Se faz quadro ou pôster para lojista: inconclusivo (site com bloqueio antirrobô). Pôster da
+  Montink, que roda na Dimona, vai de A0 a A5.
+
+### Eliminados
+
+| Fornecedor | Motivo (verificado) |
+|---|---|
+| Gelato | Pôster, quadro e tela produzidos nos EUA ou na Alemanha (cotação real pela API, EXP-316) |
+| Printful | Pela API do catálogo, nenhum pôster, pôster emoldurado ou canvas tem produção no Brasil (caneca e camisetas têm) |
+| Printify | Nenhum fornecedor no Brasil na lista pública de 68 |
+| Colab55 | Marketplace: o artista é o vendedor dentro da Colab55; não há envio para loja externa |
+| Uma Penca | Sem quadro (só camiseta, caneca, ecobag, moletom, planner, polo) |
+| Reserva INK | Só vestuário |
+| Printi | Quadro só em A4, A3 e 30×30 (A2 descontinuado); a página de revenda é desconto para agências, sem envio neutro encontrado |
+| Mioquadros | Só canvas; a parceria é de afiliados (20 % de comissão), não revenda |
+| Fotoregistro | Só consumidor final; empresas vão para a Digipix (mesmo CNPJ), sem envio neutro encontrado |
+| Urban Arts | Licenciamento com a marca Urban Arts, não white-label |
 
 ## Acessórios (caneca, bolsa) e roupas
 
-| | Dimona | YouDraw | Montink | Reserva INK | Uma Penca |
+| | Dimona | Montink | YouDraw | Reserva INK | Uma Penca |
 |---|---|---|---|---|---|
-| Produz no Brasil | Rio de Janeiro (e EUA) | SP | Via Dimona | Sim | Juiz de Fora-MG |
-| Caneca / ecobag / camiseta | Sim / sim / sim (forte em têxtil) | Não / sim / 20 modelos | Sim / sim / sim | Não / não / sim | Sim / sim / sim |
-| Automação | **API pública** (Postman): criar pedido, status por webhook, rastreio, cotação de frete, disponibilidade por SKU, envio de NF-e e etiqueta do lojista | API beta (convite) | Só app Nuvemshop, pago por pedido com carteira ou Pix; sem API | API pública só lê pedidos (plano R$ 799/mês); sem criar pedido | Nenhuma |
-| Reclame Aqui | "Boa", 7,4 a 7,5; 100 % respondidas; ~86 % resolvidas; 50 % voltariam | Sem reputação | "Ótima", 7,9 a 8,6; 94,7 % resolvidas; 71 % voltariam | "Regular", 6,2; ~68 % resolvidas; 57 % voltariam | "Ótima", 8,5 (outro registro: sem índice) |
-| Custo indicativo | Caneca R$ 29,90; ecobag R$ 20,90; pôster A4 R$ 18,50 | Camiseta a partir de R$ 30 | Não verificado | Camiseta R$ 49,90 a 64,90 | Não verificado |
-| Mensalidade | Nenhuma | R$ 0 a 399 | R$ 149 | R$ 39,90 a 799 | Nenhuma |
+| Caneca / ecobag / camiseta | Sim / sim / sim | Sim / sim / sim (pela Dimona) | Não / sim / 20 modelos | Não / não / sim | Sim / sim / sim |
+| Automação | API pública (criar pedido, frete, webhook, rastreio, NF-e e etiqueta do lojista) | Apps de loja e Bling; sem API | API em beta | API só lê pedidos | Nenhuma |
+| Reclame Aqui | "Boa", 7,4 a 7,5; 50 % voltariam | "Ótima", 7,9 a 8,6 | Sem reputação | "Regular", 6,2 | "Ótima", 8,5 |
+| Custo indicativo | Caneca R$ 29,90; ecobag R$ 20,90 | Caneca R$ 30,60; ecobag R$ 24,99 (catálogo) | Camiseta a partir de R$ 30 | Camiseta R$ 49,90 a 64,90 | Não publicado |
 
-Leitura: **Dimona** é a mais forte para caneca, bolsa e camiseta: a única com API pública completa, sem
-mensalidade, reputação "Boa". Ressalva: 50 % "voltariam a fazer negócio" e etiqueta da peça "aparente"
-segundo concorrente (os campos `inner_label`/`outer_label` da API sugerem personalização, não verificado).
-YouDraw é a alternativa para camiseta se a API dela já estiver em uso para decoração. Reserva INK sai
-(reputação "Regular" e sem API para criar pedido).
+Dimona segue à frente por ter API pública completa.
 
-## Próximo passo: perguntas e amostras
+## O que estava errado na versão de 02/11
 
-Nenhum fornecedor é escolhido sem resposta escrita às perguntas obrigatórias de `03_FORNECEDORES.md` e
-amostra física aprovada. Pedir a:
+| Afirmação anterior | Correção |
+|---|---|
+| Montink não faz quadro | Faz (moldura caixa ou filete, com ou sem vidro), sem A3 e A2 |
+| Montink produz tudo na Dimona | Tem pelo menos três fornecedores no painel; o quadro indica 3Print |
+| Printile: R$ 89 e R$ 129 de custo | Eram preços de uma loja de exemplo; custo real A3/A2 na tabela acima |
+| Colab55: a Colab55 é a vendedora; pôster "em recesso" | O artista é o vendedor; o aviso de recesso é um modelo escondido na página |
+| Printi: sem programa de revenda | Tem página de revenda (desconto para agências), mas sem envio neutro |
+| Mioquadros: mínimo de R$ 4.000 | Não encontrado; a parceria é de afiliados |
+| Nenhum fornecedor de quadro tem API para loja própria | A 3Print tem API pública v2 |
+| 3Print ausente | Fabricante e provável fornecedor do quadro da Montink |
 
-1. **YouDraw:** convite para a API comercial (e sandbox); medidas, material e acabamento dos quadros
-   (moldura, acrílico ou vidro, passe-partout); papel do pôster; custo de A3 e A2 com frete para Porto
-   Alegre (90450-090) e Recife; quem emite a nota; embalagem neutra; amostra.
-2. **Printile:** se aceitam pedido por API ou webhook fora da Nuvemshop, ou se o app processa pedido
-   criado pela API da Nuvemshop; custo A3 e A2; fábrica; prazo; nota; amostra.
-3. **WePrint!:** envio neutro direto ao cliente; pedido por e-mail ou API; custo A3 e A2 com moldura;
-   amostra (opção premium).
-4. **Dimona** (acessórios e roupas): acesso à API, etiqueta neutra, custo de caneca, ecobag e camiseta.
+## Próximo passo
+
+Perguntas e amostra a 3Print (prioridade), Printile, YouDraw e Dimona (`10_MENSAGENS_FORNECEDORES.md`).
+Nenhum fornecedor é escolhido sem resposta escrita e amostra física aprovada.
 
 ## Fontes
 
-- YouDraw: https://youdraw.com.br/catalogo · https://youdraw.com.br/quanto-custa · https://docs.youdraw.com.br · https://api.youdraw.com.br/api/v1/openapi.yaml · https://www.reclameaqui.com.br/empresa/yd-inc-comercio-e-servicos-ltda/
-- Printile: https://printile.com.br/ · https://www.reclameaqui.com.br/empresa/printile/ · https://cnpj-api.com/en/cnpj/11387071000105
-- WePrint!: https://weprint.com.br/pages/servicos · https://www.reclameaqui.com.br/detector-site-confiavel/weprint.com.br
-- DropDecor: https://dropdecor.com.br/ · https://dropdecor.com.br/duvidas-frequentes/ · https://dropdecor.com.br/integracoes/ · https://dropdecor.com.br/planos/
-- Quadrorama: https://www.quadrorama.com.br/revenda/ · https://www.reclameaqui.com.br/empresa/quadrorama/
-- Dimona: https://api.camisadimona.com.br/ · https://www.reclameaqui.com.br/empresa/dimona/ · https://ecommercenapratica.com/blog/saiba-tudo-sobre-dropsimples
-- Montink: https://www.reclameaqui.com.br/empresa/montink_190944/ · https://sou.montink.com/comparativo-planos-montink · https://www.nuvemshop.com.br/loja-aplicativos-nuvem/montink
-- Reserva INK: https://www.reclameaqui.com.br/empresa/reserva-ink/ · https://developers.reserva.ink/ · https://reserva.ink/site/quanto-custa-reserva-ink
-- Uma Penca: https://www.reclameaqui.com.br/empresa/uma-penca/ · https://blog.umapenca.com/uma-penca-ou-dimona-qual-e-a-melhor-para-print-on-demand/ · https://umapenca.com/termos-condicoes/
-- Colab55: https://www.colab55.com/about · https://www.colab55.com/tos · https://www.reclameaqui.com.br/empresa/colab55/
-- Printful: https://www.printful.com/news/printful-partner-facility-in-Brazil+ · https://www.printful.com/shipping
-- Outros: https://www.printi.com.br/quadro-decorativo/ · https://www.reclameaqui.com.br/empresa/printi/ · https://mioquadros.com/fornecedor-de-quadros-por-atacado-e-dropshipping-direto-da-fabrica/ · https://www.fotoregistro.com.br/ · https://www.reclameaqui.com.br/empresa/urban-arts-digital-art-e-design/lista-reclamacoes/
+- 3Print: https://www.3print.com.br/ · /ajuda · /termos-de-uso · /products (tabela via `/proxy/public/production-costs/table`) · /planos · /producao-e-entrega · /integracoes · /clientes · https://www.3print.com.br/artigos/api-integracao-plataforma-propria · /artigos/nota-fiscal-dropshipping · /artigos/manual-integracao-bling
+- Printile: https://printile.com.br/ (FAQ "Ver todas as 19 dúvidas") · https://www.reclameaqui.com.br/empresa/printile/
+- YouDraw: https://youdraw.com.br/catalogo · /quanto-custa · /termos-de-producao · https://docs.youdraw.com.br · https://www.reclameaqui.com.br/empresa/yd-inc-comercio-e-servicos-ltda/
+- Montink: https://www.nuvemshop.com.br/loja-aplicativos-nuvem/montink · https://montink.com/conexaodna/quadro-ideograma-japones-kanji-paz-8m43m · https://sou.montink.com/sobre-a-montink · https://sou.montink.com/casa-da-grafica · https://www.reclameaqui.com.br/empresa/montink_190944/ · vídeo https://www.youtube.com/watch?v=fqTXnqUFOqI (painel com fornecedores Dimona, Casa da Gráfica e Três Print)
+- WePrint!: https://weprint.com.br/pages/servicos
+- DropDecor: https://dropdecor.com.br/ · /duvidas-frequentes/ · /integracoes/ · /planos/
+- Quadrorama: https://www.quadrorama.com.br/revenda/
+- Dimona: https://api.camisadimona.com.br/ · https://www.reclameaqui.com.br/empresa/dimona/
+- Colab55: https://colab55.zendesk.com (artigos 360059242471 e 201666099) · https://www.colab55.com/tos
+- Printful: https://api.printful.com/products · https://www.printful.com/print-on-demand-brazil
+- Printify: https://printify.com/app/print-providers
+- Uma Penca: https://umapenca.com/produtos-personalizados
+- Reserva INK: https://reserva.ink/site/produtos-fisicos · https://developers.reserva.ink/
+- Printi: https://www.printi.com.br/quadro-decorativo/ · https://www.printi.com.br/grafica-revendedor/
+- Mioquadros: https://mioquadros.com/perguntas-frequentes/
+- Fotoregistro: https://www.fotoregistro.com.br/ (central de ajuda, "Como cadastrar meu CNPJ")
+- Urban Arts: https://www.urbanarts.com.br/seja-um-revendedor-urban-arts · /licenciado
