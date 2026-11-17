@@ -240,3 +240,36 @@ quadros e pôsteres.
 Obrigado,
 Everton Quadros
 INFLEXO · pedidos@inflexo.com.br
+
+---
+
+## 7. Reserva INK (roupas; decisão de 17/11/2026)
+
+**Para:** api@reserva.ink (contato de integração indicado pela Nuvemshop) ou o chat do painel
+**Assunto:** INFLEXO: criar pedidos externos pela API (loja de integração)
+
+Olá, equipe Reserva INK.
+
+Sou Everton Quadros, da INFLEXO (inflexo.com.br). Tenho loja na INK e vendo também pelo meu próprio site, com
+checkout próprio. Quero que cada camiseta vendida no meu site vire automaticamente um pedido de integração na
+INK, produzido e enviado ao meu cliente.
+
+Já tenho a credencial da API pública e as leituras funcionam (`product_types`, `products`,
+`external_orders`, `shipping_simulation`). A documentação (developers.reserva.ink) descreve a "loja de
+integração" e os pedidos externos "empurrados via API", mas não traz o endpoint de criação. Podem me informar:
+
+1. Como habilitar a minha loja como loja de integração, ou se preciso de uma loja separada para isso.
+2. A documentação do endpoint que cria o pedido externo: formato dos itens (produto, cor, tamanho), endereço
+   do cliente, arte de impressão (URL ou upload), identificador do pedido no meu sistema (`api_order_id`) e se
+   há idempotência para reenvio.
+3. Se a arte vai por pedido ou se preciso cadastrar o produto antes (`POST /v1/stores/products`) e mandar só
+   o produto e a variante.
+4. Como o custo de cada pedido é cobrado (saldo, pré-pagamento, cartão) e em que momento.
+5. Se há ambiente de teste, ou como validar a integração sem gerar produção.
+6. Especificação da arte para a área de 4200 × 4800 px: formato (PNG com transparência?), resolução e perfil
+   de cor.
+7. Quem emite a nota fiscal da venda nesse modelo e o que muda ao migrar a conta para CNPJ.
+
+Obrigado,
+Everton Quadros
+INFLEXO · pedidos@inflexo.com.br

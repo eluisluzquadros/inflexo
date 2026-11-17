@@ -103,6 +103,21 @@ depende da cotação real de frete.
 
 Dimona segue à frente por ter API pública completa.
 
+**Decisão do dono (17/11/2026): roupas pela Reserva INK**, apesar da reputação "Regular". Conta habilitada
+(pessoa física, com sugestão de migrar para CNPJ) e chave da API no `.env` (`RESERVA_INK_API_KEY`).
+Verificado com a chave, só leitura:
+
+- A API pública responde (o plano inclui o recurso). A loja ainda não tem produtos; a leitura de pedidos
+  externos (`GET /v1/stores/external_orders`) funciona e está vazia.
+- **Criar pedido externo não está na documentação pública.** Ela descreve a "loja de integração", que recebe
+  vendas de fora "empurradas via API" (já pagas, com avisos `external_order.created`, `.sent`,
+  `.delivery_in_progress` e outros), mas não o endpoint de criação. Pedido à Reserva INK: mensagem 7 de
+  `10_MENSAGENS_FORNECEDORES.md`.
+- Área de impressão (de `GET /v1/stores/product_types`): **4200 × 4800 px** em Camiseta (9 cores, PP a 4G),
+  Camiseta Algodão Peruano (4 cores), Camiseta Oversized (preta, off-white, areia) e Camiseta Infantil.
+- Frete (`GET /v1/stores/shipping_simulation?cep=90450-090`): J&T R$ 11,11 ou Total Express R$ 12,49,
+  7 dias úteis, para camiseta de referência (300 g).
+
 ## O que estava errado na versão de 02/11
 
 | Afirmação anterior | Correção |
