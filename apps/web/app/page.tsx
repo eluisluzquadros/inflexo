@@ -38,7 +38,7 @@ export default async function Inicio({ searchParams }: { searchParams: Promise<R
     <div className="casa">
       {/* 1. abertura de ponta a ponta */}
       <section className="h-abertura" aria-labelledby="h-titulo">
-        <img className="h-abertura-foto" src="/casa/hero.jpg" alt="Duas pessoas de moletom preto com a marca INFLEXO numa sala clara; na parede, o quadro Gravura" width={2560} height={1434} fetchPriority="high" />
+        <img className="h-abertura-foto" src="/casa/hero.jpg" alt="Duas pessoas de moletom preto com a marca INFLEXO numa sala clara; na parede, o quadro Gravura só com a curva e a data" width={2560} height={1434} fetchPriority="high" />
         <div className="h-abertura-texto">
           <p className="h-linha-fina">Coleção 01 · A Geografia da Virada</p>
           <h1 id="h-titulo"><span>A estética</span><span>do movimento.</span></h1>
@@ -58,7 +58,7 @@ export default async function Inicio({ searchParams }: { searchParams: Promise<R
           </span>
           <span className="h-circulo"><Seta /></span>
         </Link>
-        <p className="h-nota">Cena gerada por IA. O quadro na parede é a arte real; moletom e boné são estudo da coleção, ainda fora da loja.</p>
+        <p className="h-nota">Cena gerada por IA. O quadro na parede é a Gravura real, sem o placar; moletom e boné são estudo da coleção, ainda fora da loja.</p>
       </section>
 
       {/* 2. categorias */}
