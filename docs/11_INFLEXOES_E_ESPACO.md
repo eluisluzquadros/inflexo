@@ -33,8 +33,8 @@ vitrine. Feito no site:
 
 | Inflexão | Série | Situação |
 |---|---|---|
-| População humana | ONU WPP 2024; HYDE/Gapminder (via Our World in Data) | H1 testada em parte (abaixo) |
-| CO₂ na atmosfera | Keeling (Mauna Loa) + núcleos de gelo EPICA | a fazer |
+| População humana | ONU WPP 2024 | prévia feita (Nº 01) |
+| CO₂ na atmosfera | Gelo da Antártida, 800 mil anos (NOAA/NCEI) + Law Dome + Mauna Loa | prévia feita (Nº 02) |
 | Extinções em massa | Paleobiology Database | a fazer |
 | Formação de estrelas | Madau & Dickinson (2014) | a fazer |
 | Apollo 11 | Trajetória publicada pela NASA | a fazer |
@@ -107,8 +107,27 @@ a linha entra na INFLEXO com o mesmo método:
   Aparecem sem retoque a queda de 1960 (fome na China), a de 2020–2021 (pandemia) e o aumento negativo depois
   de 2084. Cabeçalho "93,7 milhões a mais • 1990", data grande "1990", legenda com o quase empate de 2012.
 
+## Inflexão Nº 02 · CO₂ no ar (17/11/2026, H3 sustentada)
+
+A curva de Keeling ainda acelera: não tem inflexão matemática. A virada é o cruzamento de um limite: o
+primeiro ano em que o CO₂ passa, para não voltar, do maior valor dos 800 mil anos anteriores a 1750.
+
+| | Valor |
+|---|---|
+| Teto natural (registro composto de 800 mil anos) | 298,6 ppm, há ~335 mil anos (igual com corte em 1750 ou 950) |
+| Mínimo natural | 173,7 ppm |
+| Cruzamento, curva suavizada de Law Dome | **1908** |
+| Cruzamento, amostras do gelo (220; datação ±5 anos) | **1913** (primeira passagem em 1909, volta abaixo em 1911) |
+| Mauna Loa, 2025 | 427,35 ppm |
+
+- A peça mostra **1908–1913**: dois métodos, um intervalo, nenhum ano escolhido.
+- Dados: `py -I pipeline/scripts/co2_ar.py` (SHA-256 das três fontes no JSON). Peça:
+  `node packages/render/scripts/render-inflexao-co2.mjs a3 papel` → `out/inflexoes/co2_a3_papel.{svg,png}`.
+- Composição: em cima, 800 mil anos sob o teto tracejado e a subida industrial na borda; embaixo, 1750–2025
+  com o ponto dourado no cruzamento e a barra dourada até 1913.
+
 ## Próximo
 
-1. Teste de leitura (H2) com 5 pessoas, usando a prévia.
+1. Teste de leitura (H2) com 5 pessoas, usando as prévias.
 2. Estabilidade entre revisões da ONU (2019, 2022) ou Census, se for preciso reforçar a H1.
 3. CO₂ e extinções.

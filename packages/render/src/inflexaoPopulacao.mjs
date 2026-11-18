@@ -11,13 +11,13 @@ const r2 = (n) => Math.round(n * 100) / 100;
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const num = (n, casas) => new Intl.NumberFormat('pt-BR', { minimumFractionDigits: casas, maximumFractionDigits: casas }).format(n);
 
-function aleatorio(semente) {
+export function aleatorio(semente) {
   let s = semente >>> 0;
   return () => { s = (s + 0x6D2B79F5) >>> 0; let t = Math.imul(s ^ (s >>> 15), 1 | s); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
 }
 
 /** Três filamentos de tinta ao longo de pontos já em coordenadas da folha, com o tremor da Gravura. */
-function filamentos(pts, u, rnd) {
+export function filamentos(pts, u, rnd) {
   const espaco = 0.42 * u;
   return [-1, 0, 1].map((kk) => {
     const fase = [rnd() * 6.28, rnd() * 6.28, rnd() * 6.28];
