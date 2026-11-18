@@ -58,6 +58,24 @@ atualizada em 15/07/2024) e `population-growth-rates` (ONU WPP 2024, estimativas
   esse vale e o salto como parte do desenho, e a legenda diria a revisão da fonte.
 - População: 3,02 bilhões em 1960; 8,09 bilhões em 2023.
 
+### Revisão do conceito (17/11/2026, arquivo oficial WPP 2024, `WPP2024_Demographic_Indicators_Medium.csv.gz`)
+
+O pico da **taxa** (%) não é o ponto de inflexão da curva. Inflexão, no sentido matemático e no nome da
+marca, é onde a curva da população para de acelerar: o máximo do **aumento absoluto** por ano.
+
+| Medida (ONU WPP 2024, mundo) | Ano a ano | Por período ou média de 5 anos |
+|---|---|---|
+| Pico da taxa de crescimento | 1963 (2,28 %; salto depois da fome na China, 1,58 % em 1960) | 1965–1970 (2,05 %), origem do "fim dos anos 1960" |
+| **Ponto de inflexão** (maior aumento absoluto) | **1990: 93,7 milhões de pessoas a mais** | 1988 (média móvel de 5 anos: 92,4 milhões) |
+| Pico da população (projeção, variante média) | 2084: 10,29 bilhões | — |
+
+- Entre 1986 e 1990 o aumento fica num platô (90,7 a 93,7 milhões); em 2012 quase empata (91,3 milhões).
+  A peça mostra o platô e a legenda dá os dois números, em vez de vender um ano como exato.
+- A história da peça fica: a humanidade cresceu cada vez mais rápido até 1990; desde então cresce cada vez
+  mais devagar; a ONU projeta o pico em 2084. O ponto da inflexão é 1990, calculado, não escolhido.
+- A estabilidade entre revisões da ONU (2019, 2022) ainda não foi testada: os arquivos antigos saíram dos
+  endereços conhecidos do site da ONU (o site novo monta os links por JavaScript).
+
 ## Linha espacial "com cara de Skyvidya"
 
 As imagens de `docs/mockups/space/` são ilustrações de terceiros (uma tem o selo do artista): servem de
@@ -76,8 +94,21 @@ a linha entra na INFLEXO com o mesmo método:
 - El Niño: boa ideia de dados, e a série ONI da NOAA já está tratada no projeto atma-clima. Cuidado com a
   enchente do RS de 2024: dizer "coincidiu", nunca "causou", e pesar se a marca deve tratar a tragédia.
 
+## Prévia da Inflexão Nº 01 · População (17/11/2026)
+
+- Dados: `py -I pipeline/scripts/populacao_mundo.py` baixa o arquivo da ONU (SHA-256 registrado no JSON),
+  calcula inflexão, platô (anos com ≥ 97 % do máximo: 1987–1990 e 2012), pico da taxa e pico projetado, e grava
+  `pipeline/output/populacao_mundo_wpp2024.json`.
+- Peça: `node packages/render/scripts/render-inflexao-populacao.mjs a3 papel` gera
+  `out/inflexoes/populacao_a3_papel.{svg,png}` (A3, 300 dpi), no módulo `packages/render/src/inflexaoPopulacao.mjs`,
+  que reaproveita papel, tinta e tremor da Gravura.
+- Composição: em cima, a população de 1950 a 2100 (estimativa em tinta até 2023, projeção tracejada em
+  grafite); embaixo, o aumento de cada ano, com o topo da onda em 1990; um fio dourado liga os dois pontos.
+  Aparecem sem retoque a queda de 1960 (fome na China), a de 2020–2021 (pandemia) e o aumento negativo depois
+  de 2084. Cabeçalho "93,7 milhões a mais • 1990", data grande "1990", legenda com o quase empate de 2012.
+
 ## Próximo
 
-1. Segunda fonte para a H1 (chave do Census IDB) e prévia da peça "População" no motor de render.
-2. Teste de leitura (H2) com 5 pessoas.
+1. Teste de leitura (H2) com 5 pessoas, usando a prévia.
+2. Estabilidade entre revisões da ONU (2019, 2022) ou Census, se for preciso reforçar a H1.
 3. CO₂ e extinções.

@@ -1,0 +1,1090 @@
+{
+ "fonte": "Nações Unidas, DESA, Divisão de População. World Population Prospects 2024, variante média.",
+ "url": "https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/CSV_FILES/WPP2024_Demographic_Indicators_Medium.csv.gz",
+ "sha256": "286ac36bb1415e2e1ade03acfef0a29f0e4c087e2f78e38c48f50c5df89082bc",
+ "ultimo_ano_estimado": 2023,
+ "inflexao": {
+  "ano": 1990,
+  "aumento_mi": 93.667,
+  "populacao_mi": 5327.803,
+  "definicao": "ano de maior aumento absoluto da população (máximo de dP/dt), só estimativas",
+  "plato_97pct": [
+   1987,
+   1988,
+   1989,
+   1990,
+   2012
+  ],
+  "segundo_maior_fora_do_plato": {
+   "ano": 2012,
+   "aumento_mi": 91.26
+  }
+ },
+ "pico_taxa": {
+  "ano": 1963,
+  "taxa_pct": 2.283
+ },
+ "pico_populacao_projetado": {
+  "ano": 2084,
+  "populacao_mi": 10289.315
+ },
+ "serie": [
+  {
+   "ano": 1950,
+   "populacao_mi": 2493.093,
+   "aumento_mi": 43.338,
+   "taxa_pct": 1.738,
+   "projecao": false
+  },
+  {
+   "ano": 1951,
+   "populacao_mi": 2536.927,
+   "aumento_mi": 44.331,
+   "taxa_pct": 1.747,
+   "projecao": false
+  },
+  {
+   "ano": 1952,
+   "populacao_mi": 2584.086,
+   "aumento_mi": 49.988,
+   "taxa_pct": 1.935,
+   "projecao": false
+  },
+  {
+   "ano": 1953,
+   "populacao_mi": 2634.106,
+   "aumento_mi": 50.052,
+   "taxa_pct": 1.9,
+   "projecao": false
+  },
+  {
+   "ano": 1954,
+   "populacao_mi": 2685.895,
+   "aumento_mi": 53.525,
+   "taxa_pct": 1.993,
+   "projecao": false
+  },
+  {
+   "ano": 1955,
+   "populacao_mi": 2740.214,
+   "aumento_mi": 55.112,
+   "taxa_pct": 2.011,
+   "projecao": false
+  },
+  {
+   "ano": 1956,
+   "populacao_mi": 2795.41,
+   "aumento_mi": 55.28,
+   "taxa_pct": 1.978,
+   "projecao": false
+  },
+  {
+   "ano": 1957,
+   "populacao_mi": 2852.618,
+   "aumento_mi": 59.137,
+   "taxa_pct": 2.073,
+   "projecao": false
+  },
+  {
+   "ano": 1958,
+   "populacao_mi": 2911.25,
+   "aumento_mi": 58.126,
+   "taxa_pct": 1.997,
+   "projecao": false
+  },
+  {
+   "ano": 1959,
+   "populacao_mi": 2965.95,
+   "aumento_mi": 51.275,
+   "taxa_pct": 1.729,
+   "projecao": false
+  },
+  {
+   "ano": 1960,
+   "populacao_mi": 3015.471,
+   "aumento_mi": 47.766,
+   "taxa_pct": 1.584,
+   "projecao": false
+  },
+  {
+   "ano": 1961,
+   "populacao_mi": 3064.87,
+   "aumento_mi": 51.032,
+   "taxa_pct": 1.665,
+   "projecao": false
+  },
+  {
+   "ano": 1962,
+   "populacao_mi": 3123.374,
+   "aumento_mi": 65.977,
+   "taxa_pct": 2.112,
+   "projecao": false
+  },
+  {
+   "ano": 1963,
+   "populacao_mi": 3192.808,
+   "aumento_mi": 72.89,
+   "taxa_pct": 2.283,
+   "projecao": false
+  },
+  {
+   "ano": 1964,
+   "populacao_mi": 3264.487,
+   "aumento_mi": 70.469,
+   "taxa_pct": 2.159,
+   "projecao": false
+  },
+  {
+   "ano": 1965,
+   "populacao_mi": 3334.534,
+   "aumento_mi": 69.623,
+   "taxa_pct": 2.088,
+   "projecao": false
+  },
+  {
+   "ano": 1966,
+   "populacao_mi": 3404.041,
+   "aumento_mi": 69.391,
+   "taxa_pct": 2.039,
+   "projecao": false
+  },
+  {
+   "ano": 1967,
+   "populacao_mi": 3473.413,
+   "aumento_mi": 69.352,
+   "taxa_pct": 1.997,
+   "projecao": false
+  },
+  {
+   "ano": 1968,
+   "populacao_mi": 3545.187,
+   "aumento_mi": 74.197,
+   "taxa_pct": 2.093,
+   "projecao": false
+  },
+  {
+   "ano": 1969,
+   "populacao_mi": 3619.492,
+   "aumento_mi": 74.412,
+   "taxa_pct": 2.056,
+   "projecao": false
+  },
+  {
+   "ano": 1970,
+   "populacao_mi": 3694.684,
+   "aumento_mi": 75.972,
+   "taxa_pct": 2.056,
+   "projecao": false
+  },
+  {
+   "ano": 1971,
+   "populacao_mi": 3769.848,
+   "aumento_mi": 74.356,
+   "taxa_pct": 1.972,
+   "projecao": false
+  },
+  {
+   "ano": 1972,
+   "populacao_mi": 3844.918,
+   "aumento_mi": 75.784,
+   "taxa_pct": 1.971,
+   "projecao": false
+  },
+  {
+   "ano": 1973,
+   "populacao_mi": 3920.805,
+   "aumento_mi": 75.991,
+   "taxa_pct": 1.938,
+   "projecao": false
+  },
+  {
+   "ano": 1974,
+   "populacao_mi": 3996.416,
+   "aumento_mi": 75.231,
+   "taxa_pct": 1.883,
+   "projecao": false
+  },
+  {
+   "ano": 1975,
+   "populacao_mi": 4070.735,
+   "aumento_mi": 73.407,
+   "taxa_pct": 1.803,
+   "projecao": false
+  },
+  {
+   "ano": 1976,
+   "populacao_mi": 4144.246,
+   "aumento_mi": 73.615,
+   "taxa_pct": 1.776,
+   "projecao": false
+  },
+  {
+   "ano": 1977,
+   "populacao_mi": 4217.864,
+   "aumento_mi": 73.62,
+   "taxa_pct": 1.745,
+   "projecao": false
+  },
+  {
+   "ano": 1978,
+   "populacao_mi": 4292.098,
+   "aumento_mi": 74.848,
+   "taxa_pct": 1.744,
+   "projecao": false
+  },
+  {
+   "ano": 1979,
+   "populacao_mi": 4368.54,
+   "aumento_mi": 78.036,
+   "taxa_pct": 1.786,
+   "projecao": false
+  },
+  {
+   "ano": 1980,
+   "populacao_mi": 4447.606,
+   "aumento_mi": 80.097,
+   "taxa_pct": 1.801,
+   "projecao": false
+  },
+  {
+   "ano": 1981,
+   "populacao_mi": 4528.777,
+   "aumento_mi": 82.245,
+   "taxa_pct": 1.816,
+   "projecao": false
+  },
+  {
+   "ano": 1982,
+   "populacao_mi": 4612.673,
+   "aumento_mi": 85.547,
+   "taxa_pct": 1.855,
+   "projecao": false
+  },
+  {
+   "ano": 1983,
+   "populacao_mi": 4697.328,
+   "aumento_mi": 83.761,
+   "taxa_pct": 1.783,
+   "projecao": false
+  },
+  {
+   "ano": 1984,
+   "populacao_mi": 4782.176,
+   "aumento_mi": 85.935,
+   "taxa_pct": 1.797,
+   "projecao": false
+  },
+  {
+   "ano": 1985,
+   "populacao_mi": 4868.943,
+   "aumento_mi": 87.601,
+   "taxa_pct": 1.799,
+   "projecao": false
+  },
+  {
+   "ano": 1986,
+   "populacao_mi": 4958.073,
+   "aumento_mi": 90.658,
+   "taxa_pct": 1.829,
+   "projecao": false
+  },
+  {
+   "ano": 1987,
+   "populacao_mi": 5049.746,
+   "aumento_mi": 92.689,
+   "taxa_pct": 1.836,
+   "projecao": false
+  },
+  {
+   "ano": 1988,
+   "populacao_mi": 5141.993,
+   "aumento_mi": 91.803,
+   "taxa_pct": 1.785,
+   "projecao": false
+  },
+  {
+   "ano": 1989,
+   "populacao_mi": 5234.432,
+   "aumento_mi": 93.076,
+   "taxa_pct": 1.778,
+   "projecao": false
+  },
+  {
+   "ano": 1990,
+   "populacao_mi": 5327.803,
+   "aumento_mi": 93.667,
+   "taxa_pct": 1.758,
+   "projecao": false
+  },
+  {
+   "ano": 1991,
+   "populacao_mi": 5418.736,
+   "aumento_mi": 88.198,
+   "taxa_pct": 1.628,
+   "projecao": false
+  },
+  {
+   "ano": 1992,
+   "populacao_mi": 5505.99,
+   "aumento_mi": 86.309,
+   "taxa_pct": 1.568,
+   "projecao": false
+  },
+  {
+   "ano": 1993,
+   "populacao_mi": 5591.545,
+   "aumento_mi": 84.8,
+   "taxa_pct": 1.517,
+   "projecao": false
+  },
+  {
+   "ano": 1994,
+   "populacao_mi": 5675.551,
+   "aumento_mi": 83.212,
+   "taxa_pct": 1.466,
+   "projecao": false
+  },
+  {
+   "ano": 1995,
+   "populacao_mi": 5758.879,
+   "aumento_mi": 83.443,
+   "taxa_pct": 1.449,
+   "projecao": false
+  },
+  {
+   "ano": 1996,
+   "populacao_mi": 5842.056,
+   "aumento_mi": 82.91,
+   "taxa_pct": 1.419,
+   "projecao": false
+  },
+  {
+   "ano": 1997,
+   "populacao_mi": 5924.788,
+   "aumento_mi": 82.554,
+   "taxa_pct": 1.393,
+   "projecao": false
+  },
+  {
+   "ano": 1998,
+   "populacao_mi": 6007.067,
+   "aumento_mi": 82.004,
+   "taxa_pct": 1.365,
+   "projecao": false
+  },
+  {
+   "ano": 1999,
+   "populacao_mi": 6089.006,
+   "aumento_mi": 81.875,
+   "taxa_pct": 1.345,
+   "projecao": false
+  },
+  {
+   "ano": 2000,
+   "populacao_mi": 6171.703,
+   "aumento_mi": 83.518,
+   "taxa_pct": 1.353,
+   "projecao": false
+  },
+  {
+   "ano": 2001,
+   "populacao_mi": 6254.936,
+   "aumento_mi": 82.949,
+   "taxa_pct": 1.326,
+   "projecao": false
+  },
+  {
+   "ano": 2002,
+   "populacao_mi": 6337.73,
+   "aumento_mi": 82.639,
+   "taxa_pct": 1.304,
+   "projecao": false
+  },
+  {
+   "ano": 2003,
+   "populacao_mi": 6420.362,
+   "aumento_mi": 82.624,
+   "taxa_pct": 1.287,
+   "projecao": false
+  },
+  {
+   "ano": 2004,
+   "populacao_mi": 6503.378,
+   "aumento_mi": 83.409,
+   "taxa_pct": 1.283,
+   "projecao": false
+  },
+  {
+   "ano": 2005,
+   "populacao_mi": 6586.97,
+   "aumento_mi": 83.776,
+   "taxa_pct": 1.272,
+   "projecao": false
+  },
+  {
+   "ano": 2006,
+   "populacao_mi": 6671.452,
+   "aumento_mi": 85.188,
+   "taxa_pct": 1.277,
+   "projecao": false
+  },
+  {
+   "ano": 2007,
+   "populacao_mi": 6757.309,
+   "aumento_mi": 86.526,
+   "taxa_pct": 1.28,
+   "projecao": false
+  },
+  {
+   "ano": 2008,
+   "populacao_mi": 6844.458,
+   "aumento_mi": 87.772,
+   "taxa_pct": 1.282,
+   "projecao": false
+  },
+  {
+   "ano": 2009,
+   "populacao_mi": 6932.766,
+   "aumento_mi": 88.846,
+   "taxa_pct": 1.282,
+   "projecao": false
+  },
+  {
+   "ano": 2010,
+   "populacao_mi": 7021.732,
+   "aumento_mi": 89.086,
+   "taxa_pct": 1.269,
+   "projecao": false
+  },
+  {
+   "ano": 2011,
+   "populacao_mi": 7110.924,
+   "aumento_mi": 89.297,
+   "taxa_pct": 1.256,
+   "projecao": false
+  },
+  {
+   "ano": 2012,
+   "populacao_mi": 7201.202,
+   "aumento_mi": 91.26,
+   "taxa_pct": 1.267,
+   "projecao": false
+  },
+  {
+   "ano": 2013,
+   "populacao_mi": 7291.794,
+   "aumento_mi": 89.922,
+   "taxa_pct": 1.233,
+   "projecao": false
+  },
+  {
+   "ano": 2014,
+   "populacao_mi": 7381.616,
+   "aumento_mi": 89.723,
+   "taxa_pct": 1.216,
+   "projecao": false
+  },
+  {
+   "ano": 2015,
+   "populacao_mi": 7470.492,
+   "aumento_mi": 88.028,
+   "taxa_pct": 1.178,
+   "projecao": false
+  },
+  {
+   "ano": 2016,
+   "populacao_mi": 7558.555,
+   "aumento_mi": 88.097,
+   "taxa_pct": 1.166,
+   "projecao": false
+  },
+  {
+   "ano": 2017,
+   "populacao_mi": 7645.618,
+   "aumento_mi": 86.03,
+   "taxa_pct": 1.125,
+   "projecao": false
+  },
+  {
+   "ano": 2018,
+   "populacao_mi": 7729.903,
+   "aumento_mi": 82.54,
+   "taxa_pct": 1.068,
+   "projecao": false
+  },
+  {
+   "ano": 2019,
+   "populacao_mi": 7811.294,
+   "aumento_mi": 80.242,
+   "taxa_pct": 1.027,
+   "projecao": false
+  },
+  {
+   "ano": 2020,
+   "populacao_mi": 7887.001,
+   "aumento_mi": 71.173,
+   "taxa_pct": 0.902,
+   "projecao": false
+  },
+  {
+   "ano": 2021,
+   "populacao_mi": 7954.448,
+   "aumento_mi": 63.721,
+   "taxa_pct": 0.801,
+   "projecao": false
+  },
+  {
+   "ano": 2022,
+   "populacao_mi": 8021.407,
+   "aumento_mi": 70.197,
+   "taxa_pct": 0.875,
+   "projecao": false
+  },
+  {
+   "ano": 2023,
+   "populacao_mi": 8091.735,
+   "aumento_mi": 70.459,
+   "taxa_pct": 0.871,
+   "projecao": false
+  },
+  {
+   "ano": 2024,
+   "populacao_mi": 8161.973,
+   "aumento_mi": 70.017,
+   "taxa_pct": 0.858,
+   "projecao": true
+  },
+  {
+   "ano": 2025,
+   "populacao_mi": 8231.613,
+   "aumento_mi": 69.264,
+   "taxa_pct": 0.841,
+   "projecao": true
+  },
+  {
+   "ano": 2026,
+   "populacao_mi": 8300.678,
+   "aumento_mi": 68.866,
+   "taxa_pct": 0.83,
+   "projecao": true
+  },
+  {
+   "ano": 2027,
+   "populacao_mi": 8369.094,
+   "aumento_mi": 67.966,
+   "taxa_pct": 0.812,
+   "projecao": true
+  },
+  {
+   "ano": 2028,
+   "populacao_mi": 8436.619,
+   "aumento_mi": 67.083,
+   "taxa_pct": 0.795,
+   "projecao": true
+  },
+  {
+   "ano": 2029,
+   "populacao_mi": 8503.285,
+   "aumento_mi": 66.249,
+   "taxa_pct": 0.779,
+   "projecao": true
+  },
+  {
+   "ano": 2030,
+   "populacao_mi": 8569.125,
+   "aumento_mi": 65.43,
+   "taxa_pct": 0.764,
+   "projecao": true
+  },
+  {
+   "ano": 2031,
+   "populacao_mi": 8634.119,
+   "aumento_mi": 64.559,
+   "taxa_pct": 0.748,
+   "projecao": true
+  },
+  {
+   "ano": 2032,
+   "populacao_mi": 8698.23,
+   "aumento_mi": 63.662,
+   "taxa_pct": 0.732,
+   "projecao": true
+  },
+  {
+   "ano": 2033,
+   "populacao_mi": 8761.449,
+   "aumento_mi": 62.777,
+   "taxa_pct": 0.717,
+   "projecao": true
+  },
+  {
+   "ano": 2034,
+   "populacao_mi": 8823.785,
+   "aumento_mi": 61.895,
+   "taxa_pct": 0.701,
+   "projecao": true
+  },
+  {
+   "ano": 2035,
+   "populacao_mi": 8885.21,
+   "aumento_mi": 60.956,
+   "taxa_pct": 0.686,
+   "projecao": true
+  },
+  {
+   "ano": 2036,
+   "populacao_mi": 8945.687,
+   "aumento_mi": 59.997,
+   "taxa_pct": 0.671,
+   "projecao": true
+  },
+  {
+   "ano": 2037,
+   "populacao_mi": 9005.153,
+   "aumento_mi": 58.935,
+   "taxa_pct": 0.654,
+   "projecao": true
+  },
+  {
+   "ano": 2038,
+   "populacao_mi": 9063.573,
+   "aumento_mi": 57.906,
+   "taxa_pct": 0.639,
+   "projecao": true
+  },
+  {
+   "ano": 2039,
+   "populacao_mi": 9120.928,
+   "aumento_mi": 56.805,
+   "taxa_pct": 0.623,
+   "projecao": true
+  },
+  {
+   "ano": 2040,
+   "populacao_mi": 9177.19,
+   "aumento_mi": 55.719,
+   "taxa_pct": 0.607,
+   "projecao": true
+  },
+  {
+   "ano": 2041,
+   "populacao_mi": 9232.282,
+   "aumento_mi": 54.464,
+   "taxa_pct": 0.59,
+   "projecao": true
+  },
+  {
+   "ano": 2042,
+   "populacao_mi": 9286.11,
+   "aumento_mi": 53.193,
+   "taxa_pct": 0.573,
+   "projecao": true
+  },
+  {
+   "ano": 2043,
+   "populacao_mi": 9338.661,
+   "aumento_mi": 51.908,
+   "taxa_pct": 0.556,
+   "projecao": true
+  },
+  {
+   "ano": 2044,
+   "populacao_mi": 9389.874,
+   "aumento_mi": 50.516,
+   "taxa_pct": 0.538,
+   "projecao": true
+  },
+  {
+   "ano": 2045,
+   "populacao_mi": 9439.64,
+   "aumento_mi": 49.016,
+   "taxa_pct": 0.519,
+   "projecao": true
+  },
+  {
+   "ano": 2046,
+   "populacao_mi": 9487.89,
+   "aumento_mi": 47.484,
+   "taxa_pct": 0.5,
+   "projecao": true
+  },
+  {
+   "ano": 2047,
+   "populacao_mi": 9534.546,
+   "aumento_mi": 45.829,
+   "taxa_pct": 0.481,
+   "projecao": true
+  },
+  {
+   "ano": 2048,
+   "populacao_mi": 9579.536,
+   "aumento_mi": 44.152,
+   "taxa_pct": 0.461,
+   "projecao": true
+  },
+  {
+   "ano": 2049,
+   "populacao_mi": 9622.824,
+   "aumento_mi": 42.424,
+   "taxa_pct": 0.441,
+   "projecao": true
+  },
+  {
+   "ano": 2050,
+   "populacao_mi": 9664.379,
+   "aumento_mi": 40.685,
+   "taxa_pct": 0.421,
+   "projecao": true
+  },
+  {
+   "ano": 2051,
+   "populacao_mi": 9704.192,
+   "aumento_mi": 38.943,
+   "taxa_pct": 0.401,
+   "projecao": true
+  },
+  {
+   "ano": 2052,
+   "populacao_mi": 9742.265,
+   "aumento_mi": 37.202,
+   "taxa_pct": 0.382,
+   "projecao": true
+  },
+  {
+   "ano": 2053,
+   "populacao_mi": 9778.615,
+   "aumento_mi": 35.498,
+   "taxa_pct": 0.363,
+   "projecao": true
+  },
+  {
+   "ano": 2054,
+   "populacao_mi": 9813.252,
+   "aumento_mi": 33.776,
+   "taxa_pct": 0.344,
+   "projecao": true
+  },
+  {
+   "ano": 2055,
+   "populacao_mi": 9846.238,
+   "aumento_mi": 32.196,
+   "taxa_pct": 0.327,
+   "projecao": true
+  },
+  {
+   "ano": 2056,
+   "populacao_mi": 9877.68,
+   "aumento_mi": 30.689,
+   "taxa_pct": 0.311,
+   "projecao": true
+  },
+  {
+   "ano": 2057,
+   "populacao_mi": 9907.637,
+   "aumento_mi": 29.224,
+   "taxa_pct": 0.295,
+   "projecao": true
+  },
+  {
+   "ano": 2058,
+   "populacao_mi": 9936.164,
+   "aumento_mi": 27.83,
+   "taxa_pct": 0.28,
+   "projecao": true
+  },
+  {
+   "ano": 2059,
+   "populacao_mi": 9963.337,
+   "aumento_mi": 26.515,
+   "taxa_pct": 0.266,
+   "projecao": true
+  },
+  {
+   "ano": 2060,
+   "populacao_mi": 9989.232,
+   "aumento_mi": 25.275,
+   "taxa_pct": 0.253,
+   "projecao": true
+  },
+  {
+   "ano": 2061,
+   "populacao_mi": 10013.916,
+   "aumento_mi": 24.093,
+   "taxa_pct": 0.241,
+   "projecao": true
+  },
+  {
+   "ano": 2062,
+   "populacao_mi": 10037.467,
+   "aumento_mi": 23.008,
+   "taxa_pct": 0.229,
+   "projecao": true
+  },
+  {
+   "ano": 2063,
+   "populacao_mi": 10059.95,
+   "aumento_mi": 21.959,
+   "taxa_pct": 0.218,
+   "projecao": true
+  },
+  {
+   "ano": 2064,
+   "populacao_mi": 10081.403,
+   "aumento_mi": 20.947,
+   "taxa_pct": 0.208,
+   "projecao": true
+  },
+  {
+   "ano": 2065,
+   "populacao_mi": 10101.85,
+   "aumento_mi": 19.947,
+   "taxa_pct": 0.197,
+   "projecao": true
+  },
+  {
+   "ano": 2066,
+   "populacao_mi": 10121.317,
+   "aumento_mi": 18.988,
+   "taxa_pct": 0.188,
+   "projecao": true
+  },
+  {
+   "ano": 2067,
+   "populacao_mi": 10139.808,
+   "aumento_mi": 17.994,
+   "taxa_pct": 0.177,
+   "projecao": true
+  },
+  {
+   "ano": 2068,
+   "populacao_mi": 10157.302,
+   "aumento_mi": 16.993,
+   "taxa_pct": 0.167,
+   "projecao": true
+  },
+  {
+   "ano": 2069,
+   "populacao_mi": 10173.782,
+   "aumento_mi": 15.968,
+   "taxa_pct": 0.157,
+   "projecao": true
+  },
+  {
+   "ano": 2070,
+   "populacao_mi": 10189.242,
+   "aumento_mi": 14.952,
+   "taxa_pct": 0.147,
+   "projecao": true
+  },
+  {
+   "ano": 2071,
+   "populacao_mi": 10203.682,
+   "aumento_mi": 13.927,
+   "taxa_pct": 0.136,
+   "projecao": true
+  },
+  {
+   "ano": 2072,
+   "populacao_mi": 10217.055,
+   "aumento_mi": 12.82,
+   "taxa_pct": 0.125,
+   "projecao": true
+  },
+  {
+   "ano": 2073,
+   "populacao_mi": 10229.328,
+   "aumento_mi": 11.725,
+   "taxa_pct": 0.115,
+   "projecao": true
+  },
+  {
+   "ano": 2074,
+   "populacao_mi": 10240.485,
+   "aumento_mi": 10.589,
+   "taxa_pct": 0.103,
+   "projecao": true
+  },
+  {
+   "ano": 2075,
+   "populacao_mi": 10250.496,
+   "aumento_mi": 9.434,
+   "taxa_pct": 0.092,
+   "projecao": true
+  },
+  {
+   "ano": 2076,
+   "populacao_mi": 10259.351,
+   "aumento_mi": 8.276,
+   "taxa_pct": 0.081,
+   "projecao": true
+  },
+  {
+   "ano": 2077,
+   "populacao_mi": 10267.045,
+   "aumento_mi": 7.111,
+   "taxa_pct": 0.069,
+   "projecao": true
+  },
+  {
+   "ano": 2078,
+   "populacao_mi": 10273.556,
+   "aumento_mi": 5.912,
+   "taxa_pct": 0.058,
+   "projecao": true
+  },
+  {
+   "ano": 2079,
+   "populacao_mi": 10278.887,
+   "aumento_mi": 4.75,
+   "taxa_pct": 0.046,
+   "projecao": true
+  },
+  {
+   "ano": 2080,
+   "populacao_mi": 10283.078,
+   "aumento_mi": 3.631,
+   "taxa_pct": 0.035,
+   "projecao": true
+  },
+  {
+   "ano": 2081,
+   "populacao_mi": 10286.162,
+   "aumento_mi": 2.537,
+   "taxa_pct": 0.025,
+   "projecao": true
+  },
+  {
+   "ano": 2082,
+   "populacao_mi": 10288.205,
+   "aumento_mi": 1.55,
+   "taxa_pct": 0.015,
+   "projecao": true
+  },
+  {
+   "ano": 2083,
+   "populacao_mi": 10289.247,
+   "aumento_mi": 0.535,
+   "taxa_pct": 0.005,
+   "projecao": true
+  },
+  {
+   "ano": 2084,
+   "populacao_mi": 10289.315,
+   "aumento_mi": -0.399,
+   "taxa_pct": -0.004,
+   "projecao": true
+  },
+  {
+   "ano": 2085,
+   "populacao_mi": 10288.457,
+   "aumento_mi": -1.318,
+   "taxa_pct": -0.013,
+   "projecao": true
+  },
+  {
+   "ano": 2086,
+   "populacao_mi": 10286.708,
+   "aumento_mi": -2.178,
+   "taxa_pct": -0.021,
+   "projecao": true
+  },
+  {
+   "ano": 2087,
+   "populacao_mi": 10284.111,
+   "aumento_mi": -3.016,
+   "taxa_pct": -0.029,
+   "projecao": true
+  },
+  {
+   "ano": 2088,
+   "populacao_mi": 10280.705,
+   "aumento_mi": -3.798,
+   "taxa_pct": -0.037,
+   "projecao": true
+  },
+  {
+   "ano": 2089,
+   "populacao_mi": 10276.518,
+   "aumento_mi": -4.575,
+   "taxa_pct": -0.045,
+   "projecao": true
+  },
+  {
+   "ano": 2090,
+   "populacao_mi": 10271.565,
+   "aumento_mi": -5.331,
+   "taxa_pct": -0.052,
+   "projecao": true
+  },
+  {
+   "ano": 2091,
+   "populacao_mi": 10265.862,
+   "aumento_mi": -6.075,
+   "taxa_pct": -0.059,
+   "projecao": true
+  },
+  {
+   "ano": 2092,
+   "populacao_mi": 10259.408,
+   "aumento_mi": -6.831,
+   "taxa_pct": -0.067,
+   "projecao": true
+  },
+  {
+   "ano": 2093,
+   "populacao_mi": 10252.185,
+   "aumento_mi": -7.616,
+   "taxa_pct": -0.074,
+   "projecao": true
+  },
+  {
+   "ano": 2094,
+   "populacao_mi": 10244.186,
+   "aumento_mi": -8.382,
+   "taxa_pct": -0.082,
+   "projecao": true
+  },
+  {
+   "ano": 2095,
+   "populacao_mi": 10235.404,
+   "aumento_mi": -9.182,
+   "taxa_pct": -0.09,
+   "projecao": true
+  },
+  {
+   "ano": 2096,
+   "populacao_mi": 10225.851,
+   "aumento_mi": -9.923,
+   "taxa_pct": -0.097,
+   "projecao": true
+  },
+  {
+   "ano": 2097,
+   "populacao_mi": 10215.549,
+   "aumento_mi": -10.68,
+   "taxa_pct": -0.105,
+   "projecao": true
+  },
+  {
+   "ano": 2098,
+   "populacao_mi": 10204.49,
+   "aumento_mi": -11.439,
+   "taxa_pct": -0.112,
+   "projecao": true
+  },
+  {
+   "ano": 2099,
+   "populacao_mi": 10192.689,
+   "aumento_mi": -12.163,
+   "taxa_pct": -0.119,
+   "projecao": true
+  },
+  {
+   "ano": 2100,
+   "populacao_mi": 10180.161,
+   "aumento_mi": -12.894,
+   "taxa_pct": -0.127,
+   "projecao": true
+  }
+ ]
+}
