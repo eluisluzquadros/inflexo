@@ -36,6 +36,33 @@ respondem 429 (bloqueio antirrobô) e não foram contornados.
 | Mensalidade | R$ 99 (Básico), R$ 299 (Escala, −17 % no custo e integrações), R$ 990 (Turbo) | Plano Plus R$ 59,90 para a Nuvemshop | R$ 0 a 399 | — | R$ 49,90 a 99,90 | — |
 | Reclame Aqui | Não encontrada | Sem reputação (< 10 avaliações; 1 queixa de defeito) | Sem reputação (3 queixas de lojistas: suporte, cobrança, preço) | 2 reclamações, nota 8,6 | Não encontrada | Sem reclamações |
 
+**Conta 3Print criada (17/11/2026), plano Básico mensal (R$ 99/mês, teste de 15 dias, 1ª cobrança 02/12).**
+O painel tem o **3Print MCP (beta)**, `https://www.3print.com.br/api/mcp`, com conector por login (OAuth) ou
+endereço + chave. Ele consulta pedidos e clientes, cria e edita produtos (nascem desativados), categorias e
+cupons, sobe a arte de impressão de um quadro de pedido por link, corrige tamanho e moldura antes da fábrica e
+monta layouts da loja 3Print em rascunho. **Não cria pedido** nem altera pedido ou cliente: o pedido
+automático continua sendo pela API de parceiros v2 com a chave da loja (`ptk_`), que hoje é emitida pelo
+suporte ("Integrações → Loja própria / API" aparece como "Em breve"). Uso previsto do MCP: acompanhar pedidos
+e, em último caso, subir a arte de um pedido; nunca no caminho do dinheiro (regra do `08_AUTOMACAO.md`).
+
+**Diferença em relação à Reserva INK** (artigo "API de integração para parceiros", relido em 17/11/2026):
+o pedido pela API **não precisa de produto cadastrado na loja 3Print**. Cada item leva um `sku` na gramática
+do catálogo (composição, formato, medida, moldura, cor; "qualquer medida é aceita", conferir com
+`GET /catalog`; SKU inválido dá 422), `quantity`, `print_files` (URLs públicas da arte em alta, obrigatórias
+com `auto_approve: true`), e opcionalmente `external_item_id` (um por arte), `unit_price` e `mockup`. O custo
+vem da tabela do plano; o frete cobrado pela 3Print é calculado na aprovação. Logo, não há o atalho do
+"produto oculto a preço de custo" da INK: a vitrine `inflexo.3print.com.br` não é usada, e o único bloqueio é
+a chave `ptk_` (pedir pela mensagem 1 de `10_MENSAGENS_FORNECEDORES.md`).
+Consulta pelo MCP em 17/11/2026: loja sem produtos, categorias, cupons ou pedidos. A conexão lê catálogo,
+pedidos, clientes e layouts, mas não edita catálogo nem pedidos. A vitrine 3Print exibe uma barra de exemplo
+ligada ("60% off em todo o site", "Até 10x sem juros"), que só pode ser desligada pelo painel (Editor › Home).
+Chave gerada no painel (IA MCP) e guardada no `.env` como `TRES_PRINT_MCP_KEY` (17/11/2026; o nome
+`TRES_PRINT_API_KEY` fica reservado para a chave `ptk_`): é chave **do MCP**
+(prefixo `3p_m`), com todos os acessos, inclusive edição de catálogo e de pedidos. Pelo MCP ela lista 44
+ferramentas, e **nenhuma cria pedido** (só `listar_pedidos`, `detalhar_pedido`, `enviar_arte_do_pedido` e
+`corrigir_item`). Na API de parceiros v2 (`https://3print-srv-01.com.br/api/partner/v2/catalog`) ela recebe
+**401 "Invalid or revoked API key."** A chave `ptk_` continua dependendo do suporte.
+
 ### Leitura
 
 1. **3Print** é a mais forte em decoração: a própria fábrica, que atende o grande varejo; a única com API
@@ -113,6 +140,38 @@ Verificado com a chave, só leitura:
   vendas de fora "empurradas via API" (já pagas, com avisos `external_order.created`, `.sent`,
   `.delivery_in_progress` e outros), mas não o endpoint de criação. Pedido à Reserva INK: mensagem 7 de
   `10_MENSAGENS_FORNECEDORES.md`.
+- Material do parceiro (imersão de 2026 e o artigo da Universidade INK "Quatro coisas para montar com a API
+  INK e o webhook", lidos em 17/11/2026) **também não traz a criação de pedido**. O artigo trata a API como
+  saída de dados da loja INK (pedidos, clientes, carrinhos, financeiro, produtos) e o webhook como aviso de
+  eventos. Diz ainda que **API e webhook só existem no plano INKrível**, que nenhuma ferramenta tem
+  integração pronta com a INK e que a INK emite a nota do valor do produto, ficando a nota do lucro com o
+  lojista. A busca da Universidade por "api", "webhook" e "integracao" não devolve outro conteúdo.
+- **Comprar na própria loja pelo preço base é prática indicada pela INK** (live do Dia 1, transcrição em
+  `docs/imersao_print_on_demand_reserva_ink_2026/transcricoes/dia-01_live.txt`): "ou você zera o preço do
+  produto via cupom, ou você cria um produto oculto [...] não publicado, para você poder comprar o teu produto
+  sem pagar [...] a tua comissão", evitando a taxa de cartão sobre a margem. Isso abre o caminho do pedido
+  automático: o pagamento no inflexo.com.br dispara uma compra na nossa loja INK, de um produto não publicado
+  com preço de custo, entregue no endereço do cliente. Falta verificar o checkout: formas de pagamento
+  (cartão com 3DS? Pix?), campos exigidos (CPF de quem?) e a quem sai a nota da INK.
+- `POST /v1/stores/products` respondeu **403 "A criação e a edição de produtos pela API estão
+  temporariamente desativadas"** (17/11/2026). Enquanto durar, os produtos ocultos são criados à mão no
+  painel. Para o catálogo do INFLEXO (combinações fixas de estilo e tema) é uma carga única, não por pedido.
+- Produto de teste criado pelo painel (17/11/2026): `INFLEXO teste interno`, id 5261683, camiseta branca
+  masculina e feminina (12 variantes), logotipo no peito (19,6 × 3,9 cm, "300 dpi"), **fora da vitrine** e
+  **pelo preço de custo, R$ 49,90 (lucro zero), aceito pelo painel** no plano "Inkrível - BF 2026". Nasce em
+  curadoria (`approval_status: waiting`, `status: not_published`).
+- **Regras de conteúdo exibidas pelo painel antes de enviar a estampa:** "Não é permitido conteúdo político,
+  religioso ou violento ou que contenham partes ou citações de obras que não sejam suas", além de marcas,
+  celebridades e baixa qualidade; estampa fora disso "pode ser removida da sua loja sem aviso prévio".
+  **Isso tira da INK a coleção eleitoral (Geografia da Virada) e as Frases épicas**; cabem Momentos e peças
+  só de marca. Confirmar com a INK se mapa de resultado oficial, sem candidato nem partido, conta como
+  "político" (mensagem 7).
+- Integração com Shopify/Nuvemshop confirmada nas lives (Dias 1 e 3), "só para quem já tem loja" nessas
+  plataformas. Pela Nuvemshop, o app processa o pedido sozinho quando a carteira tem saldo (custo + frete),
+  mas exige o plano Essencial da Nuvemshop.
+- Regras de estampa da imersão: fundo transparente; até 24 cm de largura e no mínimo 2000 px; evitar traço
+  fino solto, letra serifada, dourado e neon; cor clara some em tecido branco ou cinza; DTG só na frente.
+  A Gravura atual (fio fino, Bodoni, ponto dourado, fundo opaco) pede uma versão própria para tecido.
 - Área de impressão (de `GET /v1/stores/product_types`): **4200 × 4800 px** em Camiseta (9 cores, PP a 4G),
   Camiseta Algodão Peruano (4 cores), Camiseta Oversized (preta, off-white, areia) e Camiseta Infantil.
 - Frete (`GET /v1/stores/shipping_simulation?cep=90450-090`): J&T R$ 11,11 ou Total Express R$ 12,49,

@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import './casa.css';
-import { noite } from '../lib/noite';
 import { TIRAGEM_FIOS, HORAS_ANTES, LIMIAR_CONTADOR, tamanhoDaFila } from '../lib/fila';
 
 export const dynamic = 'force-dynamic';
@@ -12,8 +11,7 @@ export const dynamic = 'force-dynamic';
 
 const CATEGORIAS = [
   { nome: 'Quadros', foto: '/casa/gravura.jpg', href: '/loja?suporte=quadro' },
-  { nome: 'Pôsteres', foto: '/casa/recife.jpg', href: '/loja?suporte=poster' },
-  { nome: 'Capitais', foto: '/casa/fortaleza.jpg', href: '/loja?colecao=nordeste' },
+  { nome: 'Pôsteres', foto: '/casa/poster-gravura.jpg', href: '/loja?suporte=poster' },
   { nome: 'Digital', foto: '/casa/digital.jpg', href: '/loja?suporte=digital' },
   { nome: 'Camiseta', foto: '/casa/camiseta.jpg', href: '/loja?suporte=camiseta' },
 ];
@@ -22,9 +20,6 @@ type Produto = { nome: string; linha: string; foto: string; href: string; selo?:
 const PRODUTOS: Produto[] = [
   { nome: 'Fios', linha: 'Quadro · carvalho · A3 ou A2', foto: '/casa/fios.jpg', href: '/produto/quadro?estilo=fios', selo: `Tiragem de ${TIRAGEM_FIOS}` },
   { nome: 'Gravura', linha: 'Quadro · carvalho · A3 ou A2', foto: '/casa/gravura.jpg', href: '/produto/quadro?estilo=gravura' },
-  { nome: 'Salvador', linha: 'Quadro · Geografia da Virada', foto: '/casa/salvador.jpg', href: '/geografia/salvador' },
-  { nome: 'Nordeste', linha: 'Pôster · os nove estados', foto: '/casa/nordeste.jpg', href: '/geografia/nordeste' },
-  { nome: 'Recife', linha: 'Pôster · Geografia da Virada', foto: '/casa/recife.jpg', href: '/geografia/recife' },
   { nome: 'Gravura em pôster', linha: 'Pôster · papel fosco · A3 ou A2', foto: '/casa/poster-gravura.jpg', href: '/produto/poster?estilo=gravura' },
   { nome: 'Arquivo digital', linha: 'Stories, fundo de tela e A2', foto: '/casa/digital.jpg', href: '/produto/arquivo-digital' },
   { nome: 'Camiseta', linha: 'Algodão branco · a Gravura no peito', foto: '/casa/camiseta.jpg', href: '/produto/camiseta' },
@@ -38,7 +33,6 @@ export default async function Inicio({ searchParams }: { searchParams: Promise<R
   const q = await searchParams;
   const posicao = Number(q.fila) > 0 ? Number(q.fila) : 0;
   const total = await tamanhoDaFila();
-  const n = noite();
 
   return (
     <div className="casa">
@@ -46,14 +40,14 @@ export default async function Inicio({ searchParams }: { searchParams: Promise<R
       <section className="h-abertura" aria-labelledby="h-titulo">
         <img className="h-abertura-foto" src="/casa/hero.jpg" alt="Duas pessoas de moletom preto com a marca INFLEXO numa sala clara; na parede, o quadro Gravura" width={2560} height={1434} fetchPriority="high" />
         <div className="h-abertura-texto">
-          <p className="h-linha-fina">Coleção de estreia · A Geografia da Virada</p>
+          <p className="h-linha-fina">Coleção 01 · A Geografia da Virada</p>
           <h1 id="h-titulo"><span>A estética</span><span>do movimento.</span></h1>
-          <p className="h-lede">Quadros, pôsteres e arquivos desenhados com dados públicos. Na estreia, a noite de 25.10.2026, a partir de {n.boletins.toLocaleString('pt-BR')} boletins de urna.</p>
+          <p className="h-lede">Quadros, pôsteres e camisetas desenhados por dados públicos. A forma não é inventada: cada linha vem de uma série real.</p>
           <div className="h-acoes">
             <Link className="h-botao" href="/loja">Ver a loja <Seta /></Link>
             <a className="h-botao h-botao-claro" href="#fecho">Entrar na fila</a>
           </div>
-          <p className="h-prova"><strong>0 voto</strong> de diferença para o resultado oficial do TSE</p>
+          <p className="h-prova"><strong>Nenhuma linha inventada.</strong> Cada curva confere com a fonte oficial.</p>
         </div>
         <Link className="h-flutuante" href="/produto/quadro?estilo=fios">
           <img src="/casa/fios.jpg" alt="" width={1024} height={1024} />
@@ -112,28 +106,17 @@ export default async function Inicio({ searchParams }: { searchParams: Promise<R
       <section className="h-banner h-largura" aria-labelledby="h-banner-titulo">
         <img className="h-banner-foto" src="/casa/banner.jpg" alt="" width={2400} height={1344} loading="lazy" />
         <div className="h-banner-texto">
-          <p className="h-linha-fina">A Geografia da Virada</p>
-          <h2 id="h-banner-titulo">A noite,<br />minuto a minuto.</h2>
-          <p>A curva da apuração reconstruída a partir dos boletins, na ordem em que chegaram ao TSE. Somamos tudo e conferimos com o resultado oficial: zero voto de diferença no Brasil, nos 27 estados e nas capitais do Nordeste.</p>
+          <p className="h-linha-fina">Coleção 01 · A Geografia da Virada</p>
+          <h2 id="h-banner-titulo">Duas linhas,<br />uma virada.</h2>
+          <p>Duas curvas correm a noite inteira, se aproximam e se cruzam às 20h23 para não se separar mais. O desenho é a série pública somada na ordem em que chegou e conferida com a fonte, sem nenhum ponto inventado.</p>
           <div className="h-acoes">
-            <Link className="h-botao h-botao-branco" href="/colecao/a-geografia-da-virada">Ver a história <Seta /></Link>
+            <Link className="h-botao h-botao-branco" href="/colecao/a-geografia-da-virada">Ver a coleção <Seta /></Link>
             <Link className="h-link h-link-claro" href="/metodo">Como medimos</Link>
           </div>
         </div>
       </section>
 
-      {/* 5. editorial dividido */}
-      <section className="h-editorial h-largura" aria-labelledby="h-nordeste">
-        <div className="h-editorial-texto">
-          <p className="h-linha-fina">Nordeste</p>
-          <h2 id="h-nordeste">O seu lugar,<br />rua por rua.</h2>
-          <p>A região inteira e as nove capitais, cada uma com o mapa da cidade e o resultado de lá. A curva que atravessa as ruas é a da noite inteira; o número local vem escrito na peça.</p>
-          <Link className="h-botao" href="/loja?colecao=nordeste">Ver as 10 peças <Seta /></Link>
-        </div>
-        <img className="h-editorial-foto" src="/colecoes/capitais-nordeste.jpg" alt="Os quadros de Salvador, Recife e Fortaleza lado a lado sobre um aparador" width={1024} height={688} loading="lazy" />
-      </section>
-
-      {/* 6. próximas coleções */}
+      {/* 5. próximas coleções */}
       <section className="h-secao h-largura" aria-labelledby="h-proximas">
         <header className="h-cabeca">
           <h2 id="h-proximas">Próximas coleções</h2>
@@ -151,15 +134,15 @@ export default async function Inicio({ searchParams }: { searchParams: Promise<R
           </li>
           <li>
             <figure className="h-tipo h-tipo-frase-epica">
-              <blockquote>Não sei, só sei que foi assim.</blockquote>
-              <figcaption>João Grilo, <cite>O Auto da Compadecida</cite></figcaption>
+              <blockquote>Inflexão Nº 01</blockquote>
+              <figcaption>O ponto em que a curva muda de direção</figcaption>
             </figure>
-            <div><h3>Frases épicas</h3><p>Falas que ficaram com a gente, compostas em tipografia, com o crédito da obra. Só o texto, sem imagem nem logotipo.</p></div>
+            <div><h3>Inflexões</h3><p>Os pontos em que a história da Terra e da humanidade mudou de direção, cada um desenhado pela sua série pública. O ponto da virada é calculado, não desenhado à mão.</p></div>
           </li>
         </ul>
       </section>
 
-      {/* 7. fila */}
+      {/* 6. fila */}
       <section id="fecho" className="h-fila h-largura" aria-labelledby="h-fila-titulo">
         <div>
           <h2 id="h-fila-titulo">{posicao ? `Você é o nº ${posicao.toLocaleString('pt-BR')} da fila.` : 'A fila compra primeiro.'}</h2>

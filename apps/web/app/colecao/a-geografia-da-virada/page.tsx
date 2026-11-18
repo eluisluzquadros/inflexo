@@ -15,7 +15,7 @@ export default function HistoriaDaColecao() {
         <p>A Geografia da Virada · Coleção de estreia</p>
         <h1>O instante em que<br />a noite virou.</h1>
         <p>{n.boletins.toLocaleString('pt-BR')} boletins de urna. Quatro horas de apuração. Uma história desenhada pelos próprios dados.</p>
-        <Link className="botao-noite" href="/loja?colecao=nordeste">Explorar as peças ↗</Link>
+        <Link className="botao-noite" href="/loja">Explorar as peças ↗</Link>
         <a className="link-noite" href="#a-noite">Percorrer a noite ↓</a>
       </header>
       <div id="a-noite"><NoiteScroll n={n} /></div>

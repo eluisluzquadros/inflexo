@@ -269,6 +269,13 @@ integração" e os pedidos externos "empurrados via API", mas não traz o endpoi
 6. Especificação da arte para a área de 4200 × 4800 px: formato (PNG com transparência?), resolução e perfil
    de cor.
 7. Quem emite a nota fiscal da venda nesse modelo e o que muda ao migrar a conta para CNPJ.
+8. As regras de estampa vedam "conteúdo político". Uma de nossas linhas é o mapa do resultado oficial da
+   eleição (dados públicos do TSE), sem candidato, partido, foto ou slogan, só a geografia e os números. Isso
+   é aceito, ou conta como conteúdo político?
+9. A criação e a edição de produtos pela API responderam "temporariamente desativadas". Há previsão de volta?
+10. Se o pedido externo não for possível: posso comprar na minha própria loja um produto não publicado, pelo
+    preço de custo, entregue no endereço do meu cliente, de forma automatizada? Há forma de pagar esses
+    pedidos pelo saldo da carteira, sem passar pelo checkout?
 
 Obrigado,
 Everton Quadros
