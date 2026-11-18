@@ -5,15 +5,22 @@ import './globals.css';
 import './topo.css';
 import { Marca } from './Marca';
 import { MenuMovel } from './MenuMovel';
-import { HORAS_ANTES } from '../lib/fila';
+import { EMPRESA } from '../lib/empresa';
 
 const display = Bodoni_Moda({ subsets: ['latin'], variable: '--f-display', style: ['normal', 'italic'] });
 const corpo = Schibsted_Grotesk({ subsets: ['latin'], variable: '--f-corpo' });
 const mono = IBM_Plex_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--f-mono' });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(EMPRESA.site),
   title: { default: 'INFLEXO · A estética do movimento.', template: '%s · INFLEXO' },
-  description: 'Arte de dados. Quadros, pôsteres e camisetas em que a forma vem de uma série pública real, conferida com a fonte.',
+  description: 'Arte, ciência e memória. A INFLEXO transforma pontos de mudança em peças para vestir, habitar e guardar.',
+  alternates: { canonical: './' },
+  openGraph: {
+    type: 'website', locale: 'pt_BR', siteName: 'INFLEXO',
+    images: [{ url: '/casa/hero.jpg', width: 2560, height: 1434, alt: 'Duas pessoas de moletom preto INFLEXO numa sala clara; na parede, o quadro Gravura' }],
+  },
+  twitter: { card: 'summary_large_image' },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -21,29 +28,30 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <html lang="pt-BR" className={`${display.variable} ${corpo.variable} ${mono.variable}`}>
       <body>
         <div className="aviso-loja">
-          <span><a href="/#fecho">A venda abre em breve. A fila compra {HORAS_ANTES} horas antes.</a></span>
-          <span>Primeira tiragem numerada</span>
-          <span>Nenhuma linha inventada</span>
+          <span><a href="/#colecoes">Arte, ciência e memória.</a></span>
+          <span>Novas coleções em desenvolvimento</span>
+          <span><a href="/#fecho">Acompanhe o que vem</a></span>
         </div>
         <header className="topo topo-v2">
           <Link href="/" className="topo-marca" aria-label="INFLEXO, página inicial"><Marca /></Link>
           <nav className="topo-nav" aria-label="Principal">
             <Link href="/loja">Loja</Link>
-            <Link href="/colecao/a-geografia-da-virada">Coleção</Link>
-            <Link href="/metodo">Método</Link>
+            <Link href="/#colecoes">Coleções</Link>
+            <Link href="/#processo">Processo</Link>
           </nav>
           <div className="topo-acoes">
-            <Link href="/loja" className="topo-icone" aria-label="Procurar na loja">
-              <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="6" /><path d="M13.5 13.5 18 18" /></svg>
-            </Link>
-            <Link href="/#fecho" className="topo-fila"><span className="topo-fila-desktop">Entrar na fila</span><span className="topo-fila-mobile">Fila</span></Link>
+            <Link href="/#fecho" className="topo-fila"><span className="topo-fila-desktop">Receber novidades</span><span className="topo-fila-mobile">Novidades</span></Link>
             <MenuMovel />
           </div>
         </header>
         <main>{children}</main>
         <footer className="rodape">
           <span>INFLEXO. A estética do movimento.</span>
-          <span>Dados públicos, <Link href="/metodo">método aberto</Link>.</span>
+          <span>Arte, ciência e memória. <Link href="/#processo">Conheça o processo.</Link></span>
+          <span className="rodape-legal">
+            <Link href="/termos">Termos</Link> · <Link href="/privacidade">Privacidade</Link> · <Link href="/trocas">Trocas e devoluções</Link> · <a href={`mailto:${EMPRESA.email}`}>{EMPRESA.email}</a>
+          </span>
+          <span className="rodape-legal">{EMPRESA.razaoSocial} · CNPJ {EMPRESA.cnpj}</span>
         </footer>
       </body>
     </html>

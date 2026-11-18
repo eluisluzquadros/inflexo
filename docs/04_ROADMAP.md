@@ -7,7 +7,8 @@ Prazos são estimativas para uma pessoa construindo com Claude Code. Cada fase s
 ## Decisões que ainda são suas
 
 1. **CNPJ.** Vender por uma empresa que você já tem ou abrir uma nova. O MEI tem teto de faturamento e restringe atividades; o contador define CNAE e regime.
-2. **Preço do digital.** Testar R$ 19 e R$ 29, ou fixar um.
+2. ~~**Preço do digital.**~~ Decidido em 18/11/2026: **R$ 19**.
+3. ~~**CNPJ.**~~ Decidido em 18/11/2026: Habitat Software Engineering LTDA (CNPJ 07.525.183/0001-08). Falta o endereço da sede para as páginas legais e conferir com o contador se o CNAE cobre a venda de arte e produtos.
 
 ## Fase 0: viabilidade (em andamento)
 

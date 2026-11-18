@@ -735,3 +735,16 @@ body:has(.shop) .rodape { max-width: none; padding: 26px clamp(20px, 4vw, 56px);
 @media (prefers-reduced-motion: reduce) {
   .shop-botao { transition: none; }
 }
+
+/* páginas legais e rodapé com a identificação do vendedor (Decreto 7.962/2013) */
+.rodape { flex-wrap: wrap; row-gap: 6px; }
+.rodape-legal { flex-basis: 100%; font-size: .78rem; opacity: .85; }
+.rodape-legal a { color: inherit; }
+.legal .legal-data { color: var(--papel-2); font-size: .85rem; margin: 0 0 18px; }
+.legal .legal-id { padding: 14px 16px; border: 1px solid var(--linha); border-radius: 2px; font-size: .92rem; }
+.legal ul { padding-left: 1.2em; }
+.legal li { margin: 6px 0; }
+.legal-tabela { overflow-x: auto; }
+.legal-tabela table { min-width: 560px; }
+.legal-tabela th { font-weight: 600; }
+.legal-nav { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--linha); font-size: .9rem; }

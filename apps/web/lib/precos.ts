@@ -1,10 +1,10 @@
 import 'server-only';
 
 // Preços em centavos, calculados SEMPRE no servidor (o navegador nunca manda valor).
-// PROVISÓRIOS: vêm da proposta em docs/07_PRECOS_PROPOSTA.md, ainda não aprovada nem cotada com os
-// fornecedores. Só valem enquanto CHECKOUT_ATIVO estiver ligado em ambiente de teste.
+// Arquivo digital: R$ 19, aprovado pelo dono em 18/11/2026 (não depende de fornecedor).
+// Peças físicas: PROVISÓRIOS (docs/07_PRECOS_PROPOSTA.md), ainda sem cotação real; só vendem com VENDA_FISICA_ATIVA.
 const PRECO: Record<string, Record<string, number>> = {
-  'arquivo-digital': { stories: 2900, tela: 2900, a2: 2900 },
+  'arquivo-digital': { stories: 1900, tela: 1900, a2: 1900 },
   poster: { a3: 9900, a2: 14900 },
   quadro: { a3: 28900, a2: 44900 },
   camiseta: { quadrado: 13900 },

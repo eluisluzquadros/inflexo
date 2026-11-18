@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { produto, escolher, ESTILOS, TEMAS, FORMATOS } from '../../../lib/loja';
-import { stripe, checkoutAtivo, urlDoSite } from '../../../lib/stripe';
+import { stripe, checkoutAtivo, vendeProduto, urlDoSite } from '../../../lib/stripe';
 import { precoDe, FRETE_PROVISORIO } from '../../../lib/precos';
 import { criarPedido, ligarSessao, cancelarSemSessao } from '../../../lib/pedidos';
 
@@ -34,6 +34,7 @@ export async function POST(req: Request) {
   const valor = precoDe(p.slug, e.estilo, e.formato);
   if (!valor) return NextResponse.json({ erro: 'Combinação sem preço.' }, { status: 400 });
   const fisico = p.tipo === 'fisico';
+  if (!vendeProduto(p.tipo)) return NextResponse.json({ erro: 'Esta peça ainda não está à venda. O arquivo digital já pode ser comprado; entre na fila para saber quando as peças físicas abrirem.' }, { status: 403 });
   const frete = fisico ? FRETE_PROVISORIO : 0;
   const base = urlDoSite(req);
 

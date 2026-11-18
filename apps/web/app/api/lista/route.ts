@@ -17,7 +17,7 @@ export async function POST(req: Request) {
   }
   let posicao: number;
   try {
-    posicao = await entrar({ email, produto: slug, escolha, consentimento: 'aviso de abertura da venda e acesso antecipado' });
+    posicao = await entrar({ email, produto: slug, escolha, consentimento: escolha === 'home-inflexoes' ? 'novidades das coleções, aviso de abertura e acesso antecipado' : 'aviso de abertura da venda e acesso antecipado' });
   } catch (erro) {
     console.error('fila: falha ao gravar', erro instanceof Error ? erro.message : erro);
     return NextResponse.json({ erro: 'Não conseguimos registrar agora. Tente de novo em instantes.' }, { status: 503 });

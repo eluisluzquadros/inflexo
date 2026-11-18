@@ -18,6 +18,17 @@ export function checkoutAtivo(): boolean {
   return process.env.CHECKOUT_ATIVO === 'true' && Boolean(process.env.STRIPE_SECRET_API_KEY ?? process.env.STRIPE_SECRET_KEY);
 }
 
+/** Peças físicas (pôster, quadro, camiseta) só vendem com uma segunda chave: sem fornecedor ligado, o pedido
+ *  ficaria parado na fila. Assim a venda pode abrir só com o arquivo digital. */
+export function vendaFisicaAtiva(): boolean {
+  return checkoutAtivo() && process.env.VENDA_FISICA_ATIVA === 'true';
+}
+
+/** O produto pode ser comprado agora? Digital: basta o checkout; físico: também a venda física. */
+export function vendeProduto(tipo: string): boolean {
+  return tipo === 'fisico' ? vendaFisicaAtiva() : checkoutAtivo();
+}
+
 /** Endereço público do site para os retornos da Stripe. Atrás do proxy do Render, req.url traz o endereço interno. */
 export function urlDoSite(req: Request): string {
   if (process.env.SITE_URL) return process.env.SITE_URL.replace(/\/$/, '');

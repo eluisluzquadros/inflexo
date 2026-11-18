@@ -26,6 +26,9 @@ services:
         sync: false
       - key: CHECKOUT_ATIVO
         value: "false"
+      # peças físicas só vendem com esta segunda chave (sem fornecedor ligado, o pedido ficaria parado)
+      - key: VENDA_FISICA_ATIVA
+        value: "false"
       - key: SITE_URL
         value: https://inflexo.com.br
       # pós-pagamento (EXP-317): fila de tarefas, e-mail e fornecedores

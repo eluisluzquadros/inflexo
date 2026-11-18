@@ -1,5 +1,20 @@
 # INFLEXO — design do site
 
+## Home da marca — atualização de 17/11/2026
+
+A rota `/` usa `.inicio` e `app/inicio.css`. A direção atual é **arte, ciência e memória**, com a assinatura **A estética do movimento.** A home não exibe a narrativa, os números, a data ou as fotografias da coleção eleitoral.
+
+- Abertura clara com o casal aprovado em primeiro plano, texto à esquerda e um quadro ao fundo. Ambiente, modelos e estudo visual são camadas independentes. O recorte aprovado é reaproveitado sem regenerar rostos; no celular, a cena vem depois do texto.
+- Inflexões (pensamento crítico), Órbitas (pensamento complexo) e Movimentos (pensamento criativo) são apresentadas como coleções em pesquisa ou desenvolvimento, sem preços ou disponibilidade inventados.
+- Logo depois da abertura, "Disponível agora": categorias e peças da Coleção 01 (estilos de `casa.css` dentro de `.inicio .casa`) e o banner escuro "Duas linhas, uma virada.", que leva à coleção e ao método (18/11/2026).
+- Estudos determinísticos em `packages/render/src/estudos.mjs`: curva logística e elipse idealizada, explicitamente identificadas como modelos matemáticos. Não substituem os dados observados das futuras peças.
+- Navegação: Loja, Coleções e Processo. O menu móvel mantém os mesmos destinos, fecha ao navegar e por Escape.
+- O formulário de novidades mantém `/api/lista`, consentimento obrigatório e confirmação; a origem desta home é `home-inflexoes`.
+- `/loja`, produtos, método e a coleção anterior continuam em suas rotas. Esta atualização reformula a home e o cabeçalho compartilhado.
+- Build e 27 testes passaram. Verificação visual em 1440, 390 e 320 px, sem overflow e sem envio de inscrições de teste. Registro completo em `docs/12_HOME_MARCA_SEM_CONOTACAO_POLITICA.md`.
+
+O restante deste documento registra a direção anterior da loja, que continua como referência das páginas de catálogo.
+
 Direção aprovada em 01/11/2026: loja premium de arte e decoração. Referência principal: ambiente claro e acolhedor, catálogo fácil de explorar, obra real em destaque. A marca mantém a assinatura **A estética do movimento.**
 
 ## A loja e a história da coleção

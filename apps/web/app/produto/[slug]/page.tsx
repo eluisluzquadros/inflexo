@@ -5,7 +5,7 @@ import '../../pdp.css';
 import { TIRAGEM_FIOS, HORAS_ANTES, LIMIAR_CONTADOR, tamanhoDaFila } from '../../../lib/fila';
 import { PRODUTOS, ESTILOS, TEMAS, FORMATOS, produto, escolher, temasDo, previa, type Escolha } from '../../../lib/loja';
 import { fotosDe } from '../../../lib/galeria';
-import { checkoutAtivo } from '../../../lib/stripe';
+import { vendeProduto } from '../../../lib/stripe';
 import { precoDe, reais, FRETE_PROVISORIO } from '../../../lib/precos';
 
 type Props = { params: Promise<{ slug: string }>; searchParams: Promise<Record<string, string | undefined>> };
@@ -37,7 +37,7 @@ export default async function PaginaProduto({ params, searchParams }: Props) {
   const fotos = fotosDe(slug, e.estilo);
   const numerado = e.estilo === 'fios' && p.tipo === 'fisico';
   const outros = PRODUTOS.filter((o) => o.slug !== slug);
-  const vendendo = checkoutAtivo();
+  const vendendo = vendeProduto(p.tipo);
   const preco = vendendo ? precoDe(p.slug, e.estilo, e.formato) : null;
 
   return (
