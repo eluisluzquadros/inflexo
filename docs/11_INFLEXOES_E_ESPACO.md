@@ -123,8 +123,12 @@ primeiro ano em que o CO₂ passa, para não voltar, do maior valor dos 800 mil 
 - A peça mostra **1908–1913**: dois métodos, um intervalo, nenhum ano escolhido.
 - Dados: `py -I pipeline/scripts/co2_ar.py` (SHA-256 das três fontes no JSON). Peça:
   `node packages/render/scripts/render-inflexao-co2.mjs a3 papel` → `out/inflexoes/co2_a3_papel.{svg,png}`.
-- Composição: em cima, 800 mil anos sob o teto tracejado e a subida industrial na borda; embaixo, 1750–2025
-  com o ponto dourado no cruzamento e a barra dourada até 1913.
+- **v1 (duas faixas) não foi entendida por um leigo** (o dono, 17/11/2026). **v2:** uma linha do tempo só,
+  800 mil anos comprimidos à esquerda e os últimos 275 anos ampliados à direita, com a quebra de escala
+  rotulada embaixo de cada trecho; linha do máximo de 800 mil anos; o trecho acima dela em vermelho; ponto
+  dourado no cruzamento; título "Por 800 mil anos, o ar nunca passou desta linha."
+- **Lição para a coleção:** o título diz o que olhar, em português simples, e cada peça tem uma leitura só.
+  A Nº 01 (População) ainda usa duas faixas e um título numérico; precisa da mesma revisão.
 
 ## Próximo
 
