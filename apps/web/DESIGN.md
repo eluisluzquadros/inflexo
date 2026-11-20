@@ -1,19 +1,40 @@
 # INFLEXO — design do site
 
-## Home da marca — atualização de 17/11/2026
+## Home e loja — atualização de 20/11/2026
 
 A rota `/` usa `.inicio` e `app/inicio.css`. A direção atual é **arte, ciência e memória**, com a assinatura **A estética do movimento.** A home não exibe a narrativa, os números, a data ou as fotografias da coleção eleitoral.
 
 - Abertura clara com o casal aprovado em primeiro plano, texto à esquerda e um quadro ao fundo. Ambiente, modelos e estudo visual são camadas independentes. O recorte aprovado é reaproveitado sem regenerar rostos; no celular, a cena vem depois do texto.
+- Ambiente v2: `public/hero/ambiente-premium-v2.webp`, 1536 × 1024, 125.454 bytes. Edição com ImageGen integrado: retirados árvore, vaso e mesa lateral, reconstruindo parede e sofá. Parede livre atrás do quadro; modelos e arte continuam em suas camadas originais. O arquivo anterior foi preservado.
 - Inflexões (pensamento crítico), Órbitas (pensamento complexo) e Movimentos (pensamento criativo) são apresentadas como coleções em pesquisa ou desenvolvimento, sem preços ou disponibilidade inventados.
-- Logo depois da abertura, "Disponível agora": categorias e peças da Coleção 01 (estilos de `casa.css` dentro de `.inicio .casa`) e o banner escuro "Duas linhas, uma virada.", que leva à coleção e ao método (18/11/2026).
-- Estudos determinísticos em `packages/render/src/estudos.mjs`: curva logística e elipse idealizada, explicitamente identificadas como modelos matemáticos. Não substituem os dados observados das futuras peças.
+- Estado geral: **Em breve**, definido em `lib/lancamento.ts`. A fase bloqueia a criação de novos checkouts mesmo que as variáveis de venda estejam habilitadas. Preços, materiais e condições finais serão apresentados no lançamento.
+- Logo depois da abertura, estudos neutros em quatro suportes. O banner eleitoral e os produtos com dados eleitorais foram retirados da home. O acervo anterior permanece em suas rotas, identificado como acervo em estudo.
+- Inflexões, Órbitas e Movimentos aparecem com os mesmos nomes na home e no topo da loja; os filtros geográficos pertencem ao acervo e não são apresentados como novas coleções.
+- Galeria do produto: fotografia principal, miniaturas, ampliação em diálogo e prévia técnica expansível. No celular, a galeria precede o painel de opções e aviso de lançamento.
+- O nome do estilo (Fios ou Gravura) é mantido na ficha; o suporte aparece na linha seguinte. O cadastro preserva a variante escolhida ao retornar à ficha.
+- Inflexões usa **Nós no tempo**, desenho-mestre de bambu com um único nó dourado. A imagem de base (`public/inflexoes/bambu-canonico-v1.webp`) permanece idêntica. O ponto é ampliado no SVG para raio de 5,6 unidades, com ouro mais contrastante e filete de papel de 1,1 unidade. Sua posição na junção do ramo é fixa. A forma é uma composição simbólica autoral assistida por IA: conserva nós, folhas, silhueta e ponto em todos os enredos. O render em `packages/render/src/bambuCanonico.mjs` altera apenas título, legenda e marco. Não representa uma curva medida.
+- Órbitas mantém a elipse idealizada de `packages/render/src/estudos.mjs`, identificada como estudo matemático. A antiga logística permanece no módulo para referência, fora das prévias de Inflexões.
+- A marca principal permanece com o X e o ponto, conforme a escolha do usuário. O estudo A/B do O não é aplicado à loja.
+- As aplicações atuais estão em `docs/mockups/bambu-canonico-v2/`, com forma isolada, quadro principal, três histórias e manifesto de integridade. Mestre e prompt originais foram preservados em `docs/mockups/bambu-canonico-v1/`. A exportação das três histórias usa o mesmo grupo SVG (imagem, transformação e ponto); muda somente o texto.
 - Navegação: Loja, Coleções e Processo. O menu móvel mantém os mesmos destinos, fecha ao navegar e por Escape.
-- O formulário de novidades mantém `/api/lista`, consentimento obrigatório e confirmação; a origem desta home é `home-inflexoes`.
+- O formulário mantém `/api/lista`, consentimento obrigatório e confirmação. A seleção de interesse distingue novidades gerais, cada coleção e vestuário, com pré-seleção a partir dos links de acompanhamento.
 - `/loja`, produtos, método e a coleção anterior continuam em suas rotas. Esta atualização reformula a home e o cabeçalho compartilhado.
-- Build e 27 testes passaram. Verificação visual em 1440, 390 e 320 px, sem overflow e sem envio de inscrições de teste. Registro completo em `docs/12_HOME_MARCA_SEM_CONOTACAO_POLITICA.md`.
+- A validação atual usa build, testes do projeto e verificação no navegador: home, loja, ficha, filtros, miniaturas, ampliação/Escape, interesse, menu e bloqueio de checkout. Nenhuma inscrição ou compra de teste é enviada.
 
 O restante deste documento registra a direção anterior da loja, que continua como referência das páginas de catálogo.
+
+### Prompt da edição do ambiente v2
+
+Ferramenta: ImageGen integrado, edição da fotografia `public/hero/ambiente-premium.webp`.
+
+```text
+Use case: precise-object-edit.
+Asset type: photographic background layer for the existing INFLEXO premium home-page hero.
+Input image: edit target, the empty interior photograph attached by local reference.
+Primary request: simplify ONLY the right edge of this room: completely remove the tall tree/plant, every branch and leaf, its ceramic vase, and the small round stone side table. Seamlessly reconstruct the warm ivory plaster wall, the right edge of the olive sofa, and the floor/rug where those objects were. Keep the room believable and architecturally coherent.
+Preserve the existing camera position, landscape composition, warm ivory and muted olive palette, soft natural daylight from the left, realistic plaster texture, wood floor, neutral rug and sofa location. Keep the entire upper-right wall unobstructed with very subtle diffuse illumination, reserved for a separate framed artwork that will be added by website code. The room should feel quieter and refined, with generous negative space and fewer competing details. Keep left-hand wall and sunlight close to original. Sofa cushions and throw may remain understated; do not add anything.
+IMPORTANT: output the background room alone, no people, no frame or artwork, no typography, no logos, no website UI, no added plant or decor. Do not include the screenshot; edit only the referenced room photograph. Full-bleed landscape image, no borders.
+```
 
 Direção aprovada em 01/11/2026: loja premium de arte e decoração. Referência principal: ambiente claro e acolhedor, catálogo fácil de explorar, obra real em destaque. A marca mantém a assinatura **A estética do movimento.**
 

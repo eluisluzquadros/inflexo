@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { HORAS_ANTES, LIMIAR_CONTADOR, tamanhoDaFila } from '../../../lib/fila';
 import { pecaGeografia, pecasGeografia, regiao as carregarRegiao } from '../../../lib/vitrine';
 import '../../pdp.css';
+import { STATUS_LOJA } from '../../../lib/lancamento';
 
 type Props = { params: Promise<{ slug: string }>; searchParams: Promise<Record<string, string | undefined>> };
 
@@ -36,6 +37,7 @@ export default async function PaginaGeografia({ params, searchParams }: Props) {
           ))}
         </div>
         <div>
+          <p className="painel-linha">{STATUS_LOJA} · Acervo Geografia da Virada</p>
           <h1>{p.nome}</h1>
           <p className="descricao">
             {p.tipo === 'continente'
@@ -44,7 +46,7 @@ export default async function PaginaGeografia({ params, searchParams }: Props) {
               ? `O contorno de ${p.nome} em traço de tinta (malha do IBGE), com a curva nacional da noite atravessando a região e o resultado da região escrito na peça. O resultado de cada estado está na tabela abaixo.`
               : `As ruas de ${p.nome} em cinza (OpenStreetMap, janela de 10 km), com a curva nacional da noite atravessando a cidade e o resultado do município escrito na peça.`}
           </p>
-          <p className="preco">Preço em definição</p>
+          <p className="preco">Preço no lançamento</p>
 
           <dl className="ficha">
             <div><dt>{p.tipo === 'continente' ? 'Curva vermelha no Brasil' : p.tipo === 'regiao' ? 'Curva vermelha na região' : 'Curva vermelha no município'}</dt><dd>{pct(p.pct)}</dd></div>
@@ -70,14 +72,14 @@ export default async function PaginaGeografia({ params, searchParams }: Props) {
             <form className="lista" method="post" action="/api/lista">
               <input type="hidden" name="produto" value={`geografia:${p.slug}`} />
               <input type="hidden" name="escolha" value={p.slug} />
-              <label htmlFor="email">Entre na fila. Quem está nela compra {HORAS_ANTES} horas antes da abertura.
+              <label htmlFor="email">Receba o aviso de lançamento e {HORAS_ANTES} horas de acesso antecipado.
                 <input id="email" name="email" type="email" required autoComplete="email" placeholder="seu@email.com" />
               </label>
               <label className="consentimento" htmlFor="consentimento">
                 <input id="consentimento" name="consentimento" type="checkbox" required value="sim" />
                 Aceito receber da INFLEXO o aviso de abertura e o acesso antecipado. Uso só para isso e apago a pedido.
               </label>
-              <button className="botao" type="submit">Entrar na fila</button>
+              <button className="botao" type="submit">Avise-me no lançamento</button>
               {total >= LIMIAR_CONTADOR && <p className="contador">{total.toLocaleString('pt-BR')} pessoas já estão na fila.</p>}
             </form>
           )}

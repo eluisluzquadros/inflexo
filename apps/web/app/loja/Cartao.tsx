@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { ItemVitrine } from '../../lib/vitrine';
+import { STATUS_LOJA } from '../../lib/lancamento';
 
 const COR_TEMA: Record<string, { cor: string; nome: string }> = {
   papel: { cor: '#F1F1EE', nome: 'Papel' },
@@ -47,14 +48,14 @@ export function Cartao({ item, prioridade = false }: { item: ItemVitrine; priori
           </>
         )}
         <span className="prod-selos">
-          {item.emPreparo && <span className="selo selo-preparo">Em preparação</span>}
+          <span className="selo selo-preparo">{STATUS_LOJA}</span>
           {item.selo && <span className="selo">{item.selo}</span>}
         </span>
         {item.href && <span className="prod-acao" aria-hidden="true">Ver a peça</span>}
       </span>
       <span className="prod-info">
         <span className="prod-nome">{item.nome}</span>
-        <span className="prod-preco">{item.preco === null ? 'Preço em definição' : item.preco}</span>
+        <span className="prod-preco">Preço no lançamento</span>
         <span className="prod-linha">{item.linha}</span>
         <span className="prod-formatos">{item.formatos}</span>
         <span className="prod-temas" aria-label={`Temas: ${item.temas.map((t) => COR_TEMA[t].nome).join(', ')}`}>

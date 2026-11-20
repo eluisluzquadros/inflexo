@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { vitrine, COLECOES, SUPORTES, type Colecao, type Suporte } from '../../lib/vitrine';
 import { HORAS_ANTES } from '../../lib/fila';
 import { Cartao } from './Cartao';
+import { COLECOES_MARCA, STATUS_LOJA } from '../../lib/lancamento';
 import './loja.css';
 
 export const dynamic = 'force-dynamic';
@@ -20,9 +21,9 @@ function link(colecao?: string, suporte?: string) {
 
 const GARANTIAS: [string, string][] = [
   ['A prévia é a peça', 'O mesmo motor desenha a prévia e o arquivo de impressão.'],
-  ['Conferido com o TSE', 'Cada número da peça bate com o resultado oficial, voto a voto.'],
-  ['A fila compra primeiro', `Quem está na fila compra ${HORAS_ANTES} horas antes da abertura.`],
-  ['Preço de verdade', 'O preço sai da cotação real dos fornecedores. Até lá, nada de número inventado.'],
+  ['História e processo', 'As fontes e as escolhas de composição acompanham cada estudo.'],
+  ['Acesso antecipado', `A lista recebe o acesso ${HORAS_ANTES} horas antes da abertura.`],
+  ['Preços no lançamento', 'Materiais, valores e condições de entrega serão apresentados na abertura.'],
 ];
 
 export default async function Loja({ searchParams }: Props) {
@@ -31,20 +32,24 @@ export default async function Loja({ searchParams }: Props) {
   const suporte = SUPORTES.some((s) => s.id === q.suporte) ? (q.suporte as Suporte) : undefined;
   const todos = vitrine();
   const itens = todos.filter((i) => (!colecao || i.colecao === colecao) && (!suporte || i.suportes.includes(suporte)));
-  const comDestaque = !colecao && !suporte;
 
   return (
     <div className="loja">
       <header className="loja-topo">
         <div>
+          <p className="loja-status">{STATUS_LOJA} · Loja autoral</p>
           <h1>Loja</h1>
-          <p>Quadros, pôsteres, arquivos e camiseta desenhados com dado público. A venda abre em breve; entre na fila e compre {HORAS_ANTES} horas antes.</p>
+          <p>Um primeiro olhar sobre as peças da INFLEXO. Explore os estudos e receba o aviso quando a loja abrir.</p>
         </div>
-        <a className="botao" href="/#fecho">Entrar na fila</a>
+        <a className="botao" href="/#fecho">Avise-me no lançamento</a>
       </header>
 
+      <nav className="loja-colecoes" aria-label="Coleções da INFLEXO">
+        {COLECOES_MARCA.map((c) => <Link key={c.id} href={`/#${c.id}`}><span>{STATUS_LOJA}</span><strong>{c.nome}</strong><small>{c.linha}</small><span className="loja-colecao-acao">Conhecer a coleção ↗</span></Link>)}
+      </nav>
+      <div className="loja-acervo"><h2>Acervo em estudo</h2><p>Peças e séries anteriores à abertura. Os filtros abaixo exploram este acervo; as próximas coleções estão acima.</p></div>
       <nav className="filtros" aria-label="Filtrar a loja">
-        <div className="filtros-grupo" role="group" aria-label="Coleção">
+        <div className="filtros-grupo" role="group" aria-label="Série do acervo">
           <Link className="filtro" aria-current={!colecao ? 'true' : undefined} href={link(undefined, suporte)}>Tudo</Link>
           {COLECOES.map((c) => (
             <Link key={c.id} className="filtro" aria-current={colecao === c.id ? 'true' : undefined} href={link(c.id, suporte)}>
@@ -64,11 +69,7 @@ export default async function Loja({ searchParams }: Props) {
         <p className="loja-vazia">Nenhuma peça com esse filtro. <Link href="/loja">Ver tudo</Link></p>
       ) : (
         <ul className="grade">
-          {itens.map((item, i) => (
-            <FragmentoComDestaque key={item.slug} mostrar={comDestaque && i === 6}>
-              <Cartao item={item} prioridade={i < 4} />
-            </FragmentoComDestaque>
-          ))}
+          {itens.map((item, i) => <Cartao key={item.slug} item={item} prioridade={i < 4} />)}
         </ul>
       )}
 
@@ -76,25 +77,5 @@ export default async function Loja({ searchParams }: Props) {
         {GARANTIAS.map(([t, d]) => <li key={t}><strong>{t}</strong><span>{d}</span></li>)}
       </ul>
     </div>
-  );
-}
-
-/** Antes do 7º item, sem filtro, entra o bloco editorial da Geografia da Virada no Nordeste. */
-function FragmentoComDestaque({ mostrar, children }: { mostrar: boolean; children: React.ReactNode }) {
-  if (!mostrar) return <>{children}</>;
-  return (
-    <>
-      <li className="destaque">
-        <Link href="/loja?colecao=nordeste" className="destaque-link">
-          <img src="/colecoes/capitais-nordeste.jpg" alt="Três quadros na parede: Salvador, Recife e Fortaleza" width={1024} height={688} loading="lazy" />
-          <span className="destaque-texto">
-            <span className="destaque-titulo">O Nordeste, rua por rua.</span>
-            <span>A região e as nove capitais, cada uma com o próprio mapa e o resultado conferido com o TSE.</span>
-            <span className="destaque-cta">Ver as 10 peças</span>
-          </span>
-        </Link>
-      </li>
-      {children}
-    </>
   );
 }

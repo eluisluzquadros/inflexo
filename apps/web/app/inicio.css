@@ -20,10 +20,10 @@ body:has(.inicio) {
 .i-nota { margin: 24px 0 0; color: var(--muted); font-size: .75rem; max-width: 95ch; line-height: 1.6; }
 
 /* Abertura em camadas: o casal aprovado em primeiro plano e o quadro na parede. */
-.i-hero { position: relative; isolation: isolate; min-height: clamp(620px, calc(100svh - 130px), 850px); display: flex; align-items: center; background: #E9E1D3; }
+.i-hero { position: relative; isolation: isolate; min-height: clamp(580px, calc(88svh - 110px), 760px); display: flex; align-items: center; background: #E9E1D3; }
 .i-ambiente { z-index: -2; object-fit: cover; object-position: center 48%; }
 .i-hero::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(244,240,232,.92), rgba(244,240,232,.7) 35%, transparent 62%); }
-.i-hero-conteudo { position: relative; z-index: 2; width: 51%; padding: 70px clamp(20px, 4vw, 64px) 85px; }
+.i-hero-conteudo { position: relative; z-index: 2; width: 51%; padding: 54px clamp(20px, 4vw, 64px) 65px; }
 .i-hero h1 { font-size: clamp(3rem, 5.8vw, 6.4rem); line-height: .98; letter-spacing: -.035em; }
 .i-introducao { max-width: 38ch; margin: 28px 0 0; font-size: clamp(1rem, 1.15vw, 1.13rem); line-height: 1.75; color: #4F5549; }
 .i-hero-assinatura { margin: 32px 0 0; color: #69705E; font-size: .78rem; }
@@ -109,6 +109,8 @@ body:has(.inicio) {
 .i-fila > div > p:last-child { color: var(--muted); max-width: 46ch; margin: 24px 0 0; font-size: .92rem; line-height: 1.8; }
 .i-formulario { display: grid; gap: 13px; min-width: 0; }
 .i-formulario > label:first-of-type { font-size: .84rem; }
+.i-formulario > label { font-size: .84rem; }
+.i-formulario select { width: 100%; border: 1px solid #9A9F8E; background: #FBF9F4; padding: 13px; color: var(--fg); font: inherit; font-size: .9rem; margin-bottom: 5px; border-radius: 2px; }
 .i-formulario-linha { display: flex; gap: 8px; }
 .i-formulario-linha input { min-width: 0; flex: 1; border: 1px solid #9A9F8E; border-radius: 2px; padding: 14px; background: #FBF9F4; color: var(--fg); font: inherit; font-size: .9rem; }
 .i-formulario-linha input::placeholder { color: #717766; }
@@ -194,8 +196,19 @@ body:has(.inicio) .aviso-loja { background: #252E26; }
   .inicio *, .inicio *::before, .inicio *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
 
-/* Coleção 01 à venda dentro da home: as seções de casa.css seguem as margens da home e a grade de 4 categorias */
+/* Estudos do lançamento em quatro suportes. */
 .inicio .casa .h-largura { width: calc(100% - 2 * clamp(20px, 4vw, 64px)); }
+.inicio .casa .h-secao { margin-top: clamp(40px, 6vh, 72px); }
+.inicio .i-previa { display: grid; place-items: center; aspect-ratio: 1; background: #E4DFD4; }
+.inicio .i-previa .i-estudo svg { box-shadow: none; }
+.inicio .i-previa .i-mini-moldura { display: block; width: 62%; transform: rotate(-2deg); }
+.inicio .i-papel-poster { display: block; width: 62%; transform: rotate(3deg); box-shadow: 8px 12px 24px #20282222; }
+.inicio .i-papel-poster .i-estudo { display: block; }
+.inicio .i-papel-poster .i-estudo svg { width: 100%; height: auto; }
+.inicio .i-previa-vestuario img { width: 100%; height: 100%; object-fit: contain; object-position: bottom; }
+.inicio .i-previa-digital { background: #D6DCD3; }
+.inicio .i-previa .i-digital { display: block; width: 53%; }
+.inicio .i-previa .i-digital .i-estudo svg { height: auto; width: 100%; }
 .inicio .i-categorias { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 clamp(20px, 3vh, 32px); }
 .inicio .i-categorias a { padding: 9px 18px; border: 1px solid var(--linha); border-radius: 2px; color: var(--fg); text-decoration: none; font-size: .88rem; transition: background .25s, color .25s, border-color .25s; }
 .inicio .i-categorias a:hover, .inicio .i-categorias a:focus-visible { background: var(--fg); color: var(--bg); border-color: var(--fg); }

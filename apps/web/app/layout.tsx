@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   alternates: { canonical: './' },
   openGraph: {
     type: 'website', locale: 'pt_BR', siteName: 'INFLEXO',
-    images: [{ url: '/casa/hero.jpg', width: 2560, height: 1434, alt: 'Duas pessoas de moletom preto INFLEXO numa sala clara; na parede, o quadro Gravura' }],
+    images: [{ url: '/hero/ambiente-premium-v2.webp', alt: 'Ambiente claro da INFLEXO. Arte, ciência e memória.' }],
   },
   twitter: { card: 'summary_large_image' },
 };
@@ -28,9 +28,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <html lang="pt-BR" className={`${display.variable} ${corpo.variable} ${mono.variable}`}>
       <body>
         <div className="aviso-loja">
-          <span><a href="/#colecoes">Arte, ciência e memória.</a></span>
-          <span>Novas coleções em desenvolvimento</span>
-          <span><a href="/#fecho">Acompanhe o que vem</a></span>
+          <span><a href="/#fecho">Em breve · A estética do movimento.</a></span>
+          <span>Arte, ciência e memória</span>
+          <span><a href="/#fecho">Receba o aviso de lançamento</a></span>
         </div>
         <header className="topo topo-v2">
           <Link href="/" className="topo-marca" aria-label="INFLEXO, página inicial"><Marca /></Link>
@@ -40,7 +40,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Link href="/#processo">Processo</Link>
           </nav>
           <div className="topo-acoes">
-            <Link href="/#fecho" className="topo-fila"><span className="topo-fila-desktop">Receber novidades</span><span className="topo-fila-mobile">Novidades</span></Link>
+            <Link href="/#fecho" className="topo-fila"><span className="topo-fila-desktop">Avise-me no lançamento</span><span className="topo-fila-mobile">Avise-me</span></Link>
             <MenuMovel />
           </div>
         </header>

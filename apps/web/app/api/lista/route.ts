@@ -2,13 +2,15 @@ import { NextResponse } from 'next/server';
 import { produto } from '../../../lib/loja';
 import { entrar } from '../../../lib/fila';
 import { pecaGeografia } from '../../../lib/vitrine';
+import { INTERESSES } from '../../../lib/lancamento';
 
 // Fila de espera. Guarda só e-mail, produto, escolha, consentimento e data. Nada da coleção vai para ferramentas de anúncio.
 export async function POST(req: Request) {
   const form = await req.formData();
   const email = String(form.get('email') ?? '').trim().toLowerCase();
   const slug = String(form.get('produto') ?? '');
-  const escolha = String(form.get('escolha') ?? '').slice(0, 60);
+  const escolhaEnviada = String(form.get('escolha') ?? '').slice(0, 60);
+  const escolha = slug === 'colecao' && !INTERESSES.some((i) => i.id === escolhaEnviada) ? 'home-inflexoes' : escolhaEnviada;
   const consentimento = form.get('consentimento') === 'sim';
   const geo = slug.startsWith('geografia:') ? pecaGeografia(slug.slice(10)) : null;
   const p = slug === 'colecao' ? { slug } : geo ?? produto(slug);
@@ -17,12 +19,14 @@ export async function POST(req: Request) {
   }
   let posicao: number;
   try {
-    posicao = await entrar({ email, produto: slug, escolha, consentimento: escolha === 'home-inflexoes' ? 'novidades das coleções, aviso de abertura e acesso antecipado' : 'aviso de abertura da venda e acesso antecipado' });
+    posicao = await entrar({ email, produto: slug, escolha, consentimento: slug === 'colecao' ? 'novidades das coleções, aviso de abertura e acesso antecipado' : 'aviso de abertura da venda e acesso antecipado' });
   } catch (erro) {
     console.error('fila: falha ao gravar', erro instanceof Error ? erro.message : erro);
     return NextResponse.json({ erro: 'Não conseguimos registrar agora. Tente de novo em instantes.' }, { status: 503 });
   }
-  const destino = slug === 'colecao' ? `/?fila=${posicao}#fecho` : geo ? `/geografia/${geo.slug}?fila=${posicao}` : `/produto/${slug}?fila=${posicao}`;
+  const [estilo = '', tema = '', formato = ''] = escolha.split('/');
+  const variante = new URLSearchParams({ fila: String(posicao), estilo, tema, formato });
+  const destino = slug === 'colecao' ? `/?fila=${posicao}#fecho` : geo ? `/geografia/${geo.slug}?fila=${posicao}` : `/produto/${slug}?${variante}`;
   // Location relativo: atrás do proxy do Render, req.url traz o endereço interno (localhost:10000)
   return new NextResponse(null, { status: 303, headers: { Location: destino } });
 }

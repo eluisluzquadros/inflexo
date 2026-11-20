@@ -7,6 +7,8 @@ import { PRODUTOS, ESTILOS, TEMAS, FORMATOS, produto, escolher, temasDo, previaP
 import { fotosDe } from '../../../lib/galeria';
 import { vendeProduto } from '../../../lib/stripe';
 import { precoDe, reais, FRETE_PROVISORIO } from '../../../lib/precos';
+import { GaleriaProduto } from '../../GaleriaProduto';
+import { STATUS_LOJA } from '../../../lib/lancamento';
 
 type Props = { params: Promise<{ slug: string }>; searchParams: Promise<Record<string, string | undefined>> };
 
@@ -16,9 +18,11 @@ export function generateStaticParams() {
   return PRODUTOS.map((p) => ({ slug: p.slug }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
   const p = produto((await params).slug);
-  return { title: p ? p.nome : 'Produto', description: p?.resumo };
+  const q = await searchParams;
+  const e = p ? escolher(p, q) : null;
+  return { title: p && e ? `${ESTILOS[e.estilo].nome} · ${p.nome}` : 'Produto', description: p?.resumo };
 }
 
 function url(slug: string, e: Escolha) {
@@ -45,25 +49,16 @@ export default async function PaginaProduto({ params, searchParams }: Props) {
     <div className="pdp">
       <nav className="trilha" aria-label="Você está em"><Link href="/loja">Loja</Link> <span aria-hidden="true">/</span> <span aria-current="page">{p.nome}</span></nav>
       <section className="produto">
-        <div className="galeria">
+        <GaleriaProduto key={`${slug}:${e.estilo}`} fotos={fotos} nome={`${ESTILOS[e.estilo].nome} · ${p.nome}`}>
           <div className="arte sombra"><img src={arte.src} width={arte.largura} height={arte.altura} alt={`Prévia com marca d’água: ${ESTILOS[e.estilo].nome}, ${TEMAS[e.tema]}, ${FORMATOS[e.formato]}`} loading={fotos.length > 0 ? 'lazy' : 'eager'} /></div>
           <p className="galeria-nota">Prévia com marca d’água: a peça vendida é esta, sem a marca.</p>
-          {fotos.length > 0 && (
-            <div className="galeria-fotos">
-              {fotos.map((f) => (
-                <figure key={f.src} className="foto">
-                  <img src={f.src} alt={`${p.nome}, estilo ${ESTILOS[e.estilo].nome}: ${f.legenda}`} width={1024} height={1024} loading="lazy" />
-                  <figcaption>{f.legenda}. Cena gerada por IA com a arte real.</figcaption>
-                </figure>
-              ))}
-            </div>
-          )}
-        </div>
+        </GaleriaProduto>
 
         <div className="painel">
-          <p className="painel-linha">{p.tipo === 'digital' ? 'Arquivo digital' : 'Peça física'} · Geografia da Virada</p>
-          <h1>{p.nome}</h1>
-          <p className="preco">{preco ? reais(preco) : 'Preço na abertura da venda'}{preco && p.tipo === 'fisico' ? <small> + envio {reais(FRETE_PROVISORIO)}</small> : null}</p>
+          <p className="painel-linha">{STATUS_LOJA} · Acervo Geografia da Virada</p>
+          <h1>{ESTILOS[e.estilo].nome}</h1>
+          <p className="produto-suporte">{p.nome}{slug === 'quadro' ? ' · moldura de madeira' : ''}</p>
+          <p className="preco">{preco ? reais(preco) : 'Preço no lançamento'}{preco && p.tipo === 'fisico' ? <small> + envio {reais(FRETE_PROVISORIO)}</small> : null}</p>
           <p className="descricao">{p.resumo}</p>
 
           <div className="opcoes">
@@ -119,20 +114,20 @@ export default async function PaginaProduto({ params, searchParams }: Props) {
             <form className="lista" method="post" action="/api/lista">
               <input type="hidden" name="produto" value={slug} />
               <input type="hidden" name="escolha" value={`${e.estilo}/${e.tema}/${e.formato}`} />
-              <label htmlFor="email">Entre na fila e compre {HORAS_ANTES} horas antes da abertura.
+              <label htmlFor="email">Receba o aviso de lançamento e {HORAS_ANTES} horas de acesso antecipado.
                 <input id="email" name="email" type="email" required autoComplete="email" placeholder="seu@email.com" />
               </label>
               <label className="consentimento" htmlFor="consentimento">
                 <input id="consentimento" name="consentimento" type="checkbox" required value="sim" />
                 Aceito receber da INFLEXO o aviso de abertura e o acesso antecipado. Uso só para isso e apago a pedido.
               </label>
-              <button className="botao" type="submit">Entrar na fila</button>
+              <button className="botao" type="submit">Avise-me no lançamento</button>
               {total >= LIMIAR_CONTADOR && <p className="contador">{total.toLocaleString('pt-BR')} pessoas já estão na fila.</p>}
             </form>
           )}
 
           <div className="detalhes">
-            <details open><summary>Entrega</summary><p>{p.entrega} A prévia tem marca d’água; o arquivo final só é gerado depois do pagamento confirmado.</p></details>
+            <details><summary>Materiais e entrega</summary><p>{p.resumo} {p.entrega} As condições finais serão apresentadas no lançamento.</p></details>
             <details><summary>De onde vem o desenho</summary><p>Cada ponto da curva é a soma dos boletins de urna do TSE na ordem em que chegaram, com zero voto de diferença para o resultado oficial. <Link href="/metodo">Como a curva foi reconstruída</Link>.</p></details>
             <details><summary>O que é desenho</summary><p>Os três filamentos de tinta, o tremor das linhas e a textura do papel são estilo. A curva e os números são dado.</p></details>
           </div>

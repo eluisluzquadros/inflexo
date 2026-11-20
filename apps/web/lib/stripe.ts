@@ -1,5 +1,6 @@
 import 'server-only';
 import Stripe from 'stripe';
+import { LANCAMENTO_EM_BREVE } from './lancamento';
 
 // Cliente da Stripe, só no servidor. A chave vem do ambiente; nunca vai para o navegador nem para o log.
 // Recomendação da Stripe: trocar a chave secreta (sk_) por uma chave restrita (rk_) com só as permissões
@@ -15,7 +16,7 @@ export function stripe(): Stripe {
 
 /** A compra só aparece no site com a chave liga/desliga e com a Stripe configurada. Desligada, a loja fica só com a fila. */
 export function checkoutAtivo(): boolean {
-  return process.env.CHECKOUT_ATIVO === 'true' && Boolean(process.env.STRIPE_SECRET_API_KEY ?? process.env.STRIPE_SECRET_KEY);
+  return !LANCAMENTO_EM_BREVE && process.env.CHECKOUT_ATIVO === 'true' && Boolean(process.env.STRIPE_SECRET_API_KEY ?? process.env.STRIPE_SECRET_KEY);
 }
 
 /** Peças físicas (pôster, quadro, camiseta) só vendem com uma segunda chave: sem fornecedor ligado, o pedido
