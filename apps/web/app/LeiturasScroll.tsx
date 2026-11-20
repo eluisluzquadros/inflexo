@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
-type Leitura = { id: string; nome: string; descricao: string; href: string; svg: string };
+type Leitura = { id: string; nome: string; descricao: string; href: string; src: string };
 
 /** As três peças como papéis empilhados em perspectiva; a rolagem traz cada uma para a frente. */
 export function LeiturasScroll({ leituras }: { leituras: Leitura[] }) {
@@ -62,7 +62,7 @@ export function LeiturasScroll({ leituras }: { leituras: Leitura[] }) {
             const estilo = frente >= 0
               ? { transform: `translate3d(${frente * 9}%, ${frente * -7}%, ${-frente * 140}px) rotateY(-14deg) rotateX(8deg) rotateZ(${-3 + frente * 2}deg)`, opacity: Math.max(0, 1 - frente * 0.28), zIndex: 10 - i }
               : { transform: `translate3d(${-frente * 12}%, ${frente * 75}%, 60px) rotateY(-14deg) rotateX(8deg) rotateZ(${-3 - frente * 10}deg)`, opacity: Math.max(0, 1 + frente * 1.6), zIndex: 20 };
-            return <div key={l.id} className="folha" style={estilo} dangerouslySetInnerHTML={{ __html: l.svg }} />;
+            return <div key={l.id} className="folha" style={estilo}><img src={l.src} alt="" width={297} height={420} loading="lazy" /></div>;
           })}
         </div>
       </div>

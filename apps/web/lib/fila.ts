@@ -1,6 +1,7 @@
 import 'server-only';
 import { appendFileSync, existsSync, mkdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
+import * as catalogo from '../../../packages/core/src/catalogo.mjs';
 
 // Fila de espera real. Toda escassez mostrada na loja sai daqui ou da tiragem: nada é inventado.
 // Com SUPABASE_URL e SUPABASE_SERVICE_ROLE_KEY, grava na tabela public.inflexo_fila (só o servidor acessa, RLS ligada).
@@ -10,8 +11,8 @@ import path from 'node:path';
 export const LIMIAR_CONTADOR = 100;
 /** A fila compra antes: horas de acesso antecipado. */
 export const HORAS_ANTES = 48;
-/** Primeira tiragem numerada do quadro em fios. Compromisso comercial: confirmar antes de abrir a venda. */
-export const TIRAGEM_FIOS = 500;
+/** Primeira tiragem numerada dos fios físicos. Vive no catálogo: as prévias prontas imprimem o número. */
+export const TIRAGEM_FIOS = catalogo.TIRAGEM_FIOS as number;
 
 type Registro = { email: string; produto: string; escolha: string; consentimento: string; em: string };
 

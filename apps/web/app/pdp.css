@@ -9,7 +9,7 @@ body:has(.pdp), body:has(.pagina .produto) {
 .galeria { gap: 18px; }
 .produto .arte { border-radius: 18px; overflow: hidden; background: #EAE4D9; }
 .produto .arte.sombra { box-shadow: none; padding: clamp(18px, 4vw, 56px); }
-.produto .arte svg { box-shadow: 0 24px 40px -22px rgba(40, 30, 10, .35); }
+.produto .arte svg, .produto .arte > img { box-shadow: 0 24px 40px -22px rgba(40, 30, 10, .35); }
 img.arte { border-radius: 18px; }
 .galeria-nota { margin: -4px 0 0; font-size: .8rem; color: var(--muted); }
 .galeria-fotos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }

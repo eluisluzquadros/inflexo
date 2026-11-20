@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import '../../pdp.css';
 import { TIRAGEM_FIOS, HORAS_ANTES, LIMIAR_CONTADOR, tamanhoDaFila } from '../../../lib/fila';
-import { PRODUTOS, ESTILOS, TEMAS, FORMATOS, produto, escolher, temasDo, previa, type Escolha } from '../../../lib/loja';
+import { PRODUTOS, ESTILOS, TEMAS, FORMATOS, produto, escolher, temasDo, previaPronta, type Escolha } from '../../../lib/loja';
 import { fotosDe } from '../../../lib/galeria';
 import { vendeProduto } from '../../../lib/stripe';
 import { precoDe, reais, FRETE_PROVISORIO } from '../../../lib/precos';
@@ -36,6 +36,7 @@ export default async function PaginaProduto({ params, searchParams }: Props) {
   const total = await tamanhoDaFila();
   const fotos = fotosDe(slug, e.estilo);
   const numerado = e.estilo === 'fios' && p.tipo === 'fisico';
+  const arte = previaPronta(e, { numerada: numerado });
   const outros = PRODUTOS.filter((o) => o.slug !== slug);
   const vendendo = vendeProduto(p.tipo);
   const preco = vendendo ? precoDe(p.slug, e.estilo, e.formato) : null;
@@ -45,7 +46,7 @@ export default async function PaginaProduto({ params, searchParams }: Props) {
       <nav className="trilha" aria-label="Você está em"><Link href="/loja">Loja</Link> <span aria-hidden="true">/</span> <span aria-current="page">{p.nome}</span></nav>
       <section className="produto">
         <div className="galeria">
-          <div className="arte sombra" dangerouslySetInnerHTML={{ __html: previa(e, numerado ? { tiragem: TIRAGEM_FIOS } : {}) }} />
+          <div className="arte sombra"><img src={arte.src} width={arte.largura} height={arte.altura} alt={`Prévia com marca d’água: ${ESTILOS[e.estilo].nome}, ${TEMAS[e.tema]}, ${FORMATOS[e.formato]}`} loading={fotos.length > 0 ? 'lazy' : 'eager'} /></div>
           <p className="galeria-nota">Prévia com marca d’água: a peça vendida é esta, sem a marca.</p>
           {fotos.length > 0 && (
             <div className="galeria-fotos">

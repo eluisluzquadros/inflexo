@@ -35,6 +35,15 @@ export function previa(escolha: Escolha, extra: { tiragem?: number } = {}): stri
   return render(curva(), escolha, { previa: true, ...extra }).replace(/ width="[^"]+mm" height="[^"]+mm"/, '');
 }
 
+export type PreviaPronta = { src: string; largura: number; altura: number };
+/**
+ * Imagem pronta da prévia (WebP com marca d'água), gerada por packages/render/scripts/previas-prontas.mjs a
+ * partir do mesmo SVG de `previa` (EXP-331). Use esta nas páginas: o SVG dentro do HTML pesa até 1,1 MB.
+ */
+export const previaPronta = catalogo.previaPronta as (e: Escolha, o?: { numerada?: boolean }) => PreviaPronta;
+/** A peça sai numerada (Nº x/tiragem) só nos fios físicos. */
+export const numerada = catalogo.numerada as (p: Produto, e: Escolha) => boolean;
+
 // ---------- Geografia da Virada: região e capitais ----------
 
 const lerSaida = (arquivo: string) => JSON.parse(readFileSync(path.join(process.cwd(), '..', '..', 'pipeline', 'output', arquivo), 'utf8'));

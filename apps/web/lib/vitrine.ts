@@ -1,8 +1,7 @@
 import 'server-only';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
-import { capitaisNordeste } from './loja';
-import { previaPronta as previaProntaJs } from '../../../packages/core/src/catalogo.mjs';
+import { capitaisNordeste, previaPronta } from './loja';
 import { TIRAGEM_FIOS } from './fila';
 
 // Vitrine da loja: todas as peças, de todas as coleções, num formato só.
@@ -45,9 +44,6 @@ export const SUPORTES: { id: Suporte; nome: string }[] = [
   { id: 'digital', nome: 'Digital' },
   { id: 'camiseta', nome: 'Camiseta' },
 ];
-
-// imagem pronta da prévia (WebP com marca d'água), gerada por packages/render/scripts/previas-vitrine.mjs (EXP-331)
-const previaPronta = previaProntaJs as (e: { estilo: string; tema: string; formato: string }) => { src: string; largura: number; altura: number };
 
 const SLUG_CAPITAL: Record<string, string> = {
   BA: 'salvador', PE: 'recife', CE: 'fortaleza', MA: 'sao_luis', PI: 'teresina',

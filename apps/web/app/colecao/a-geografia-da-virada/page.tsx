@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { noite } from '../../../lib/noite';
-import { previa } from '../../../lib/loja';
+import { previaPronta } from '../../../lib/loja';
 import { NoiteScroll } from '../../NoiteScroll';
 import { LeiturasScroll } from '../../LeiturasScroll';
 
@@ -20,8 +20,8 @@ export default function HistoriaDaColecao() {
       </header>
       <div id="a-noite"><NoiteScroll n={n} /></div>
       <LeiturasScroll leituras={[
-        { id: 'gravura', nome: 'Gravura', descricao: 'A curva da noite em três filamentos de tinta sobre papel, das 17h07 às 21h07. O ponto dourado marca o último cruzamento das linhas.', href: '/produto/quadro?estilo=gravura', svg: previa({ estilo: 'gravura', tema: 'papel', formato: 'a3' }) },
-        { id: 'fios', nome: 'Fios', descricao: 'A mesma curva em feixes de fios finos sobre papel marfim. O ponto dourado marca a virada das 20h23.', href: '/produto/quadro?estilo=fios', svg: previa({ estilo: 'fios', tema: 'marfim', formato: 'a3' }) },
+        { id: 'gravura', nome: 'Gravura', descricao: 'A curva da noite em três filamentos de tinta sobre papel, das 17h07 às 21h07. O ponto dourado marca o último cruzamento das linhas.', href: '/produto/quadro?estilo=gravura', src: previaPronta({ estilo: 'gravura', tema: 'papel', formato: 'a3' }).src },
+        { id: 'fios', nome: 'Fios', descricao: 'A mesma curva em feixes de fios finos sobre papel marfim. O ponto dourado marca a virada das 20h23.', href: '/produto/quadro?estilo=fios', src: previaPronta({ estilo: 'fios', tema: 'marfim', formato: 'a3' }).src },
       ]} />
       <figure className="historia-foto">
         <img src="/colecoes/virada-casal.jpg" alt="Duas pessoas de moletom preto com a marca INFLEXO numa sala clara; na parede, a Gravura com o resultado da noite" width={2560} height={1434} loading="lazy" />

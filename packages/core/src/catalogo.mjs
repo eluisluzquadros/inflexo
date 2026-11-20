@@ -92,7 +92,15 @@ export function arquivoDigital({ estilo, tema, formato }) {
   return { nome, caminho: `catalogo/${nome}` };
 }
 
-/** Combinações que a vitrine (/loja) mostra como prévia. Cada uma tem uma imagem pronta em apps/web/public/previas. */
+/** Primeira tiragem numerada dos fios físicos (pôster e quadro). Compromisso comercial: confirmar antes de abrir a venda. */
+export const TIRAGEM_FIOS = 500;
+
+/** A peça sai numerada (Nº x/500) só nos fios físicos; o arquivo digital não tem tiragem. */
+export function numerada(p, { estilo }) {
+  return estilo === 'fios' && p.tipo === 'fisico';
+}
+
+/** Combinações que a vitrine (/loja) e a coleção mostram como prévia, além das páginas de produto. */
 export const PREVIAS_VITRINE = [
   { estilo: 'fios', tema: 'marfim', formato: 'a3' },
   { estilo: 'gravura', tema: 'papel', formato: 'a3' },
@@ -100,17 +108,28 @@ export const PREVIAS_VITRINE = [
   { estilo: 'gravura', tema: 'papel', formato: 'stories' },
   { estilo: 'gravura', tema: 'branco', formato: 'quadrado' },
 ];
-export const LARGURA_PREVIA = 900;
+export const LARGURA_PREVIA = 1200;
 
 /**
- * Prévia pronta de uma combinação: WebP de 900 px, com marca d'água, rasterizado do MESMO SVG da peça
- * (regra 3) por packages/render/scripts/previas-vitrine.mjs. Desenhar o SVG dentro da página custava
- * ~1,5 MB de HTML e ~200 ms de CPU por visita na /loja (EXP-330, EXP-331).
+ * Prévia pronta de uma combinação: WebP com marca d'água, rasterizado do MESMO SVG da peça (regra 3) por
+ * packages/render/scripts/previas-prontas.mjs. Desenhar o SVG dentro da página custava de 1,1 a 1,6 MB de HTML
+ * e até ~200 ms de CPU por visita (EXP-330, EXP-331). `numerada` traz o "Nº —/500" dos fios físicos.
  */
-export function previaPronta({ estilo, tema, formato }) {
+export function previaPronta({ estilo, tema, formato }, { numerada = false } = {}) {
   const f = FORMATOS_MM[formato];
   if (!f) throw new Error(`formato desconhecido: ${formato}`);
-  return { src: `/previas/${estilo}-${tema}-${formato}.webp`, largura: LARGURA_PREVIA, altura: Math.round((LARGURA_PREVIA * f.alturaMm) / f.larguraMm) };
+  const nome = `${estilo}-${tema}-${formato}${numerada ? '-numerada' : ''}`;
+  return { src: `/previas/${nome}.webp`, largura: LARGURA_PREVIA, altura: Math.round((LARGURA_PREVIA * f.alturaMm) / f.larguraMm) };
+}
+
+/** Todas as prévias que o site mostra: vitrine e cada combinação de cada produto. Sem repetição. */
+export function previasProntas() {
+  const lista = [
+    ...PREVIAS_VITRINE.map((e) => ({ ...e, numerada: false })),
+    ...PRODUTOS.flatMap((p) => combinacoes(p).map((e) => ({ ...e, numerada: numerada(p, e) }))),
+  ];
+  const vistas = new Set();
+  return lista.filter((e) => { const k = previaPronta(e, e).src; return !vistas.has(k) && vistas.add(k); });
 }
 
 /** SVG da peça escolhida. Prévia sempre com marca d'água; o arquivo final sai só depois do pagamento. */
