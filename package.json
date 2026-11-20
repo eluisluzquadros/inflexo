@@ -16,6 +16,7 @@
     "web:build": "npm run build -w @inflexo/web",
     "test": "node --test \"packages/*/test/*.test.mjs\"",
     "dados:regiao": "py -I pipeline/scripts/curva_regiao.py pipeline/data/interim/boletins_presidente_2t_2026.csv.gz pipeline/data/raw/ibge/nordeste_ufs.geojson pipeline/data/raw/tse_oficial pipeline/output/regiao_nordeste_2t_2026.json Nordeste",
-    "render:regiao": "node packages/render/scripts/render-regiao.mjs pipeline/output/regiao_nordeste_2t_2026.json out/regiao"
+    "render:regiao": "node packages/render/scripts/render-regiao.mjs pipeline/output/regiao_nordeste_2t_2026.json out/regiao",
+    "catalogo:digital": "node packages/render/scripts/publicar-catalogo-digital.mjs"
   }
 }

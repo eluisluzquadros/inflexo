@@ -1,15 +1,9 @@
 import 'server-only';
-import { execFile } from 'node:child_process';
-import { promisify } from 'node:util';
-import { mkdtemp, readFile, rm } from 'node:fs/promises';
-import { tmpdir } from 'node:os';
-import path from 'node:path';
 
-// Arquivos finais: gerados num processo filho (o rasterizador pesa e pode entrar em pânico) e guardados no
-// bucket privado "inflexo-arquivos" do Supabase Storage. O download sai só por link assinado de curta duração.
+// Arquivos finais no bucket privado "inflexo-arquivos" do Supabase Storage. O site não gera imagem: o arquivo
+// de cada combinação do digital é gerado uma vez, fora do servidor, por
+// packages/render/scripts/publicar-catalogo-digital.mjs (EXP-329). Aqui só se confere, assina e serve.
 const BUCKET = 'inflexo-arquivos';
-const raiz = () => path.join(process.cwd(), '..', '..');
-const run = promisify(execFile);
 
 function storage(): { url: string; chave: string } {
   const url = process.env.SUPABASE_URL?.replace(/\/$/, ''), chave = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -18,31 +12,16 @@ function storage(): { url: string; chave: string } {
 }
 const caminhoSeguro = (p: string) => p.split('/').map(encodeURIComponent).join('/');
 
-/** Gera o PNG final de uma escolha do arquivo digital (sem marca d'água). */
-export async function gerarArquivoFinal(e: { estilo: string; tema: string; formato: string }): Promise<Buffer> {
-  const dir = await mkdtemp(path.join(tmpdir(), 'inflexo-'));
-  try {
-    const saida = path.join(dir, 'final.png');
-    await run(process.execPath, [
-      path.join(raiz(), 'packages', 'render', 'scripts', 'arquivo-final.mjs'),
-      path.join(raiz(), 'pipeline', 'output', 'curva_presidente_2t_2026_br.json'),
-      e.estilo, e.tema, e.formato, saida,
-    ], { cwd: raiz(), timeout: 120_000, maxBuffer: 1 << 20 });
-    return await readFile(saida);
-  } finally {
-    await rm(dir, { recursive: true, force: true });
-  }
-}
-
-/** Grava (ou regrava, idempotente) um objeto no bucket privado. */
-export async function guardarArquivo(caminho: string, dados: Buffer, tipo = 'image/png'): Promise<void> {
+/** O objeto existe no bucket? Erro de rede ou de permissão sobe como exceção (não vira "não existe"). */
+export async function existeArquivo(caminho: string): Promise<boolean> {
   const { url, chave } = storage();
-  const r = await fetch(`${url}/object/${BUCKET}/${caminhoSeguro(caminho)}`, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${chave}`, apikey: chave, 'Content-Type': tipo, 'x-upsert': 'true', 'cache-control': 'private, max-age=0' },
-    body: new Uint8Array(dados),
+  const r = await fetch(`${url}/object/info/authenticated/${BUCKET}/${caminhoSeguro(caminho)}`, {
+    headers: { Authorization: `Bearer ${chave}`, apikey: chave },
   });
-  if (!r.ok) throw new Error(`Storage ${r.status}: ${(await r.text()).slice(0, 200)}`);
+  if (r.ok) return true;
+  const corpo = await r.text();
+  if (/NoSuchKey|not_found/.test(corpo)) return false;
+  throw new Error(`Storage ${r.status}: ${corpo.slice(0, 200)}`);
 }
 
 /** Link assinado para baixar o objeto, válido por poucos minutos, com o nome de arquivo sugerido. */

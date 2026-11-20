@@ -1,7 +1,8 @@
 import 'server-only';
 import { rest } from './supabase';
-import { produto, ESTILOS, TEMAS, FORMATOS } from './loja';
-import { gerarArquivoFinal, guardarArquivo } from './arquivos';
+import { produto, escolher, ESTILOS, TEMAS, FORMATOS } from './loja';
+import { existeArquivo } from './arquivos';
+import { arquivoDigital } from '../../../packages/core/src/catalogo.mjs';
 import { enviarEmail, emailEntregaDigital } from './email';
 
 // Fila do pós-pagamento (EXP-317, docs/08_AUTOMACAO.md). O gatilho do banco cria a tarefa quando o pedido
@@ -18,7 +19,9 @@ type Resultado = { estado: 'feita' | 'bloqueada'; nota?: string };
 const MAX_TENTATIVAS = 8;
 // sem SITE_URL, produção cai no domínio oficial (o link do e-mail nunca pode apontar para localhost)
 const site = () => (process.env.SITE_URL || (process.env.NODE_ENV === 'production' ? 'https://inflexo.com.br' : 'http://localhost:3000')).replace(/\/$/, '');
-export const nomeDoArquivo = (p: { estilo: string; tema: string; formato: string }) => `inflexo-${p.estilo}-${p.tema}-${p.formato}.png`;
+type Escolha = { estilo: string; tema: string; formato: string };
+const arquivoDe = arquivoDigital as (e: Escolha) => { nome: string; caminho: string };
+export const nomeDoArquivo = (p: Escolha) => arquivoDe(p).nome;
 
 async function pedido(id: string): Promise<PedidoEntrega | null> {
   const r = await rest(`inflexo_pedidos?id=eq.${id}&select=id,status,produto,estilo,tema,formato,email,arquivo_path,email_enviado_em&limit=1`);
@@ -38,12 +41,18 @@ async function processarPago(t: Tarefa): Promise<Resultado> {
     return { estado: 'bloqueada', nota: 'peça física: sem fornecedor de produção configurado' };
   }
 
-  // 1. arquivo final, uma vez só
-  let arquivo = p.arquivo_path;
-  if (!arquivo) {
-    arquivo = `pedidos/${p.id}/${nomeDoArquivo(p)}`;
-    await guardarArquivo(arquivo, await gerarArquivoFinal(p));
-    await atualizar(p.id, { arquivo_path: arquivo, arquivo_pronto_em: new Date().toISOString() });
+  // 1. liga o pedido ao arquivo pronto da combinação (gerado antes da venda, EXP-329). Combinação fora do
+  // catálogo ou arquivo ausente no Storage é erro: a tarefa tenta de novo e nenhum e-mail sai com link quebrado.
+  if (!p.arquivo_path) {
+    const e = escolher(cat, p);
+    if (e.estilo !== p.estilo || e.tema !== p.tema || e.formato !== p.formato) {
+      throw new Error(`combinação fora do catálogo: ${p.estilo}/${p.tema}/${p.formato}`);
+    }
+    const { caminho } = arquivoDe(e);
+    if (!(await existeArquivo(caminho))) {
+      throw new Error(`arquivo do catálogo ausente no Storage: ${caminho} (rodar publicar-catalogo-digital.mjs)`);
+    }
+    await atualizar(p.id, { arquivo_path: caminho, arquivo_pronto_em: new Date().toISOString() });
   }
 
   // 2. e-mail com o link do pedido, uma vez só
@@ -68,7 +77,7 @@ async function fechar(t: Tarefa, estado: string, erro: string | null, extra: Rec
   });
 }
 
-/** Reserva e executa tarefas vencidas, uma de cada vez (a rasterização pesa). */
+/** Reserva e executa tarefas vencidas, uma de cada vez. */
 export async function processarTarefas(limite = 3) {
   const r = await rest('rpc/inflexo_reservar_tarefas', { method: 'POST', body: JSON.stringify({ n: limite }) });
   const lista = (await r.json()) as Tarefa[];

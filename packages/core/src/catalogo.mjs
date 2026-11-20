@@ -78,6 +78,20 @@ export function escolher(p, pedido = {}) {
   return { estilo, tema, formato };
 }
 
+/** Todas as combinações (estilo, tema, formato) que um produto vende. */
+export function combinacoes(p) {
+  return p.estilos.flatMap((estilo) => temasDo(estilo, p).flatMap((tema) => p.formatos.map((formato) => ({ estilo, tema, formato }))));
+}
+
+/**
+ * Arquivo final do digital: o mesmo para todo comprador da combinação (sem número de tiragem), gerado uma vez
+ * fora do servidor por packages/render/scripts/publicar-catalogo-digital.mjs e guardado no Storage (EXP-329).
+ */
+export function arquivoDigital({ estilo, tema, formato }) {
+  const nome = `inflexo-${estilo}-${tema}-${formato}.png`;
+  return { nome, caminho: `catalogo/${nome}` };
+}
+
 /** SVG da peça escolhida. Prévia sempre com marca d'água; o arquivo final sai só depois do pagamento. */
 /** @param {{ previa?: boolean, tiragem?: number|null, numero?: number|null }} [op] */
 export function renderPeca(curva, escolha, { previa = true, tiragem = null, numero = null } = {}) {

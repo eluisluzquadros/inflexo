@@ -17,7 +17,7 @@
 | Banco | SQLite local, migrando para Supabase | Supabase Postgres desde o primeiro dia | Pedido é dinheiro: nada em localStorage ou arquivo local |
 | Contas | Contas locais, papéis demonstrativos | Supabase Auth (link mágico) + compra como convidado | Convidado converte mais; conta serve para acompanhar pedido e cápsula |
 | Filas | Rotinas no próprio processo | pg-boss (fila no próprio Postgres) | Retentativa e agendamento sem subir Redis |
-| Arquivos | `.runtime` local | Cloudflare R2 | Sem custo de saída; links assinados; também hospeda os mapas (PMTiles) |
+| Arquivos | `.runtime` local | Supabase Storage, bucket privado (implementado); R2 se a saída passar da cota | Links assinados; arquivo do digital gerado uma vez por combinação (EXP-329). R2 continua opção para os mapas (PMTiles) e para saída alta, por não cobrar saída |
 | Implantação | Render, 1 serviço, Virgínia | Render: web + worker, Supabase na mesma região | Mantém a operação que você já domina; app e banco juntos para não pagar latência entre regiões |
 | Testes | `node --test` + scripts Playwright | Vitest (núcleo e render com gabarito de SVG) + Playwright (jornadas de compra) | Mesma filosofia de jornada verificada no navegador |
 | Design | PRODUCT.md + DESIGN.md (impeccable) | Igual | O método funcionou |

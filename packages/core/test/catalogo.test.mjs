@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { PRODUTOS, produto, escolher, renderPeca, temasDo } from '../src/catalogo.mjs';
+import { PRODUTOS, produto, escolher, renderPeca, temasDo, combinacoes, arquivoDigital } from '../src/catalogo.mjs';
 
 const curva = JSON.parse(readFileSync(new URL('../../../pipeline/output/curva_presidente_2t_2026_br.json', import.meta.url), 'utf8'));
 
@@ -34,6 +34,16 @@ test('edição numerada: a prévia mostra o lugar do número, o arquivo final tr
   assert.ok(previa.includes('Nº —/500'));
   const final = renderPeca(curva, { estilo: 'fios', tema: 'marfim', formato: 'a2' }, { previa: false, tiragem: 500, numero: 37 });
   assert.ok(final.includes('Nº 037/500') && !final.includes('PRÉVIA'));
+});
+
+test('digital: cada combinação vendida tem um arquivo pronto próprio, e só elas', () => {
+  const lista = combinacoes(produto('arquivo-digital'));
+  assert.equal(lista.length, 9); // gravura papel/tinta + fios marfim, × stories/tela/a2
+  for (const e of lista) assert.deepEqual(escolher(produto('arquivo-digital'), e), e, JSON.stringify(e));
+  const caminhos = lista.map((e) => arquivoDigital(e).caminho);
+  assert.equal(new Set(caminhos).size, lista.length);
+  assert.deepEqual(arquivoDigital({ estilo: 'fios', tema: 'marfim', formato: 'a2' }),
+    { nome: 'inflexo-fios-marfim-a2.png', caminho: 'catalogo/inflexo-fios-marfim-a2.png' });
 });
 
 test('urnas apuradas saiu da vitrine: nenhum produto oferece o estilo', () => {
