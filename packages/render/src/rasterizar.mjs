@@ -29,9 +29,8 @@ export function pixelsDoFormato(formato) {
   return [px(f.larguraMm), px(f.alturaMm)];
 }
 
-/** Rasteriza o SVG na largura do formato. Devolve o PNG e as dimensões reais. */
-export function rasterizar(svg, formato) {
-  const [largura] = pixelsDoFormato(formato);
+/** Rasteriza o SVG na largura do formato (ou na largura pedida, para prévias). Devolve o PNG e as dimensões reais. */
+export function rasterizar(svg, formato, { largura = pixelsDoFormato(formato)[0] } = {}) {
   const img = new Resvg(svg, {
     fitTo: { mode: 'width', value: largura },
     font: { fontFiles: FONTES, loadSystemFonts: false, defaultFontFamily: 'Bodoni Moda' },

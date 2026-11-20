@@ -1,7 +1,8 @@
 import 'server-only';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
-import { previa, capitaisNordeste } from './loja';
+import { capitaisNordeste } from './loja';
+import { previaPronta as previaProntaJs } from '../../../packages/core/src/catalogo.mjs';
 import { TIRAGEM_FIOS } from './fila';
 
 // Vitrine da loja: todas as peças, de todas as coleções, num formato só.
@@ -44,6 +45,9 @@ export const SUPORTES: { id: Suporte; nome: string }[] = [
   { id: 'digital', nome: 'Digital' },
   { id: 'camiseta', nome: 'Camiseta' },
 ];
+
+// imagem pronta da prévia (WebP com marca d'água), gerada por packages/render/scripts/previas-vitrine.mjs (EXP-331)
+const previaPronta = previaProntaJs as (e: { estilo: string; tema: string; formato: string }) => { src: string; largura: number; altura: number };
 
 const SLUG_CAPITAL: Record<string, string> = {
   BA: 'salvador', PE: 'recife', CE: 'fortaleza', MA: 'sao_luis', PI: 'teresina',
@@ -91,15 +95,15 @@ export function pecaGeografia(slug: string) {
 export function vitrine(): ItemVitrine[] {
   const nacional: ItemVitrine[] = [
     { slug: 'quadro-fios', nome: 'Fios', linha: 'Quadro · Brasil', colecao: 'brasil', suportes: ['quadro'], formatos: 'A3 · A2', temas: ['marfim'],
-      arte: { svg: previa({ estilo: 'fios', tema: 'marfim', formato: 'a3' }) }, foto: '/mockups/quadro-fios.jpg', selo: `Tiragem de ${TIRAGEM_FIOS}`, preco: null, href: '/produto/quadro?estilo=fios' },
+      arte: previaPronta({ estilo: 'fios', tema: 'marfim', formato: 'a3' }), foto: '/mockups/quadro-fios.jpg', selo: `Tiragem de ${TIRAGEM_FIOS}`, preco: null, href: '/produto/quadro?estilo=fios' },
     { slug: 'quadro-gravura', nome: 'Gravura', linha: 'Quadro · Brasil', colecao: 'brasil', suportes: ['quadro'], formatos: 'A3 · A2', temas: ['papel', 'tinta'],
-      arte: { svg: previa({ estilo: 'gravura', tema: 'papel', formato: 'a3' }) }, foto: '/casa/gravura.jpg', preco: null, href: '/produto/quadro?estilo=gravura' },
+      arte: previaPronta({ estilo: 'gravura', tema: 'papel', formato: 'a3' }), foto: '/casa/gravura.jpg', preco: null, href: '/produto/quadro?estilo=gravura' },
     { slug: 'poster-gravura-tinta', nome: 'Gravura, Tinta', linha: 'Pôster · Brasil', colecao: 'brasil', suportes: ['poster'], formatos: 'A3 · A2', temas: ['tinta', 'papel'],
-      arte: { svg: previa({ estilo: 'gravura', tema: 'tinta', formato: 'a3' }) }, preco: null, href: '/produto/poster?estilo=gravura&tema=tinta' },
+      arte: previaPronta({ estilo: 'gravura', tema: 'tinta', formato: 'a3' }), preco: null, href: '/produto/poster?estilo=gravura&tema=tinta' },
     { slug: 'arquivo-digital', nome: 'Arquivo digital', linha: 'Stories, fundo de tela e A2', colecao: 'brasil', suportes: ['digital'], formatos: '9:16 · 16:9 · A2', temas: ['papel', 'tinta'],
-      arte: { svg: previa({ estilo: 'gravura', tema: 'papel', formato: 'stories' }) }, foto: '/casa/digital.jpg', preco: null, href: '/produto/arquivo-digital' },
+      arte: previaPronta({ estilo: 'gravura', tema: 'papel', formato: 'stories' }), foto: '/casa/digital.jpg', preco: null, href: '/produto/arquivo-digital' },
     { slug: 'camiseta', nome: 'Camiseta', linha: 'A Gravura em algodão branco', colecao: 'brasil', suportes: ['camiseta'], formatos: 'Estampa 30 × 30 cm', temas: ['branco'],
-      arte: { svg: previa({ estilo: 'gravura', tema: 'branco', formato: 'quadrado' }) }, foto: '/casa/camiseta.jpg', preco: null, href: '/produto/camiseta' },
+      arte: previaPronta({ estilo: 'gravura', tema: 'branco', formato: 'quadrado' }), foto: '/casa/camiseta.jpg', preco: null, href: '/produto/camiseta' },
   ];
   const geografia: ItemVitrine[] = pecasGeografia().map((g) => ({
     slug: g.slug, nome: g.nome, linha: g.tipo === 'continente' ? 'Pôster · o continente invertido' : g.tipo === 'regiao' ? `Pôster · ${g.estados} ${g.estados === 1 ? 'estado' : 'estados'}` : `Pôster · ${g.uf}`, colecao: g.tipo === 'continente' ? 'america' : g.tipo === 'regiao' && g.slug !== 'nordeste' ? 'regioes' : 'nordeste',

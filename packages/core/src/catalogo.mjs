@@ -1,6 +1,6 @@
 // Catálogo da fase 1: só o gráfico nacional. Preço fica nulo até a cotação real (EXP-316, H2):
 // a loja nunca mostra preço inventado.
-import { renderGraficoNacional, renderEstampaNacional, renderFiosNacional } from '../../render/src/graficoNacional.mjs';
+import { renderGraficoNacional, renderEstampaNacional, renderFiosNacional, FORMATOS as FORMATOS_MM } from '../../render/src/graficoNacional.mjs';
 import { renderGravuraNacional } from '../../render/src/gravura.mjs';
 
 export const ESTILOS = {
@@ -90,6 +90,27 @@ export function combinacoes(p) {
 export function arquivoDigital({ estilo, tema, formato }) {
   const nome = `inflexo-${estilo}-${tema}-${formato}.png`;
   return { nome, caminho: `catalogo/${nome}` };
+}
+
+/** Combinações que a vitrine (/loja) mostra como prévia. Cada uma tem uma imagem pronta em apps/web/public/previas. */
+export const PREVIAS_VITRINE = [
+  { estilo: 'fios', tema: 'marfim', formato: 'a3' },
+  { estilo: 'gravura', tema: 'papel', formato: 'a3' },
+  { estilo: 'gravura', tema: 'tinta', formato: 'a3' },
+  { estilo: 'gravura', tema: 'papel', formato: 'stories' },
+  { estilo: 'gravura', tema: 'branco', formato: 'quadrado' },
+];
+export const LARGURA_PREVIA = 900;
+
+/**
+ * Prévia pronta de uma combinação: WebP de 900 px, com marca d'água, rasterizado do MESMO SVG da peça
+ * (regra 3) por packages/render/scripts/previas-vitrine.mjs. Desenhar o SVG dentro da página custava
+ * ~1,5 MB de HTML e ~200 ms de CPU por visita na /loja (EXP-330, EXP-331).
+ */
+export function previaPronta({ estilo, tema, formato }) {
+  const f = FORMATOS_MM[formato];
+  if (!f) throw new Error(`formato desconhecido: ${formato}`);
+  return { src: `/previas/${estilo}-${tema}-${formato}.webp`, largura: LARGURA_PREVIA, altura: Math.round((LARGURA_PREVIA * f.alturaMm) / f.larguraMm) };
 }
 
 /** SVG da peça escolhida. Prévia sempre com marca d'água; o arquivo final sai só depois do pagamento. */

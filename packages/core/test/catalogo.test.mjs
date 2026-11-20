@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
-import { PRODUTOS, produto, escolher, renderPeca, temasDo, combinacoes, arquivoDigital } from '../src/catalogo.mjs';
+import { readFileSync, existsSync, statSync } from 'node:fs';
+import { PRODUTOS, produto, escolher, renderPeca, temasDo, combinacoes, arquivoDigital, PREVIAS_VITRINE, previaPronta } from '../src/catalogo.mjs';
 
 const curva = JSON.parse(readFileSync(new URL('../../../pipeline/output/curva_presidente_2t_2026_br.json', import.meta.url), 'utf8'));
 
@@ -44,6 +44,17 @@ test('digital: cada combinação vendida tem um arquivo pronto próprio, e só e
   assert.equal(new Set(caminhos).size, lista.length);
   assert.deepEqual(arquivoDigital({ estilo: 'fios', tema: 'marfim', formato: 'a2' }),
     { nome: 'inflexo-fios-marfim-a2.png', caminho: 'catalogo/inflexo-fios-marfim-a2.png' });
+});
+
+test('vitrine: cada prévia tem imagem pronta, leve e de uma combinação vendida', () => {
+  for (const e of PREVIAS_VITRINE) {
+    const { src, largura, altura } = previaPronta(e);
+    assert.ok(PRODUTOS.some((p) => p.estilos.includes(e.estilo) && temasDo(e.estilo, p).includes(e.tema) && p.formatos.includes(e.formato)), src);
+    const arq = new URL(`../../../apps/web/public${src}`, import.meta.url);
+    assert.ok(existsSync(arq), `falta ${src}: rodar node packages/render/scripts/previas-vitrine.mjs`);
+    assert.ok(statSync(arq).size < 250 * 1024, `${src} acima de 250 KB`);
+    assert.ok(largura === 900 && altura > 0);
+  }
 });
 
 test('urnas apuradas saiu da vitrine: nenhum produto oferece o estilo', () => {
